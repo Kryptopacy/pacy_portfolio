@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #090a0d;
+  --foreground: #ededed;
+  --muted: #8b8f98;
 }
 
 @theme inline {
@@ -12,15 +13,224 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #090a0d;
+  color: #ededed;
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #090a0d;
+  color: #ededed;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.012em;
+  min-height: 100vh;
+}
+
+/* =========================================================================
+   ARCHITECTURAL BORDERS
+   ========================================================================= */
+.hairline-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hairline-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hairline-l {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hairline-r {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================================
+   CARD SYSTEM
+   ========================================================================= */
+.arch-card {
+  background: #0e1015;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arch-card-hover {
+  background: #0e1015;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+.arch-card-hover:hover {
+  background: #12151c;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* =========================================================================
+   MICRO-INTERACTIONS
+   ========================================================================= */
+
+/* Viewport frame: hero image slides up on hover */
+.viewport-frame-hover .viewport-inner {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.viewport-frame-hover:hover .viewport-inner {
+  transform: translateY(-3px);
+}
+
+/* Image zoom on card hover */
+.img-zoom {
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom:hover .img-zoom-inner,
+.group:hover .img-zoom {
+  transform: scale(1.04);
+}
+
+/* Underline grow on hover (link style) */
+.underline-grow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.underline-grow::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+.underline-grow:hover::after {
+  width: 100%;
+}
+
+/* Arrow nudge on hover */
+.arrow-nudge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: gap 0.2s ease;
+}
+.arrow-nudge:hover {
+  gap: 0.5rem;
+}
+
+/* Subtle lift */
+.lift-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lift-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Glow pulse on focus/hover for interactive elements */
+.glow-on-hover {
+  transition: box-shadow 0.25s ease;
+}
+.glow-on-hover:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Monochrome CTA button reveal — white bar slides in from left */
+.cta-slide {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.cta-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(-101%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+.cta-slide:hover::before {
+  transform: translateX(0);
+}
+
+/* Stagger reveal for grid children */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up-stagger > * {
+  animation: fade-up 0.45s ease both;
+}
+.fade-up-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.fade-up-stagger > *:nth-child(2) { animation-delay: 60ms; }
+.fade-up-stagger > *:nth-child(3) { animation-delay: 120ms; }
+.fade-up-stagger > *:nth-child(4) { animation-delay: 180ms; }
+.fade-up-stagger > *:nth-child(5) { animation-delay: 240ms; }
+.fade-up-stagger > *:nth-child(6) { animation-delay: 300ms; }
+.fade-up-stagger > *:nth-child(7) { animation-delay: 360ms; }
+.fade-up-stagger > *:nth-child(8) { animation-delay: 420ms; }
+
+/* Cursor scanline on viewport frames */
+@keyframes scanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+.viewport-scanline {
+  position: relative;
+  overflow: hidden;
+}
+.viewport-scanline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12), transparent);
+  animation: scanline 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.viewport-scanline:hover::after {
+  opacity: 1;
+}
+
+/* Ticking border accent on section headings */
+@keyframes border-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  display: inline-block;
+  animation: border-blink 1.1s step-end infinite;
+}
+
+/* =========================================================================
+   TYPOGRAPHY
+   ========================================================================= */
+::selection {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* =========================================================================
+   SCROLLBAR
+   ========================================================================= */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0d;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.26);
 }
