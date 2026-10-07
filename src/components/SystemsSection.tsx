@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PROJECTS } from "@/data/portfolioData";
-import { ArrowUpRight, ArrowRight, ExternalLink } from "lucide-react";
+import { PROJECTS, Project } from "@/data/portfolioData";
+import { ArrowUpRight, ArrowRight, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 // Per-vertical design tokens
 const VERTICAL_THEMES: Record<
@@ -92,212 +93,116 @@ const VERTICAL_THEMES: Record<
 };
 
 export default function SystemsSection() {
+  const [filter, setFilter] = useState<"all" | "proprietary" | "client">("all");
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const toggleExpand = (id: string) => {
+    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
   const proprietaryPlatforms = PROJECTS.filter((p) => !p.isClientContract);
   const clientContracts = PROJECTS.filter((p) => p.isClientContract);
 
   return (
-    <section id="platforms" className="relative py-20 sm:py-28 bg-[#090a0d] hairline-b overflow-hidden">
+    <section id="platforms" className="relative py-16 sm:py-24 bg-[#090a0d] hairline-b overflow-hidden">
       {/* Subtle brand ambiance in background */}
       <div className="pointer-events-none absolute top-1/4 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.25)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-60" />
       <div className="pointer-events-none absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.20)_0%,_rgba(217,166,72,0.05)_40%,_transparent_70%)] blur-3xl opacity-50" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
 
-        {/* ===================================================================
-            PART 1: FLAGSHIP PROPRIETARY PLATFORMS
-            =================================================================== */}
-        <div id="proprietary-platforms" className="mb-32">
-
-          {/* Section Label */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 mb-16 hairline-b">
-            <div>
-              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">01</span>
-                <span className="text-zinc-600">/</span>
-                <span className="text-zinc-300">PROPRIETARY SYSTEMS &amp; AUTONOMOUS AGENTS</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white">
-                Flagship Platform Architectures
-              </h2>
+        {/* Global Fast Filter Bar (Glanceable UX) */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-14 pb-5 hairline-b">
+          <div>
+            <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-1">
+              SYSTEM CATALOG // ARCHITECTURAL INDEX
             </div>
-            <div className="max-w-sm text-left sm:text-right">
-              <p className="text-xs text-zinc-500 font-mono leading-relaxed">
-                Original distributed systems, W3C WebMCP agent platforms,
-                cryptographic draw protocols, and multimodal AI engines — built from first principles.
-              </p>
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-normal text-white">
+              Production Architectures
+            </h2>
           </div>
 
-          {/* Proprietary Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 fade-up-stagger">
-            {proprietaryPlatforms.map((project, idx) => {
-              const theme = VERTICAL_THEMES[project.accentColor || "blue"] || VERTICAL_THEMES.blue;
-
-              return (
-                <div
-                  key={project.id}
-                  className={`group flex flex-col border bg-[#0e1015] transition-all duration-300 ${theme.border} ${theme.borderHover} ${theme.bgHover} viewport-frame-hover glow-on-hover`}
-                >
-                  {/* Browser Viewport Chrome + Hero Image */}
-                  <div className="border-b border-white/08 overflow-hidden viewport-scanline">
-                    {/* Chrome Bar */}
-                    <div className={`flex items-center justify-between px-3 py-2 border-b border-white/08 font-mono text-[11px] text-zinc-500 bg-black/50 group-hover:bg-black/70 transition-colors duration-300`}>
-                      <div className="flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-none bg-zinc-700/80" />
-                        <span className="h-2 w-2 rounded-none bg-zinc-700/80" />
-                        <span className="h-2 w-2 rounded-none bg-zinc-700/80" />
-                        <span className={`ml-2 truncate max-w-[150px] font-light ${theme.textAccent} group-hover:opacity-100 opacity-70 transition-opacity`}>
-                          {project.urlLabel}
-                        </span>
-                      </div>
-                      {project.url && (
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-1 ${theme.textAccent} opacity-0 group-hover:opacity-100 transition-all duration-200 hover:underline text-[10px]`}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span>Live</span>
-                          <ArrowUpRight className="h-2.5 w-2.5" />
-                        </a>
-                      )}
-                    </div>
-
-                    {/* Hero Viewport — actual production screenshot */}
-                    {project.image ? (
-                      <Link
-                        href={`/projects/${project.id}`}
-                        className="block relative aspect-[16/10] w-full overflow-hidden bg-zinc-950"
-                        tabIndex={-1}
-                      >
-                        <Image
-                          src={project.image}
-                          alt={`${project.name} — live production interface`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                          priority={idx < 3}
-                          unoptimized
-                        />
-                        {/* Hover overlay — subtle accent tint */}
-                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                          style={{ background: `linear-gradient(to top, ${theme.scanColor.replace('0.5', '0.08')}, transparent 60%)` }}
-                        />
-                      </Link>
-                    ) : (
-                      <div className="h-44 w-full bg-zinc-950 flex items-center justify-center font-mono text-xs text-zinc-700 tracking-widest">
-                        {project.name.toUpperCase()}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="flex flex-col flex-1 p-5 sm:p-6">
-                    {/* Title + Category Tag */}
-                    <div className="flex items-start justify-between gap-3 mb-2">
-                      <h3 className="text-xl font-medium text-white leading-tight group-hover:text-white transition-colors">
-                        {project.name}
-                      </h3>
-                      <span className={`text-[10px] font-mono border px-1.5 py-0.5 uppercase tracking-wider shrink-0 ${theme.badgeBg} ${theme.badgeText}`}>
-                        {project.architecture?.category?.split(" ")[0] || "SYSTEM"}
-                      </span>
-                    </div>
-
-                    <p className={`text-xs font-mono mb-4 leading-relaxed ${theme.textAccent}`}>
-                      {project.descriptor}
-                    </p>
-
-                    <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed mb-5 line-clamp-3 flex-1">
-                      {project.summary}
-                    </p>
-
-                    {/* Metrics — tabular, no vanity pills */}
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-5 font-mono text-xs border-t border-white/08 pt-4">
-                      {project.metrics.slice(0, 4).map((m, i) => (
-                        <div key={i} className="min-w-0">
-                          <div className="text-white font-medium truncate">{m.value}</div>
-                          <div className="text-[10px] text-zinc-600 uppercase tracking-wider truncate">{m.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech Stack Inline */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {project.tags.slice(0, 4).map((tag, i) => (
-                        <span key={i} className="font-mono text-[10px] text-zinc-600 border border-white/08 px-1.5 py-0.5 bg-black/30">
-                          {tag}
-                        </span>
-                      ))}
-                      {project.tags.length > 4 && (
-                        <span className="font-mono text-[10px] text-zinc-700 border border-white/05 px-1.5 py-0.5 bg-black/20">
-                          +{project.tags.length - 4}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* CTA */}
-                    <Link
-                      href={`/projects/${project.id}`}
-                      className={`inline-flex items-center justify-between w-full border border-white/10 bg-black/40 px-4 py-2.5 font-mono text-xs text-zinc-400 hover:border-white/30 hover:text-white hover:bg-white/5 transition-all duration-200 mt-auto cta-slide`}
-                    >
-                      <span>Read Architecture Blueprint</span>
-                      <ArrowRight className="h-3.5 w-3.5 text-zinc-600 group-hover:translate-x-0.5 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+          {/* Quick Segment Filter */}
+          <div className="flex items-center gap-1.5 border border-white/10 bg-black/60 p-1 font-mono text-xs">
+            <button
+              type="button"
+              onClick={() => setFilter("all")}
+              className={`px-3 py-1.5 transition-colors ${
+                filter === "all"
+                  ? "bg-zinc-100 text-black font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              All ({PROJECTS.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setFilter("proprietary")}
+              className={`px-3 py-1.5 transition-colors ${
+                filter === "proprietary"
+                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              Proprietary ({proprietaryPlatforms.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setFilter("client")}
+              className={`px-3 py-1.5 transition-colors ${
+                filter === "client"
+                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              Client Contracts ({clientContracts.length})
+            </button>
           </div>
         </div>
 
         {/* ===================================================================
-            PART 2: COMMERCIAL CLIENT CONTRACTS
+            PART 1: FLAGSHIP PROPRIETARY PLATFORMS
             =================================================================== */}
-        <div id="commercial-contracts">
+        {(filter === "all" || filter === "proprietary") && (
+          <div id="proprietary-platforms" className="mb-24">
 
-          {/* Section Label */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 mb-16 hairline-b">
-            <div>
-              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">02</span>
-                <span className="text-zinc-600">/</span>
-                <span className="text-zinc-300">COMMERCIAL CLIENT CONTRACTS</span>
+            {/* Section Label */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 mb-10 hairline-b">
+              <div>
+                <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">01</span>
+                  <span className="text-zinc-600">/</span>
+                  <span className="text-zinc-300">PROPRIETARY SYSTEMS &amp; AUTONOMOUS AGENTS</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-normal text-white">
+                  Original Platforms &amp; Protocols
+                </h3>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white">
-                Commercial Client Webapps —<br className="hidden sm:block" /> Engineered Under Contract
-              </h2>
-            </div>
-            <div className="max-w-sm text-left sm:text-right">
-              <p className="text-xs text-zinc-500 font-mono leading-relaxed">
-                Bespoke production webapps commissioned by enterprise brands to run
-                high-stakes hospitality, retail, and revenue operations.
+              <p className="text-xs text-zinc-500 font-mono max-w-sm">
+                Glance through hero snapshots &bull; Expand for full RPCs &amp; metrics
               </p>
             </div>
-          </div>
 
-          {/* Client System Showcase — full editorial layout */}
-          <div className="space-y-20 fade-up-stagger">
-            {clientContracts.map((project, idx) => {
-              const theme = VERTICAL_THEMES[project.accentColor || "amber"] || VERTICAL_THEMES.amber;
-              const isReversed = idx % 2 === 1;
+            {/* Compact Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {proprietaryPlatforms.map((project, idx) => {
+                const theme = VERTICAL_THEMES[project.accentColor || "blue"] || VERTICAL_THEMES.blue;
+                const isExpanded = !!expandedCards[project.id];
 
-              return (
-                <div
-                  key={project.id}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start border ${theme.border} ${theme.borderHover} bg-[#0e1015] p-6 sm:p-10 transition-all duration-300 ${theme.bgHover} glow-on-hover`}
-                >
-                  {/* Hero Visual (7 cols) */}
-                  <div className={`lg:col-span-7 ${isReversed ? "lg:order-2" : ""}`}>
-                    <div className="border border-white/10 bg-black/60 overflow-hidden group/img viewport-scanline">
-                      {/* Chrome Bar */}
-                      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/08 bg-black/80 font-mono text-xs text-zinc-500">
-                        <div className="flex items-center gap-2">
-                          <div className="h-2 w-2 bg-zinc-700" />
-                          <div className="h-2 w-2 bg-zinc-700" />
-                          <div className="h-2 w-2 bg-zinc-700" />
-                          <span className={`ml-2 font-light ${theme.textAccent}`}>
-                            https://{project.urlLabel || `${project.id}.com`}
+                return (
+                  <div
+                    key={project.id}
+                    className={`group flex flex-col border bg-[#0e1015] transition-all duration-300 ${theme.border} ${theme.borderHover} ${theme.bgHover} viewport-frame-hover glow-on-hover`}
+                  >
+                    {/* Browser Viewport Chrome + Hero Image */}
+                    <div className="border-b border-white/08 overflow-hidden viewport-scanline">
+                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 font-mono text-[11px] text-zinc-500 bg-black/60">
+                        <div className="flex items-center gap-1.5">
+                          <span className="h-2 w-2 bg-zinc-700/80" />
+                          <span className="h-2 w-2 bg-zinc-700/80" />
+                          <span className="h-2 w-2 bg-zinc-700/80" />
+                          <span className={`ml-2 truncate max-w-[150px] font-light ${theme.textAccent}`}>
+                            {project.urlLabel}
                           </span>
                         </div>
                         {project.url && (
@@ -305,119 +210,272 @@ export default function SystemsSection() {
                             href={project.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1 hover:underline ${theme.textAccent} text-[11px]`}
+                            className={`inline-flex items-center gap-1 ${theme.textAccent} hover:underline text-[10px]`}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <span>Live Production</span>
-                            <ArrowUpRight className="h-3 w-3" />
+                            <span>Live</span>
+                            <ArrowUpRight className="h-2.5 w-2.5" />
                           </a>
                         )}
                       </div>
 
-                      {/* Production Screenshot */}
-                      {project.image && (
+                      {project.image ? (
                         <Link
                           href={`/projects/${project.id}`}
-                          className="block relative aspect-[16/10] min-h-[260px] sm:min-h-[360px] w-full overflow-hidden bg-zinc-950"
+                          className="block relative aspect-[16/9] w-full overflow-hidden bg-zinc-950"
                           tabIndex={-1}
                         >
                           <Image
                             src={project.image}
-                            alt={`${project.name} — production interface`}
+                            alt={`${project.name} preview`}
                             fill
-                            sizes="(max-width: 1024px) 100vw, 60vw"
-                            className="object-cover object-top transition-transform duration-500 group/img-hover:scale-[1.03]"
-                            priority={idx === 0}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                            priority={idx < 2}
                             unoptimized
                           />
                           <div
                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                            style={{ background: `linear-gradient(to top, ${theme.scanColor.replace('0.5', '0.10')}, transparent 55%)` }}
+                            style={{ background: `linear-gradient(to top, ${theme.scanColor.replace('0.5', '0.08')}, transparent 60%)` }}
+                          />
+                        </Link>
+                      ) : (
+                        <div className="h-36 w-full bg-zinc-950 flex items-center justify-center font-mono text-xs text-zinc-700">
+                          {project.name.toUpperCase()}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Body - Tight and Glanceable */}
+                    <div className="flex flex-col flex-1 p-4 sm:p-5">
+                      <div className="flex items-start justify-between gap-2 mb-1.5">
+                        <h4 className="text-lg font-medium text-white group-hover:text-white transition-colors">
+                          {project.name}
+                        </h4>
+                        <span className={`text-[9px] font-mono border px-1.5 py-0.2 uppercase shrink-0 ${theme.badgeBg} ${theme.badgeText}`}>
+                          {project.architecture?.category?.split(" ")[0] || "SYSTEM"}
+                        </span>
+                      </div>
+
+                      <p className={`text-[11px] font-mono mb-2.5 leading-snug truncate ${theme.textAccent}`}>
+                        {project.descriptor}
+                      </p>
+
+                      {/* Summary with Expand/Collapse toggle for fast mobile scanning */}
+                      <p className={`text-xs text-zinc-400 font-light leading-relaxed mb-3 ${isExpanded ? "" : "line-clamp-2"}`}>
+                        {project.summary}
+                      </p>
+
+                      {/* Primary 2 Metrics (Always Visible at a Glance) */}
+                      <div className="grid grid-cols-2 gap-2 mb-3 font-mono text-xs border-t border-white/08 pt-2.5">
+                        {project.metrics.slice(0, 2).map((m, i) => (
+                          <div key={i} className="min-w-0">
+                            <div className="text-white font-medium text-xs truncate">{m.value}</div>
+                            <div className="text-[9px] text-zinc-500 uppercase tracking-wider truncate">{m.label}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Expanded Section (Deep Details On-Demand) */}
+                      {isExpanded && (
+                        <div className="space-y-3 pt-2 border-t border-white/08 mb-3 font-mono text-xs animate-in fade-in duration-200">
+                          {/* Remaining 2 Metrics */}
+                          {project.metrics.length > 2 && (
+                            <div className="grid grid-cols-2 gap-2">
+                              {project.metrics.slice(2, 4).map((m, i) => (
+                                <div key={i} className="min-w-0">
+                                  <div className="text-white font-medium text-xs truncate">{m.value}</div>
+                                  <div className="text-[9px] text-zinc-500 uppercase tracking-wider truncate">{m.label}</div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Tech Stack Tags */}
+                          <div className="flex flex-wrap gap-1">
+                            {project.tags.map((tag, i) => (
+                              <span key={i} className="font-mono text-[9px] text-zinc-500 border border-white/08 px-1.5 py-0.5 bg-black/40">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Dual Action Bar: Expand Toggle + Blueprint Link */}
+                      <div className="flex items-center gap-2 mt-auto pt-2 border-t border-white/08">
+                        <button
+                          type="button"
+                          onClick={() => toggleExpand(project.id)}
+                          className="flex items-center gap-1 border border-white/10 hover:border-white/25 px-2.5 py-1.5 font-mono text-[10px] text-zinc-400 hover:text-white transition-colors"
+                        >
+                          <span>{isExpanded ? "Collapse" : "Specs"}</span>
+                          {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+                        </button>
+
+                        <Link
+                          href={`/projects/${project.id}`}
+                          className="flex-1 flex items-center justify-between border border-white/10 bg-black/40 hover:border-white/30 hover:bg-white/5 px-3 py-1.5 font-mono text-[11px] text-zinc-300 hover:text-white transition-all cta-slide"
+                        >
+                          <span>Blueprint</span>
+                          <ArrowRight className="h-3 w-3 text-zinc-500 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* ===================================================================
+            PART 2: COMMERCIAL CLIENT CONTRACTS
+            =================================================================== */}
+        {(filter === "all" || filter === "client") && (
+          <div id="commercial-contracts">
+
+            {/* Section Label */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 mb-10 hairline-b">
+              <div>
+                <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">02</span>
+                  <span className="text-zinc-600">/</span>
+                  <span className="text-zinc-300">COMMERCIAL CLIENT CONTRACTS</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-normal text-white">
+                  Commissioned Enterprise Webapps
+                </h3>
+              </div>
+              <p className="text-xs text-zinc-500 font-mono max-w-sm">
+                Engineered under contract &bull; Built to power revenue and operations
+              </p>
+            </div>
+
+            {/* Client Contracts - Compact 2-Column Grid instead of huge full-page scroll */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+              {clientContracts.map((project, idx) => {
+                const theme = VERTICAL_THEMES[project.accentColor || "amber"] || VERTICAL_THEMES.amber;
+                const isExpanded = !!expandedCards[project.id];
+
+                return (
+                  <div
+                    key={project.id}
+                    className={`border ${theme.border} ${theme.borderHover} bg-[#0e1015] p-5 sm:p-6 transition-all duration-300 ${theme.bgHover} glow-on-hover flex flex-col`}
+                  >
+                    {/* Viewport Frame */}
+                    <div className="border border-white/10 bg-black/60 overflow-hidden mb-4 group/img viewport-scanline">
+                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 bg-black/80 font-mono text-[11px] text-zinc-500">
+                        <div className="flex items-center gap-1.5">
+                          <span className="h-2 w-2 bg-zinc-700" />
+                          <span className="h-2 w-2 bg-zinc-700" />
+                          <span className="h-2 w-2 bg-zinc-700" />
+                          <span className={`ml-2 font-light ${theme.textAccent}`}>
+                            {project.urlLabel || `${project.id}.com`}
+                          </span>
+                        </div>
+                        {project.url && (
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`inline-flex items-center gap-1 hover:underline ${theme.textAccent} text-[10px]`}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>Live Production</span>
+                            <ArrowUpRight className="h-2.5 w-2.5" />
+                          </a>
+                        )}
+                      </div>
+
+                      {project.image && (
+                        <Link
+                          href={`/projects/${project.id}`}
+                          className="block relative aspect-[16/9] w-full overflow-hidden bg-zinc-950"
+                          tabIndex={-1}
+                        >
+                          <Image
+                            src={project.image}
+                            alt={`${project.name} production`}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover object-top transition-transform duration-500 group/img-hover:scale-[1.03]"
+                            priority={idx === 0}
+                            unoptimized
                           />
                         </Link>
                       )}
                     </div>
-                  </div>
 
-                  {/* Editorial Breakdown (5 cols) */}
-                  <div className={`lg:col-span-5 flex flex-col justify-center ${isReversed ? "lg:order-1" : ""}`}>
-                    {/* Commission Badge */}
-                    <div className="flex items-center flex-wrap gap-2 font-mono text-xs text-zinc-600 uppercase tracking-wider mb-4">
-                      <span className={`border px-2 py-0.5 text-[10px] ${theme.badgeBg} ${theme.badgeText}`}>
-                        Commissioned Contract
-                      </span>
-                      <span>·</span>
-                      <span className="text-zinc-400">{project.clientName}</span>
-                    </div>
-
-                    <h3 className="text-2xl sm:text-3xl font-normal text-white mb-2 leading-tight">
-                      {project.name}
-                    </h3>
-
-                    <p className={`text-xs font-mono mb-5 leading-relaxed ${theme.textAccent}`}>
-                      {project.descriptor}
-                    </p>
-
-                    <p className="text-sm text-zinc-400 font-light leading-relaxed mb-6">
-                      {project.summary}
-                    </p>
-
-                    {/* Architectural Bullets */}
-                    <div className={`space-y-3 mb-7 pl-4 font-mono text-xs text-zinc-400 border-l-2 ${theme.leftAccent}/20`}>
-                      {project.bullets.slice(0, 4).map((bullet, bIdx) => (
-                        <div key={bIdx} className="leading-relaxed hover:text-zinc-300 transition-colors">
-                          — {bullet}
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Metrics */}
-                    <div className="grid grid-cols-2 gap-3 mb-7 border-t border-white/08 pt-4 font-mono text-xs">
-                      {project.metrics.slice(0, 4).map((m, mIdx) => (
-                        <div key={mIdx}>
-                          <div className="text-white font-medium">{m.value}</div>
-                          <div className="text-[10px] text-zinc-600 uppercase tracking-wider">{m.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-7">
-                      {project.tags.slice(0, 5).map((tag, i) => (
-                        <span key={i} className="font-mono text-[10px] text-zinc-600 border border-white/08 px-1.5 py-0.5 bg-black/30">
-                          {tag}
+                    {/* Editorial Content */}
+                    <div className="flex flex-col flex-1">
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-500 uppercase tracking-wider mb-2">
+                        <span className={`border px-1.5 py-0.2 ${theme.badgeBg} ${theme.badgeText}`}>
+                          Contract
                         </span>
-                      ))}
-                    </div>
+                        <span>&bull;</span>
+                        <span className="text-zinc-400 truncate">{project.clientName}</span>
+                      </div>
 
-                    {/* Actions */}
-                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/08">
-                      <Link
-                        href={`/projects/${project.id}`}
-                        className="inline-flex items-center gap-2 bg-zinc-100 px-5 py-2.5 font-mono text-xs font-semibold text-black hover:bg-white transition-colors duration-200"
-                      >
-                        <span>Inspect Case Study</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
+                      <h4 className="text-xl font-normal text-white mb-1">
+                        {project.name}
+                      </h4>
 
-                      {project.url && (
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-1.5 font-mono text-xs hover:underline ${theme.textAccent} arrow-nudge`}
-                        >
-                          <span>Visit {project.urlLabel}</span>
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
+                      <p className={`text-[11px] font-mono mb-3 ${theme.textAccent}`}>
+                        {project.descriptor}
+                      </p>
+
+                      <p className={`text-xs text-zinc-400 font-light leading-relaxed mb-4 ${isExpanded ? "" : "line-clamp-3"}`}>
+                        {project.summary}
+                      </p>
+
+                      {/* Primary 2 Metrics */}
+                      <div className="grid grid-cols-2 gap-3 mb-4 border-t border-white/08 pt-3 font-mono text-xs">
+                        {project.metrics.slice(0, 2).map((m, mIdx) => (
+                          <div key={mIdx}>
+                            <div className="text-white font-medium text-xs">{m.value}</div>
+                            <div className="text-[9px] text-zinc-500 uppercase tracking-wider">{m.label}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Detailed bullets on expand */}
+                      {isExpanded && (
+                        <div className="space-y-2 mb-4 pl-3 font-mono text-xs text-zinc-400 border-l-2 border-white/10 animate-in fade-in duration-200">
+                          {project.bullets.slice(0, 3).map((bullet, bIdx) => (
+                            <div key={bIdx} className="leading-relaxed text-[11px]">
+                              &bull; {bullet}
+                            </div>
+                          ))}
+                        </div>
                       )}
+
+                      {/* Action Bar */}
+                      <div className="flex items-center gap-3 pt-3 border-t border-white/08 mt-auto">
+                        <button
+                          type="button"
+                          onClick={() => toggleExpand(project.id)}
+                          className="flex items-center gap-1 border border-white/10 hover:border-white/25 px-2.5 py-1.5 font-mono text-[10px] text-zinc-400 hover:text-white transition-colors"
+                        >
+                          <span>{isExpanded ? "Collapse" : "Full Specs"}</span>
+                          {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+                        </button>
+
+                        <Link
+                          href={`/projects/${project.id}`}
+                          className="flex-1 flex items-center justify-between bg-zinc-100 hover:bg-white px-3.5 py-1.5 font-mono text-xs font-semibold text-black transition-colors"
+                        >
+                          <span>Case Study</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
       </div>
     </section>
