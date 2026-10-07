@@ -199,9 +199,9 @@ export default function SystemsSection() {
                     <div className="border-b border-white/08 overflow-hidden viewport-scanline">
                       <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 font-mono text-[11px] text-zinc-400 bg-[#16030a]/75 backdrop-blur-md">
                         <div className="flex items-center gap-1.5">
-                          <span className="h-2 w-2 rounded-full bg-zinc-700/80" />
-                          <span className="h-2 w-2 rounded-full bg-zinc-700/80" />
-                          <span className="h-2 w-2 rounded-full bg-zinc-700/80" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]/70" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#f6dc8c]/70" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/70" />
                           <span className={`ml-2 truncate max-w-[150px] font-light ${theme.textAccent}`}>
                             {project.urlLabel}
                           </span>
@@ -368,9 +368,9 @@ export default function SystemsSection() {
                     <div className="border border-white/10 bg-[#16030a]/60 overflow-hidden mb-4 group/img viewport-scanline">
                       <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 bg-[#16030a]/80 backdrop-blur-md font-mono text-[11px] text-zinc-400">
                         <div className="flex items-center gap-1.5">
-                          <span className="h-2 w-2 rounded-full bg-zinc-700" />
-                          <span className="h-2 w-2 rounded-full bg-zinc-700" />
-                          <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]/70" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#f6dc8c]/70" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/70" />
                           <span className={`ml-2 font-light ${theme.textAccent}`}>
                             {project.urlLabel || `${project.id}.com`}
                           </span>

@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ShieldCheck, Cpu, Database, Activity, Sparkles } from "lucide-react";
 
 const PROPRIETARY_HIGHLIGHTS = [
   { id: "wetaego", label: "wetaego.com", sub: "W3C WebMCP Commerce OS", color: "text-sky-400", border: "border-sky-500/25", hoverBorder: "hover:border-sky-400/60" },
@@ -16,172 +15,171 @@ const PROPRIETARY_HIGHLIGHTS = [
 ];
 
 export default function Hero() {
-  const [lensMode, setLensMode] = useState<"systems" | "clinical">("systems");
-
   return (
-    <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 hairline-b bg-transparent overflow-hidden">
+    <section className="relative pt-16 pb-20 sm:pt-28 sm:pb-32 hairline-b bg-transparent overflow-hidden">
       {/* Ambient Brand Atmosphere: Deep Imperial Burgundy Core & Circuit Gold Corona */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[radial-gradient(ellipse_at_top,_rgba(88,18,42,0.65)_0%,_rgba(58,13,28,0.40)_35%,_rgba(217,166,72,0.14)_60%,_transparent_80%)] blur-3xl opacity-85" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(ellipse_at_top,_rgba(88,18,42,0.70)_0%,_rgba(58,13,28,0.45)_30%,_rgba(217,166,72,0.16)_55%,_transparent_75%)] blur-3xl opacity-90" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
-
-        {/* Editorial Topline with Pacy Labs Insignia */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-12 hairline-b font-mono text-xs text-zinc-400">
-          <div className="flex items-center gap-2.5">
-            <div className="h-6 w-6 relative shrink-0 p-0.5 rounded border border-[#d9a648]/50 bg-gradient-to-br from-[#3a0d1c]/90 to-[#140308] shadow-[0_0_12px_rgba(217,166,72,0.25)]">
+        
+        {/* Top Eyebrow Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-12 hairline-b font-mono text-xs text-zinc-400">
+          <div className="flex items-center gap-3">
+            <div className="relative h-8 w-8 shrink-0 flex items-center justify-center p-0.5 rounded border border-[#d9a648]/60 bg-gradient-to-br from-[#3a0d1c] via-[#23040e] to-[#120207] shadow-[0_0_16px_rgba(217,166,72,0.35)]">
               <Image
                 src="/brand/pacylabs-logo-256.webp"
-                alt="Pacy Labs Logo Mark"
-                width={20}
-                height={20}
+                alt="Pacy Labs Circuit Logo"
+                width={26}
+                height={26}
                 className="object-contain"
               />
             </div>
-            <span className="text-[#f6dc8c] font-semibold tracking-wider">PACY LABS</span>
-            <span className="text-zinc-600">/</span>
-            <span className="text-zinc-300">OLAMILEKAN DAVID ADEGOKE</span>
-          </div>
-          <div className="text-zinc-300 flex items-center gap-2">
-            <span className="text-[#d9a648] font-medium tracking-wider">DOCTOR OF OPTOMETRY (OD)</span>
-            <span className="text-zinc-600">·</span>
-            <span className="text-emerald-400 font-medium tracking-wider">FULL-STACK SYSTEMS ARCHITECT</span>
-          </div>
-        </div>
-
-        {/* Headline */}
-        <div className="max-w-5xl mb-12">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.08] mb-7">
-            Engineering deterministic platforms with clinical diagnostic precision.
-          </h1>
-
-          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed max-w-3xl">
-            In clinical differential diagnosis across{" "}
-            <span className="text-white font-medium">1,500+ patient encounters</span>,
-            diagnostic triage leaves zero margin for error. I bring that clinical rigor directly
-            to distributed software—architecting proprietary autonomous systems, W3C WebMCP agent
-            protocols, and high-concurrency commercial webapps commissioned by enterprise brands.
-          </p>
-        </div>
-
-        {/* Perspective Lens Toggle */}
-        <div className="mb-14 max-w-4xl glass-panel p-6 sm:p-7 glow-on-hover transition-all duration-300">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-white/10">
-            <span className="font-mono text-xs tracking-wider text-zinc-400 uppercase flex items-center gap-2">
-              <span className="text-[#f6dc8c]">PERSPECTIVE MATRIX</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[#f6dc8c] font-semibold tracking-wider">PACY LABS</span>
               <span className="text-zinc-600">/</span>
-              <span>OPERATIONAL LENS</span>
-            </span>
-
-            {/* Segmented Control */}
-            <div className="flex items-center glass-chip p-0.5 font-mono text-xs">
-              <button
-                type="button"
-                onClick={() => setLensMode("systems")}
-                className={`px-3 py-1.5 transition-all duration-200 ${
-                  lensMode === "systems"
-                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
-                    : "text-zinc-400 hover:text-white"
-                }`}
-              >
-                Systems Architecture
-              </button>
-              <button
-                type="button"
-                onClick={() => setLensMode("clinical")}
-                className={`px-3 py-1.5 transition-all duration-200 ${
-                  lensMode === "clinical"
-                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
-                    : "text-zinc-400 hover:text-white"
-                }`}
-              >
-                Clinical Differential
-              </button>
+              <span className="text-zinc-300">AUTONOMOUS SYSTEMS STUDIO</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
-            {lensMode === "systems" ? (
-              <>
-                <div className="space-y-1.5 border-l-2 border-sky-500/50 pl-4 bg-sky-950/15 py-2 transition-all duration-200 hover:bg-sky-950/25 hover:border-sky-400/70">
-                  <div className="text-sky-400 uppercase text-[11px] tracking-widest">01 / Concurrency Control</div>
-                  <div className="text-white font-medium text-sm">Atomic PL/pgSQL RPCs</div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-sans">
-                    Row-level locks (<code className="text-sky-300">SELECT FOR UPDATE</code>) preventing double-bookings and race conditions on commercial platforms.
-                  </p>
-                </div>
-
-                <div className="space-y-1.5 border-l-2 border-indigo-500/50 pl-4 bg-indigo-950/15 py-2 transition-all duration-200 hover:bg-indigo-950/25 hover:border-indigo-400/70">
-                  <div className="text-indigo-400 uppercase text-[11px] tracking-widest">02 / Agent Protocols</div>
-                  <div className="text-white font-medium text-sm">W3C WebMCP Standard</div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-sans">
-                    8 canonical client tools dynamically registered on <code className="text-indigo-300">document.modelContext</code> with human-in-the-loop gates.
-                  </p>
-                </div>
-
-                <div className="space-y-1.5 border-l-2 border-amber-500/50 pl-4 bg-amber-950/15 py-2 transition-all duration-200 hover:bg-amber-950/25 hover:border-amber-400/70">
-                  <div className="text-amber-400 uppercase text-[11px] tracking-widest">03 / Blast Radius Bounds</div>
-                  <div className="text-white font-medium text-sm">EIP-7702 &amp; APEX Escrow</div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-sans">
-                    Monotonic revocation guards indexing 338k+ on-chain agents on BNB Smart Chain.
-                  </p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="space-y-1.5 border-l-2 border-amber-500/50 pl-4 bg-amber-950/15 py-2 transition-all duration-200 hover:bg-amber-950/25 hover:border-amber-400/70">
-                  <div className="text-amber-400 uppercase text-[11px] tracking-widest">01 / Differential Triage</div>
-                  <div className="text-white font-medium text-sm">Isolating Pathologies</div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-sans">
-                    1,500+ patient encounters ruling out mimicking pathologies through exclusionary evidence before prescribing interventions.
-                  </p>
-                </div>
-
-                <div className="space-y-1.5 border-l-2 border-rose-500/50 pl-4 bg-rose-950/15 py-2 transition-all duration-200 hover:bg-rose-950/25 hover:border-rose-400/70">
-                  <div className="text-rose-400 uppercase text-[11px] tracking-widest">02 / Error Tolerance</div>
-                  <div className="text-white font-medium text-sm">Zero False-Positive Target</div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-sans">
-                    Ophthalmic diagnostic rigor requires non-negotiable verification thresholds under irreversible biological stakes.
-                  </p>
-                </div>
-
-                <div className="space-y-1.5 border-l-2 border-emerald-500/50 pl-4 bg-emerald-950/15 py-2 transition-all duration-200 hover:bg-emerald-950/25 hover:border-emerald-400/70">
-                  <div className="text-emerald-400 uppercase text-[11px] tracking-widest">03 / Clinical Crossover</div>
-                  <div className="text-white font-medium text-sm">Deterministic Software</div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-sans">
-                    Treating software concurrency flaws with the exact same gravity, isolation, and telemetry as physiological emergencies.
-                  </p>
-                </div>
-              </>
-            )}
+          <div className="flex items-center gap-3 text-[11px] text-zinc-400">
+            <span className="flex items-center gap-1.5 text-[#f6dc8c] border border-[#d9a648]/30 px-2 py-0.5 bg-[#3a0d1c]/40 font-mono">
+              <Activity className="h-3 w-3 text-[#d9a648]" />
+              <span>9 PRODUCTION SYSTEMS ACTIVE</span>
+            </span>
+            <span className="hidden md:inline text-zinc-500">&bull; EST. 2026</span>
           </div>
         </div>
 
-        {/* Proprietary Platforms Index — No commercial links here */}
-        <div className="mb-12">
-          <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-            <span className="text-[#f6dc8c]">&bull;</span>
-            <span>7 Proprietary Production Systems</span>
+        {/* Master Headline Section */}
+        <div className="max-w-5xl mb-14">
+          <div className="inline-flex items-center gap-2 font-mono text-xs text-[#f6dc8c] border border-[#d9a648]/30 px-3 py-1 bg-[#3a0d1c]/30 mb-6 backdrop-blur-md">
+            <Sparkles className="h-3.5 w-3.5 text-[#d9a648]" />
+            <span className="tracking-widest uppercase text-[10px]">High-Concurrency State Machines &bull; W3C WebMCP Standard</span>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 fade-up-stagger">
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.06] mb-8">
+            Engineering deterministic platforms and autonomous agent architectures.
+          </h1>
+
+          <p className="text-lg sm:text-2xl text-[#e6d8dc] font-light leading-relaxed max-w-3xl">
+            <strong className="text-white font-medium">Pacy Labs</strong> is an independent software laboratory. We architect high-throughput operating systems, W3C WebMCP agent protocols, and production web applications engineered for zero-defect execution under extreme scale.
+          </p>
+        </div>
+
+        {/* Live Studio Architecture Telemetry HUD */}
+        <div className="mb-14 glass-panel p-6 sm:p-8 border border-[#d9a648]/25 shadow-[0_20px_50px_rgba(18,2,7,0.7)]">
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10 font-mono text-xs text-zinc-400">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-white font-medium">LIVE ARCHITECTURAL GUARANTEES</span>
+              <span className="text-zinc-600">/</span>
+              <span className="text-[#f6dc8c]">PROPRIETARY INVARIANTS</span>
+            </div>
+            <span className="hidden sm:inline text-[11px] text-zinc-500 uppercase tracking-wider">
+              DETERMINISTIC CONCURRENCY MODEL
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
+            {/* Guarantee 01 */}
+            <div className="p-4 bg-[#120207]/70 border border-sky-500/20 space-y-2 hover:border-sky-400/50 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-sky-400 text-[10px] tracking-widest uppercase">01 // CONCURRENCY</span>
+                <span className="text-emerald-400 text-[9px] border border-emerald-900/60 bg-emerald-950/30 px-1.5 py-0.2">ROW LOCK</span>
+              </div>
+              <div className="text-white font-medium text-sm flex items-center gap-2">
+                <Database className="h-4 w-4 text-sky-400" />
+                <span>Atomic PL/pgSQL RPCs</span>
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                Row-level locks (<code className="text-sky-300">SELECT FOR UPDATE</code>) guaranteeing zero double-bookings and zero inventory overselling across high-traffic platforms.
+              </p>
+            </div>
+
+            {/* Guarantee 02 */}
+            <div className="p-4 bg-[#120207]/70 border border-indigo-500/20 space-y-2 hover:border-indigo-400/50 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-indigo-400 text-[10px] tracking-widest uppercase">02 // AGENT PROTOCOL</span>
+                <span className="text-indigo-300 text-[9px] border border-indigo-900/60 bg-indigo-950/30 px-1.5 py-0.2">W3C VERIFIED</span>
+              </div>
+              <div className="text-white font-medium text-sm flex items-center gap-2">
+                <Cpu className="h-4 w-4 text-indigo-400" />
+                <span>W3C WebMCP Standard</span>
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                Dynamic Model Context Protocol registration on <code className="text-indigo-300">document.modelContext</code> with human-in-the-loop permission boundaries.
+              </p>
+            </div>
+
+            {/* Guarantee 03 */}
+            <div className="p-4 bg-[#120207]/70 border border-[#d9a648]/20 space-y-2 hover:border-[#d9a648]/50 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-[#f6dc8c] text-[10px] tracking-widest uppercase">03 // SETTLEMENT</span>
+                <span className="text-amber-400 text-[9px] border border-amber-900/60 bg-amber-950/30 px-1.5 py-0.2">NON-CUSTODIAL</span>
+              </div>
+              <div className="text-white font-medium text-sm flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-[#d9a648]" />
+                <span>EIP-7702 &amp; APEX Escrow</span>
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                Monotonic revocation guards, milestone-locked escrow disbursement, and 338,000+ indexed autonomous agent identities.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Primary Action Buttons */}
+        <div className="flex flex-wrap items-center gap-4 mb-16">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-110 px-6 py-3.5 font-mono text-xs font-semibold text-black transition-all duration-200 shadow-[0_0_25px_rgba(217,166,72,0.3)]"
+          >
+            <span>Explore Systems Catalog</span>
+            <ArrowRight className="h-4 w-4 text-black" />
+          </Link>
+
+          <Link
+            href="/build-with-us"
+            className="inline-flex items-center gap-2 glass-chip px-6 py-3.5 font-mono text-xs text-zinc-200 border-white/20 hover:border-[#d9a648]/60 hover:text-white transition-all duration-200"
+          >
+            <span>Commission an Enterprise Build</span>
+            <ArrowUpRight className="h-4 w-4 text-[#d9a648]" />
+          </Link>
+
+          <Link
+            href="#founder"
+            className="inline-flex items-center gap-2 px-5 py-3.5 font-mono text-xs text-[#f6dc8c] hover:text-white hover:underline transition-colors"
+          >
+            <span>Meet Principal Architect &rarr;</span>
+          </Link>
+        </div>
+
+        {/* Proprietary Platforms Quick Strip */}
+        <div>
+          <div className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]" />
+            <span>Proprietary Production Engines &bull; Direct Case Studies</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {PROPRIETARY_HIGHLIGHTS.map((p) => (
               <Link
                 key={p.id}
                 href={`/projects/${p.id}`}
-                className={`group block border ${p.border} ${p.hoverBorder} glass-panel-interactive px-4 py-3 lift-hover`}
+                className={`group block border ${p.border} ${p.hoverBorder} glass-panel-interactive px-4 py-3`}
               >
-                <div className={`text-xs font-mono font-medium truncate ${p.color} mb-1 arrow-nudge`}>
-                  {p.label}
-                  <ArrowUpRight className="h-2.5 w-2.5 opacity-0 group-hover:opacity-100 transition-opacity -mt-0.5" />
+                <div className={`text-xs font-mono font-medium truncate ${p.color} mb-1 flex items-center justify-between`}>
+                  <span>{p.label}</span>
+                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider truncate">
                   {p.sub}
                 </div>
               </Link>
             ))}
-            {/* Commission CTA tile */}
+            {/* Commercial commissioning tile */}
             <Link
               href="/build-with-us"
-              className="group block border border-[#d9a648]/40 hover:border-[#d9a648]/80 glass-panel-interactive px-4 py-3 lift-hover bg-gradient-to-br from-[#3a0d1c]/40 to-transparent"
+              className="group block border border-[#d9a648]/40 hover:border-[#d9a648]/80 glass-panel-interactive px-4 py-3 bg-gradient-to-br from-[#3a0d1c]/40 to-transparent"
             >
               <div className="text-xs font-mono text-[#f6dc8c] group-hover:text-white mb-1 transition-colors flex items-center justify-between">
                 <span>Commission an OS</span>
@@ -194,24 +192,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Action Bar */}
-        <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/08">
-          <Link
-            href="/build-with-us"
-            className="inline-flex items-center gap-2 bg-[#f6dc8c] hover:bg-white px-6 py-3 font-mono text-xs font-semibold text-[#120207] transition-all duration-200 shadow-[0_0_20px_rgba(217,166,72,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-          >
-            <span>Commission an Enterprise Build</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#120207]" />
-          </Link>
-
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 glass-panel-interactive border border-white/20 px-6 py-3 font-mono text-xs text-zinc-200 hover:border-[#d9a648]/50 hover:text-[#f6dc8c] transition-all duration-200"
-          >
-            <span>Explore All Production Blueprints</span>
-            <ArrowRight className="h-4 w-4 text-[#d9a648] transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
       </div>
     </section>
   );

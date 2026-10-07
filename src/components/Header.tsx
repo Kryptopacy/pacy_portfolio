@@ -15,7 +15,7 @@ export default function Header({ onOpenIntercom }: HeaderProps) {
   const links = [
     { label: "Systems", href: "/projects" },
     { label: "Agent Skills", href: "/skills" },
-    { label: "Clinical Dossier", href: "/dossier" },
+    { label: "The Architect", href: "/dossier" },
     { label: "Commission An OS", href: "/build-with-us" },
   ];
 
