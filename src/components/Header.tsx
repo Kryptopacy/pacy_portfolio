@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, MessageSquare } from "lucide-react";
 
@@ -23,14 +24,23 @@ export default function Header({ onOpenIntercom }: HeaderProps) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-8 py-3.5 sm:py-4">
         {/* Brand Masthead */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="h-7 w-7 border border-white/20 bg-black flex items-center justify-center font-mono text-xs font-semibold text-white">
-            PL
+          <div className="relative h-9 w-9 shrink-0 flex items-center justify-center p-0.5 rounded border border-[#d9a648]/30 bg-gradient-to-br from-[#3a0d1c]/60 to-black/80 group-hover:border-[#d9a648]/70 group-hover:shadow-[0_0_15px_rgba(217,166,72,0.25)] transition-all duration-300">
+            <Image
+              src="/brand/pacylabs-logo-256.webp"
+              alt="Pacy Labs Spade Logo"
+              width={32}
+              height={32}
+              className="object-contain drop-shadow-[0_0_8px_rgba(217,166,72,0.4)] group-hover:scale-105 transition-transform"
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-white">
-              PACY LABS
-            </span>
-            <span className="font-mono text-[9px] text-zinc-500 uppercase">
+            <div className="flex items-center gap-1.5">
+              <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-white group-hover:text-[#f6dc8c] transition-colors">
+                PACY LABS
+              </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648] animate-pulse" />
+            </div>
+            <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-tight">
               Olamilekan David Adegoke &bull; OD
             </span>
           </div>

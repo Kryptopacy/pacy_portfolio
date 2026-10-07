@@ -34,7 +34,16 @@ export const metadata: Metadata = {
     "Joebrown Palace Hotel",
     "DreamwiseHUB",
   ],
+  metadataBase: new URL("https://pacylabs.xyz"),
   authors: [{ name: "Olamilekan David Adegoke", url: "https://pacylabs.xyz" }],
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: "Olamilekan David Adegoke | Pacy Labs",
     description:

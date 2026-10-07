@@ -1,0 +1,65 @@
+[
+  {
+    "id": "webmcp-auditor",
+    "name": "WebMCP Integration & Auditor",
+    "tagline": "The open agent skill for integrating and scoring the W3C WebMCP standard",
+    "packageSlug": "Kryptopacy/pacy_webmcp_auditor",
+    "installCommand": "npx skills add Kryptopacy/pacy_webmcp_auditor",
+    "skillsShUrl": "https://skills.sh/b/Kryptopacy/pacy_webmcp_auditor",
+    "repoUrl": "https://github.com/Kryptopacy/pacy_webmcp_auditor",
+    "description": "A published Agent Skill enabling coding agents (Claude Code, Cursor, OpenCode, Codex, ZCode) to wire, audit, and perfect WebMCP integrations—the W3C specification transforming websites into native MCP servers for autonomous browsing agents.",
+    "capabilities": [
+      "Multi-Dialect Support: Targets WG draft (document.modelContext.registerTool) and CG spec (navigator.modelContext.provideContext) with universal polyfill fallback.",
+      "Automated Scorecard: Grades target websites against published rubric (Usability 60%, Coverage 20%, Quality 20%).",
+      "Live Browser Probe: Ships with headless DevTools probe scripts detecting trust gates, tool inventory, and schema vulnerabilities.",
+      "Grade-Ordered Healing: Generates prioritized patch recipes from baseline existence to production resilience."
+    ],
+    "pillarsOrRubric": [
+      "Usability (60%): Intent clarity, input schema precision, human-in-the-loop triggers",
+      "Coverage (20%): End-to-end user journey mapping across browse, cart, checkout",
+      "Quality (20%): Error handling, response serialization, and latency tolerance"
+    ]
+  },
+  {
+    "id": "codebase-auditor",
+    "name": "Pacy Codebase Auditor",
+    "tagline": "A paranoid, senior auditor suite for pre-ship validation and payment handoffs",
+    "packageSlug": "kryptopacy/pacy-codebase-auditor",
+    "installCommand": "npx skills add kryptopacy/pacy-codebase-auditor",
+    "skillsShUrl": "https://skills.sh/kryptopacy/pacy-codebase-auditor",
+    "repoUrl": "https://github.com/kryptopacy/pacy-codebase-auditor",
+    "description": "An exhaustive two-skill suite built on a pessimistic, guilty-until-proven-innocent audit workflow. Contains the Developer Pay Handoff Simulator and the Codebase Doctor to ensure zero unvetted code reaches production.",
+    "capabilities": [
+      "Developer Pay Handoff Simulator: Renders rigorous sign-off verdicts (approved, held for debt, rejected) before releasing payment or shipping.",
+      "Codebase Doctor: Produces visual HTML architectural reports identifying real structural debt and conducts design-grilling convergence loops.",
+      "20-Point Launch Checklist: Enforces empirical proof for meta tags, custom 404s, mobile breakpoints, error boundaries, and legal pages.",
+      "Zero-Vibe Standard: Closes every route, RPC, and table with verifiable evidence or explicit written exemption."
+    ],
+    "pillarsOrRubric": [
+      "Pillars 1-3: Code Quality, Type Rigor, DB Schema & RLS Integrity",
+      "Pillars 4-5: UX Truth, Breakpoints, Loading & Error States",
+      "Pillars 6-7: Discoverability, OpenGraph, WebMCP & Agent Crawlers",
+      "Pillar 8: Launch Compliance, Analytics & Real Service Policies"
+    ]
+  },
+  {
+    "id": "reverse-otp",
+    "name": "Pacy Reverse OTP Builder",
+    "tagline": "Zero-cost inbound verification via WhatsApp and Telegram deep links",
+    "packageSlug": "kryptopacy/pacy-reverse-otp-builder",
+    "installCommand": "npx skills add kryptopacy/pacy-reverse-otp-builder",
+    "repoUrl": "https://github.com/kryptopacy/pacy-reverse-otp-builder",
+    "description": "An agent skill that intercepts traditional, costly outbound SMS OTP implementations and coaches AI coding agents to build seamless Inbound Verification (Reverse OTP) flows using messaging deep links.",
+    "capabilities": [
+      "Bypasses Telco Spam Filters: Eliminates delivery failures and carrier filtering issues.",
+      "Zero Outbound Carrier Fees: User sends pre-filled verification UUID directly via deep link to secure webhook.",
+      "Frictionless UX: Completely removes manual 6-digit code typing and copy-paste errors.",
+      "Multi-Platform: Pre-configured adapters for WhatsApp Business Cloud API and Telegram Bot webhooks."
+    ],
+    "pillarsOrRubric": [
+      "Step 1: One-click app deep-link generates cryptographic verification nonce",
+      "Step 2: User sends pre-filled token inside native messaging app",
+      "Step 3: Webhook server verifies phone match and grants session token instantly"
+    ]
+  }
+]

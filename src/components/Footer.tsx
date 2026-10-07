@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MessageSquare, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
@@ -7,14 +8,26 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand & Subtitle (5 cols) */}
-          <div className="md:col-span-5 space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-sm font-semibold text-white tracking-widest">
-                PACY LABS
-              </span>
-              <span className="font-mono text-xs text-zinc-500">
-                / pacylabs.xyz
-              </span>
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="relative h-10 w-10 shrink-0 flex items-center justify-center p-0.5 rounded border border-[#d9a648]/40 bg-gradient-to-br from-[#3a0d1c]/80 to-black">
+                <Image
+                  src="/brand/pacylabs-logo-256.webp"
+                  alt="Pacy Labs Logo"
+                  width={34}
+                  height={34}
+                  className="object-contain drop-shadow-[0_0_10px_rgba(217,166,72,0.35)]"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-mono text-sm font-semibold text-white tracking-widest flex items-center gap-2">
+                  PACY LABS
+                  <span className="text-[10px] text-[#d9a648] font-mono border border-[#d9a648]/30 px-1 py-0.2 bg-[#3a0d1c]/40">EST. 2026</span>
+                </span>
+                <span className="font-mono text-[11px] text-zinc-500">
+                  pacylabs.xyz
+                </span>
+              </div>
             </div>
             <p className="text-xs text-zinc-400 font-mono leading-relaxed max-w-sm">
               Olamilekan David Adegoke &bull; Doctor of Optometry (OD) &amp; Full-Stack Systems Architect. Engineering deterministic operating systems, high-concurrency commercial platforms, and W3C WebMCP agent tooling.

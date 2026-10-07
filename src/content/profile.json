@@ -1,0 +1,36 @@
+{
+  "name": "Olamilekan David Adegoke",
+  "handle": "@kryptopacy",
+  "role": "Full-Stack Systems Architect, AI Systems Evaluator & Doctor of Optometry",
+  "location": "Ibadan, Nigeria",
+  "phone": "+234 913 026 2529",
+  "email": "pacy@cruisehq.fun",
+  "github": "https://github.com/kryptopacy",
+  "devto": "https://dev.to/kryptopacy",
+  "website": "https://pacylabs.xyz",
+  "education": {
+    "degree": "Doctor of Optometry (O.D.)",
+    "institution": "University of Ilorin",
+    "year": "May 2023",
+    "license": "Active License: Optometrists and Dispensing Opticians Registration Board of Nigeria (ODORBN)"
+  },
+  "clinicalHistory": [
+    {
+      "role": "Intern Optometrist",
+      "organization": "Catholic Optic Outreach",
+      "period": "May 2024 – May 2025",
+      "details": "Managed clinical diagnostic triage, ocular pathology treatment, and patient records with electronic health record privacy."
+    },
+    {
+      "role": "Extern Optometrist",
+      "organization": "University of Ilorin Teaching Hospital Eye Clinic",
+      "period": "Apr 2022 – Oct 2022",
+      "details": "High-volume clinical evaluations in a tertiary hospital setting, multi-variable diagnostics under zero-defect tolerance."
+    }
+  ],
+  "whatsapp": "2349130262529",
+  "resumePath": "/olamilekan_adegoke_resume.pdf",
+  "resumeUpdated": "2026-09-20",
+  "available": true,
+  "availabilityNote": "Taking on select enterprise builds for Q4 2026"
+}

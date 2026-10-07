@@ -46,14 +46,19 @@ Dispatched via pacylabs.xyz`;
   };
 
   return (
-    <section id="build-with-us" className="py-20 sm:py-28 bg-[#090a0d] hairline-b">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+    <section id="build-with-us" className="relative py-20 sm:py-28 bg-[#090a0d] hairline-b overflow-hidden">
+      {/* Brand Ambient Glow */}
+      <div className="pointer-events-none absolute -bottom-20 right-10 w-[500px] h-[500px] bg-[radial-gradient(circle,_rgba(58,13,28,0.35)_0%,_rgba(217,166,72,0.1)_40%,_transparent_75%)] blur-3xl opacity-70" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Narrative (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div>
-              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">
-                05 / COMMISSIONS &bull; CLIENT ADVISORY
+              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">05</span>
+                <span className="text-zinc-600">/</span>
+                <span className="text-zinc-300">COMMISSIONS &bull; CLIENT ADVISORY</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-normal tracking-tight text-white mb-4">
                 Build With Pacy Labs
@@ -196,9 +201,9 @@ Dispatched via pacylabs.xyz`;
                 <button
                   type="button"
                   onClick={handleWhatsApp}
-                  className="inline-flex items-center justify-center gap-2 bg-zinc-100 hover:bg-white px-5 py-2.5 font-mono text-xs font-semibold text-black transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-105 px-5 py-2.5 font-mono text-xs font-semibold text-black transition-all shadow-[0_0_20px_rgba(217,166,72,0.2)]"
                 >
-                  <MessageSquare className="h-4 w-4" />
+                  <MessageSquare className="h-4 w-4 text-black" />
                   <span>Send via WhatsApp (+234 913 026 2529)</span>
                 </button>
 

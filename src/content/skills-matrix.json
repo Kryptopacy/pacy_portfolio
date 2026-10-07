@@ -1,0 +1,97 @@
+{
+  "languagesAndRuntimes": [
+    {
+      "name": "TypeScript / JavaScript",
+      "level": "Expert",
+      "details": "Strict typings, Zod runtime schemas, AST transforms, React 19 / Next.js 16 App Router"
+    },
+    {
+      "name": "SQL (PostgreSQL & PL/pgSQL)",
+      "level": "Expert",
+      "details": "Atomic RPCs, SELECT FOR UPDATE row-locking, RLS policies, expression indexes, query tuning"
+    },
+    {
+      "name": "Python",
+      "level": "Advanced",
+      "details": "FastAPI, Modal serverless workers, AI evaluation pipelines, synthetic dataset generators, FFmpeg automation"
+    },
+    {
+      "name": "Dart / Flutter",
+      "level": "Advanced",
+      "details": "Cross-platform mobile apps, offline-first local stores, state management, audio/camera streaming"
+    },
+    {
+      "name": "Rust",
+      "level": "Proficient",
+      "details": "High-throughput token initialization pipelines, cryptographic signing routines, memory-safe data workers"
+    }
+  ],
+  "frameworksAndEngines": [
+    {
+      "name": "Next.js 16 (App Router) & React 19",
+      "details": "Server Components, Action RPCs, partial prerendering, dynamic route segments, high-craft responsive layouts"
+    },
+    {
+      "name": "Supabase & PostgreSQL 16",
+      "details": "Realtime WebSockets, Presence & Broadcast channels, row-level security, pgvector semantic search, pg_cron"
+    },
+    {
+      "name": "Tailwind CSS v4",
+      "details": "Bespoke architectural styling, fluid responsive scales, dark mode surface hierarchies, CSS canvas shaders"
+    },
+    {
+      "name": "Flutter & Serwist PWA",
+      "details": "Offline-first caching, mobile touch event handlers, Service Worker lifecycles at 220+ sitemap route scale"
+    }
+  ],
+  "aiAndEvaluation": [
+    {
+      "name": "Gemini Multimodal Live API",
+      "details": "Bidirectional WebSockets with 16kHz PCM mic-in, 24kHz audio out, 1 FPS video analysis, real-time barge-in"
+    },
+    {
+      "name": "RLHF / SFT Hallucination Auditing",
+      "details": "Rigorous multi-turn prompt calibration and output evaluation achieving 99.8% factuality across LLM pipelines"
+    },
+    {
+      "name": "Agentic IDEs & Autonomous Protocols",
+      "details": "Author of published Agent Skills (skills.sh), prompt architecture, tool-calling schema design, Zod EDL synthesis"
+    },
+    {
+      "name": "Media & Audio AI Compute",
+      "details": "Distributed Modal cloud workers, Stable Audio Open 1.0 stereo generation, Cloudflare R2 object ingestion"
+    }
+  ],
+  "protocolsAndHardware": [
+    {
+      "name": "W3C WebMCP Standard",
+      "details": "Dynamic document.modelContext.registerTool registration, human-in-the-loop gates, 14 machine discovery standards (RFC 9727, RFC 8288)"
+    },
+    {
+      "name": "Machine Payments & Micro-billing",
+      "details": "Coinbase x402, Machine Payment Protocol (MPP), Bachs hosted checkout (USDC/USDT/SOL), Paystack HMAC webhooks"
+    },
+    {
+      "name": "Smart Accounts & Cryptographic Escrow",
+      "details": "Altana Keystore (EIP-7702 blast-radius boundaries), BNB Chain APEX (ERC-8183 escrow), Permit2 signatures, viem"
+    },
+    {
+      "name": "Zero-Daemon Driverless Hardware",
+      "details": "ESC/POS thermal receipt printing over WebUSB, WebSerial (RS232 COM), and WebBluetooth with automated cash drawer kick pulses"
+    }
+  ],
+  "clinicalMethodology": [
+    {
+      "name": "Clinical Differential Diagnostics",
+      "details": "Triage framework isolating root causes across asynchronous race conditions, memory leaks, and distributed failures"
+    },
+    {
+      "name": "Deterministic Concurrency Logic",
+      "details": "Eliminating non-deterministic edge cases and hallucinations through rigid schema constraints and boundary checks"
+    },
+    {
+      "name": "Zero-Margin Data Rigor",
+      "details": "1,500+ clinical patient encounters translating high-stakes medical differential diagnosis into zero-defect software ledgers"
+    }
+  ]
+}

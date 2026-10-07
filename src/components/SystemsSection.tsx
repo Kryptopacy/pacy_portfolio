@@ -96,8 +96,12 @@ export default function SystemsSection() {
   const clientContracts = PROJECTS.filter((p) => p.isClientContract);
 
   return (
-    <section id="platforms" className="py-20 sm:py-28 bg-[#090a0d] hairline-b">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+    <section id="platforms" className="relative py-20 sm:py-28 bg-[#090a0d] hairline-b overflow-hidden">
+      {/* Subtle brand ambiance in background */}
+      <div className="pointer-events-none absolute top-1/4 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.25)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-60" />
+      <div className="pointer-events-none absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.20)_0%,_rgba(217,166,72,0.05)_40%,_transparent_70%)] blur-3xl opacity-50" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
 
         {/* ===================================================================
             PART 1: FLAGSHIP PROPRIETARY PLATFORMS
@@ -107,10 +111,10 @@ export default function SystemsSection() {
           {/* Section Label */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 mb-16 hairline-b">
             <div>
-              <div className="font-mono text-xs text-zinc-600 uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="text-sky-400 font-medium">01</span>
-                <span className="text-zinc-700">/</span>
-                <span>PROPRIETARY SYSTEMS &amp; AUTONOMOUS AGENTS</span>
+              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">01</span>
+                <span className="text-zinc-600">/</span>
+                <span className="text-zinc-300">PROPRIETARY SYSTEMS &amp; AUTONOMOUS AGENTS</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white">
                 Flagship Platform Architectures
@@ -255,10 +259,10 @@ export default function SystemsSection() {
           {/* Section Label */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 mb-16 hairline-b">
             <div>
-              <div className="font-mono text-xs text-zinc-600 uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="text-amber-400 font-medium">02</span>
-                <span className="text-zinc-700">/</span>
-                <span>COMMERCIAL CLIENT CONTRACTS</span>
+              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">02</span>
+                <span className="text-zinc-600">/</span>
+                <span className="text-zinc-300">COMMERCIAL CLIENT CONTRACTS</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white">
                 Commercial Client Webapps —<br className="hidden sm:block" /> Engineered Under Contract

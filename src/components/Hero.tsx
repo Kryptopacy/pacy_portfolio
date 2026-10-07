@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 const PROPRIETARY_HIGHLIGHTS = [
@@ -18,18 +19,30 @@ export default function Hero() {
   const [lensMode, setLensMode] = useState<"systems" | "clinical">("systems");
 
   return (
-    <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 hairline-b bg-[#090a0d]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+    <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 hairline-b bg-[#090a0d] overflow-hidden">
+      {/* Ambient Brand Atmosphere: Deep Burgundy Core & Warm Circuit Gold Corona */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(58,13,28,0.45)_0%,_rgba(217,166,72,0.12)_40%,_transparent_75%)] blur-3xl opacity-80" />
 
-        {/* Editorial Topline */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
+
+        {/* Editorial Topline with Pacy Labs Insignia */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-12 hairline-b font-mono text-xs text-zinc-400">
-          <div className="flex items-center gap-2">
-            <span className="text-sky-400 font-semibold tracking-wider">PACY LABS</span>
+          <div className="flex items-center gap-2.5">
+            <div className="h-6 w-6 relative shrink-0 p-0.5 rounded border border-[#d9a648]/40 bg-[#3a0d1c]/40">
+              <Image
+                src="/brand/pacylabs-logo-256.webp"
+                alt="Pacy Labs Logo Mark"
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+            </div>
+            <span className="text-[#f6dc8c] font-semibold tracking-wider">PACY LABS</span>
             <span className="text-zinc-600">/</span>
             <span className="text-zinc-300">OLAMILEKAN DAVID ADEGOKE</span>
           </div>
           <div className="text-zinc-300 flex items-center gap-2">
-            <span className="text-amber-400 font-medium tracking-wider">DOCTOR OF OPTOMETRY (OD)</span>
+            <span className="text-[#d9a648] font-medium tracking-wider">DOCTOR OF OPTOMETRY (OD)</span>
             <span className="text-zinc-600">·</span>
             <span className="text-emerald-400 font-medium tracking-wider">FULL-STACK SYSTEMS ARCHITECT</span>
           </div>
