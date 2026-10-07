@@ -4,322 +4,188 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS, Project } from "@/data/portfolioData";
-import { ArrowUpRight, ArrowRight, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
-
-// Per-vertical design tokens
-const VERTICAL_THEMES: Record<
-  string,
-  {
-    border: string;
-    borderHover: string;
-    textAccent: string;
-    bgHover: string;
-    leftAccent: string;
-    badgeText: string;
-    badgeBg: string;
-    scanColor: string;
-  }
-> = {
-  blue: {
-    border: "border-sky-500/18",
-    borderHover: "hover:border-sky-400/55",
-    textAccent: "text-sky-400",
-    bgHover: "hover:bg-sky-950/8",
-    leftAccent: "bg-sky-500",
-    badgeText: "text-sky-300",
-    badgeBg: "bg-sky-950/40 border-sky-500/30",
-    scanColor: "rgba(14, 165, 233, 0.5)",
-  },
-  indigo: {
-    border: "border-indigo-500/18",
-    borderHover: "hover:border-indigo-400/55",
-    textAccent: "text-indigo-400",
-    bgHover: "hover:bg-indigo-950/8",
-    leftAccent: "bg-indigo-500",
-    badgeText: "text-indigo-300",
-    badgeBg: "bg-indigo-950/40 border-indigo-500/30",
-    scanColor: "rgba(99, 102, 241, 0.5)",
-  },
-  rose: {
-    border: "border-rose-500/18",
-    borderHover: "hover:border-rose-400/55",
-    textAccent: "text-rose-400",
-    bgHover: "hover:bg-rose-950/8",
-    leftAccent: "bg-rose-500",
-    badgeText: "text-rose-300",
-    badgeBg: "bg-rose-950/40 border-rose-500/30",
-    scanColor: "rgba(244, 63, 94, 0.5)",
-  },
-  purple: {
-    border: "border-purple-500/18",
-    borderHover: "hover:border-purple-400/55",
-    textAccent: "text-purple-400",
-    bgHover: "hover:bg-purple-950/8",
-    leftAccent: "bg-purple-500",
-    badgeText: "text-purple-300",
-    badgeBg: "bg-purple-950/40 border-purple-500/30",
-    scanColor: "rgba(168, 85, 247, 0.5)",
-  },
-  cyan: {
-    border: "border-cyan-500/18",
-    borderHover: "hover:border-cyan-400/55",
-    textAccent: "text-cyan-400",
-    bgHover: "hover:bg-cyan-950/8",
-    leftAccent: "bg-cyan-500",
-    badgeText: "text-cyan-300",
-    badgeBg: "bg-cyan-950/40 border-cyan-500/30",
-    scanColor: "rgba(6, 182, 212, 0.5)",
-  },
-  emerald: {
-    border: "border-emerald-500/18",
-    borderHover: "hover:border-emerald-400/55",
-    textAccent: "text-emerald-400",
-    bgHover: "hover:bg-emerald-950/8",
-    leftAccent: "bg-emerald-500",
-    badgeText: "text-emerald-300",
-    badgeBg: "bg-emerald-950/40 border-emerald-500/30",
-    scanColor: "rgba(16, 185, 129, 0.5)",
-  },
-  amber: {
-    border: "border-amber-500/18",
-    borderHover: "hover:border-amber-400/55",
-    textAccent: "text-amber-400",
-    bgHover: "hover:bg-amber-950/8",
-    leftAccent: "bg-amber-500",
-    badgeText: "text-amber-300",
-    badgeBg: "bg-amber-950/40 border-amber-500/30",
-    scanColor: "rgba(245, 158, 11, 0.5)",
-  },
-};
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Database,
+  Cpu,
+  Layers,
+  LayoutGrid,
+  ListFilter,
+  CheckCircle2,
+} from "lucide-react";
 
 export default function SystemsSection() {
   const [filter, setFilter] = useState<"all" | "proprietary" | "client">("all");
-  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+  const [activeProjectId, setActiveProjectId] = useState<string>(PROJECTS[0].id);
+  const [viewMode, setViewMode] = useState<"index" | "grid">("index");
 
-  const toggleExpand = (id: string) => {
-    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
+  const filteredProjects = PROJECTS.filter((p) => {
+    if (filter === "proprietary") return !p.isClientContract;
+    if (filter === "client") return p.isClientContract;
+    return true;
+  });
 
-  const proprietaryPlatforms = PROJECTS.filter((p) => !p.isClientContract);
-  const clientContracts = PROJECTS.filter((p) => p.isClientContract);
+  const activeProject =
+    filteredProjects.find((p) => p.id === activeProjectId) ||
+    filteredProjects[0] ||
+    PROJECTS[0];
+
+  const proprietaryCount = PROJECTS.filter((p) => !p.isClientContract).length;
+  const clientCount = PROJECTS.filter((p) => p.isClientContract).length;
 
   return (
-    <section id="platforms" className="relative py-16 sm:py-24 bg-transparent hairline-b overflow-hidden">
-      {/* Brand ambiance: Deep Burgundy Core & Warm Circuit Gold Corona */}
-      <div className="pointer-events-none absolute top-1/4 right-0 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(78,14,35,0.40)_0%,_rgba(217,166,72,0.08)_40%,_transparent_70%)] blur-3xl opacity-75" />
-      <div className="pointer-events-none absolute bottom-1/4 left-0 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(58,13,28,0.35)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-65" />
+    <section id="platforms" className="relative py-20 sm:py-28 bg-transparent hairline-b overflow-hidden">
+      {/* Subtle brand ambient glow */}
+      <div className="pointer-events-none absolute top-1/4 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.40)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-70" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
-
-        {/* Global Fast Filter Bar (Glanceable 2026 Glassmorphic UX) */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-14 pb-5 hairline-b">
+        
+        {/* Section Header & View Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-5 hairline-b">
           <div>
-            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-1.5 flex items-center gap-2">
               <span className="text-[#f6dc8c]">&bull;</span>
-              <span>SYSTEM CATALOG // ARCHITECTURAL INDEX</span>
+              <span>SYSTEMS ARCHITECTURE INDEX</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-normal text-white">
+            <h2 className="text-2xl sm:text-4xl font-normal text-white tracking-tight">
               Production Architectures
             </h2>
           </div>
 
-          {/* Quick Segment Filter with 2026 Glassmorphism */}
-          <div className="flex items-center gap-1.5 glass-panel p-1 font-mono text-xs rounded-sm">
-            <button
-              type="button"
-              onClick={() => setFilter("all")}
-              className={`px-3 py-1.5 transition-all duration-200 ${
-                filter === "all"
-                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
-                  : "text-zinc-400 hover:text-white"
-              }`}
-            >
-              All ({PROJECTS.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setFilter("proprietary")}
-              className={`px-3 py-1.5 transition-all duration-200 ${
-                filter === "proprietary"
-                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
-                  : "text-zinc-400 hover:text-white"
-              }`}
-            >
-              Proprietary ({proprietaryPlatforms.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setFilter("client")}
-              className={`px-3 py-1.5 transition-all duration-200 ${
-                filter === "client"
-                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
-                  : "text-zinc-400 hover:text-white"
-              }`}
-            >
-              Client Contracts ({clientContracts.length})
-            </button>
+          <div className="flex items-center gap-3">
+            {/* Filter Pills */}
+            <div className="flex items-center gap-1 glass-panel p-1 font-mono text-xs rounded-xs">
+              <button
+                type="button"
+                onClick={() => setFilter("all")}
+                className={`px-3 py-1.5 transition-all ${
+                  filter === "all"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                All ({PROJECTS.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilter("proprietary")}
+                className={`px-3 py-1.5 transition-all ${
+                  filter === "proprietary"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                Proprietary ({proprietaryCount})
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilter("client")}
+                className={`px-3 py-1.5 transition-all ${
+                  filter === "client"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                Client ({clientCount})
+              </button>
+            </div>
+
+            {/* Layout Toggle (Index vs Grid) */}
+            <div className="hidden sm:flex items-center gap-1 glass-panel p-1 font-mono text-xs rounded-xs">
+              <button
+                type="button"
+                onClick={() => setViewMode("index")}
+                className={`p-1.5 transition-colors ${
+                  viewMode === "index"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+                title="Interactive Split Index View"
+              >
+                <ListFilter className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("grid")}
+                className={`p-1.5 transition-colors ${
+                  viewMode === "grid"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+                title="Bento Grid View"
+              >
+                <LayoutGrid className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* ===================================================================
-            PART 1: FLAGSHIP PROPRIETARY PLATFORMS
-            =================================================================== */}
-        {(filter === "all" || filter === "proprietary") && (
-          <div id="proprietary-platforms" className="mb-24">
-
-            {/* Section Label */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 mb-10 hairline-b">
-              <div>
-                <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 flex items-center gap-2">
-                  <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/50 px-1.5 py-0.5 shadow-[0_0_8px_rgba(217,166,72,0.2)]">01</span>
-                  <span className="text-zinc-600">/</span>
-                  <span className="text-zinc-300">PROPRIETARY SYSTEMS &amp; AUTONOMOUS AGENTS</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-normal text-white">
-                  Original Platforms &amp; Protocols
-                </h3>
-              </div>
-              <p className="text-xs text-zinc-400 font-mono max-w-sm">
-                Glance through hero snapshots &bull; Expand for full RPCs &amp; metrics
-              </p>
-            </div>
-
-            {/* Compact Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {proprietaryPlatforms.map((project, idx) => {
-                const theme = VERTICAL_THEMES[project.accentColor || "blue"] || VERTICAL_THEMES.blue;
-                const isExpanded = !!expandedCards[project.id];
+        {/* ========================================================================= */}
+        {/* VIEW 1: INTERACTIVE SPLIT INDEX (DEFAULT - 5-SECOND GLANCEABILITY)        */}
+        {/* ========================================================================= */}
+        {viewMode === "index" && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: Interactive Project Index (7 cols) */}
+            <div className="lg:col-span-7 divide-y divide-white/08 glass-panel border border-white/10 rounded-xs overflow-hidden">
+              {filteredProjects.map((project, idx) => {
+                const isActive = project.id === activeProject.id;
+                const topMetric = project.metrics[0];
 
                 return (
                   <div
                     key={project.id}
-                    className={`group flex flex-col border glass-panel-interactive transition-all duration-300 ${theme.border} ${theme.borderHover} viewport-frame-hover`}
+                    onMouseEnter={() => setActiveProjectId(project.id)}
+                    onClick={() => setActiveProjectId(project.id)}
+                    className={`group cursor-pointer p-4 sm:p-5 transition-all flex items-center justify-between gap-4 ${
+                      isActive
+                        ? "bg-[#3a0d1c]/80 border-l-2 border-[#d9a648] shadow-[inset_0_0_20px_rgba(217,166,72,0.12)]"
+                        : "hover:bg-white/[0.03] border-l-2 border-transparent"
+                    }`}
                   >
-                    {/* Browser Viewport Chrome + Hero Image */}
-                    <div className="border-b border-white/08 overflow-hidden viewport-scanline">
-                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 font-mono text-[11px] text-zinc-400 bg-[#16030a]/75 backdrop-blur-md">
-                        <div className="flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]/70" />
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#f6dc8c]/70" />
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/70" />
-                          <span className={`ml-2 truncate max-w-[150px] font-light ${theme.textAccent}`}>
-                            {project.urlLabel}
-                          </span>
-                        </div>
-                        {project.url && (
-                          <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1 ${theme.textAccent} hover:underline text-[10px]`}
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <span>Live</span>
-                            <ArrowUpRight className="h-2.5 w-2.5" />
-                          </a>
-                        )}
-                      </div>
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <span className="font-mono text-xs text-zinc-400 w-5">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
 
-                      {project.image ? (
-                        <Link
-                          href={`/projects/${project.id}`}
-                          className="block relative aspect-[16/9] w-full overflow-hidden bg-zinc-950"
-                          tabIndex={-1}
-                        >
-                          <Image
-                            src={project.image}
-                            alt={`${project.name} preview`}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                            priority={idx < 2}
-                            unoptimized
-                          />
-                          <div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                            style={{ background: `linear-gradient(to top, ${theme.scanColor.replace('0.5', '0.08')}, transparent 60%)` }}
-                          />
-                        </Link>
-                      ) : (
-                        <div className="h-36 w-full bg-zinc-950 flex items-center justify-center font-mono text-xs text-zinc-700">
-                          {project.name.toUpperCase()}
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-base font-medium text-white truncate group-hover:text-[#f6dc8c] transition-colors">
+                            {project.name}
+                          </h4>
+                          {project.isClientContract ? (
+                            <span className="text-[9px] font-mono border border-amber-500/30 bg-amber-950/40 text-amber-300 px-1.5 py-0.2 shrink-0">
+                              Client Contract
+                            </span>
+                          ) : (
+                            <span className="text-[9px] font-mono border border-sky-500/30 bg-sky-950/40 text-sky-300 px-1.5 py-0.2 shrink-0">
+                              Proprietary
+                            </span>
+                          )}
                         </div>
-                      )}
+                        <p className="font-mono text-xs text-zinc-400 truncate mt-0.5">
+                          {project.descriptor}
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Card Body - Tight and Glanceable */}
-                    <div className="flex flex-col flex-1 p-4 sm:p-5">
-                      <div className="flex items-start justify-between gap-2 mb-1.5">
-                        <h4 className="text-lg font-medium text-white group-hover:text-white transition-colors">
-                          {project.name}
-                        </h4>
-                        <span className={`text-[9px] font-mono border px-1.5 py-0.2 uppercase shrink-0 ${theme.badgeBg} ${theme.badgeText}`}>
-                          {project.architecture?.category?.split(" ")[0] || "SYSTEM"}
-                        </span>
-                      </div>
-
-                      <p className={`text-[11px] font-mono mb-2.5 leading-snug truncate ${theme.textAccent}`}>
-                        {project.descriptor}
-                      </p>
-
-                      {/* Summary with Expand/Collapse toggle for fast mobile scanning */}
-                      <p className={`text-xs text-zinc-400 font-light leading-relaxed mb-3 ${isExpanded ? "" : "line-clamp-2"}`}>
-                        {project.summary}
-                      </p>
-
-                      {/* Primary 2 Metrics (Always Visible at a Glance) */}
-                      <div className="grid grid-cols-2 gap-2 mb-3 font-mono text-xs border-t border-white/08 pt-2.5">
-                        {project.metrics.slice(0, 2).map((m, i) => (
-                          <div key={i} className="min-w-0">
-                            <div className="text-white font-medium text-xs truncate">{m.value}</div>
-                            <div className="text-[9px] text-zinc-500 uppercase tracking-wider truncate">{m.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Expanded Section (Deep Details On-Demand) */}
-                      {isExpanded && (
-                        <div className="space-y-3 pt-2 border-t border-white/08 mb-3 font-mono text-xs animate-in fade-in duration-200">
-                          {/* Remaining 2 Metrics */}
-                          {project.metrics.length > 2 && (
-                            <div className="grid grid-cols-2 gap-2">
-                              {project.metrics.slice(2, 4).map((m, i) => (
-                                <div key={i} className="min-w-0">
-                                  <div className="text-white font-medium text-xs truncate">{m.value}</div>
-                                  <div className="text-[9px] text-zinc-500 uppercase tracking-wider truncate">{m.label}</div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                          {/* Tech Stack Tags */}
-                          <div className="flex flex-wrap gap-1">
-                            {project.tags.map((tag, i) => (
-                              <span key={i} className="font-mono text-[9px] text-zinc-500 border border-white/08 px-1.5 py-0.5 bg-black/40">
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                    <div className="flex items-center gap-4 shrink-0 font-mono text-xs text-right">
+                      {topMetric && (
+                        <div className="hidden sm:block">
+                          <div className="text-white font-medium text-xs">{topMetric.value}</div>
+                          <div className="text-[10px] text-zinc-400 uppercase tracking-tight">{topMetric.label}</div>
                         </div>
                       )}
 
-                      {/* Dual Action Bar: Expand Toggle + Blueprint Link */}
-                      <div className="flex items-center gap-2 mt-auto pt-2 border-t border-white/08">
-                        <button
-                          type="button"
-                          onClick={() => toggleExpand(project.id)}
-                          className="flex items-center gap-1 border border-white/10 hover:border-white/25 px-2.5 py-1.5 font-mono text-[10px] text-zinc-400 hover:text-white transition-colors"
-                        >
-                          <span>{isExpanded ? "Collapse" : "Specs"}</span>
-                          {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-                        </button>
-
+                      <div className="flex items-center gap-2">
                         <Link
                           href={`/projects/${project.id}`}
-                          className="flex-1 flex items-center justify-between border border-white/10 bg-black/40 hover:border-white/30 hover:bg-white/5 px-3 py-1.5 font-mono text-[11px] text-zinc-300 hover:text-white transition-all cta-slide"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-1.5 text-zinc-400 hover:text-white hover:bg-white/10 rounded-xs transition-colors"
+                          title="View Technical Deep Dive"
                         >
-                          <span>Blueprint</span>
-                          <ArrowRight className="h-3 w-3 text-zinc-500 group-hover:translate-x-0.5 transition-transform" />
+                          <ArrowRight className="h-4 w-4" />
                         </Link>
                       </div>
                     </div>
@@ -327,157 +193,185 @@ export default function SystemsSection() {
                 );
               })}
             </div>
+
+            {/* Right Column: Sticky Architectural Inspector Viewport (5 cols) */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
+              <div className="glass-panel border border-[#d9a648]/30 rounded-xs overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                
+                {/* Viewport Chrome Bar */}
+                <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10 bg-[#16030a]/90 font-mono text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-[#d9a648]" />
+                    <span className="text-white font-medium">{activeProject.name}</span>
+                    <span className="text-zinc-600">/</span>
+                    <span className="text-zinc-400 text-[11px] truncate max-w-[140px]">
+                      {activeProject.urlLabel || "pacylabs.xyz"}
+                    </span>
+                  </div>
+
+                  {activeProject.url && (
+                    <a
+                      href={activeProject.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[11px]"
+                    >
+                      <span>Live App</span>
+                      <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
+
+                {/* System Preview Banner */}
+                {activeProject.image ? (
+                  <div className="relative aspect-[16/10] w-full bg-black overflow-hidden border-b border-white/08">
+                    <Image
+                      src={activeProject.image}
+                      alt={`${activeProject.name} preview`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover object-top transition-transform duration-500 hover:scale-105"
+                      priority
+                      unoptimized
+                    />
+                  </div>
+                ) : (
+                  <div className="h-48 w-full bg-zinc-950 flex items-center justify-center font-mono text-xs text-zinc-600 border-b border-white/08">
+                    {activeProject.name.toUpperCase()} SYSTEM
+                  </div>
+                )}
+
+                {/* Inspector Details */}
+                <div className="p-5 space-y-4">
+                  <div>
+                    <h3 className="text-lg font-medium text-white mb-1.5">
+                      {activeProject.name}
+                    </h3>
+                    <p className="text-xs text-zinc-300 leading-relaxed font-light">
+                      {activeProject.summary}
+                    </p>
+                  </div>
+
+                  {/* Primary 2 Metrics */}
+                  <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/08 font-mono">
+                    {activeProject.metrics.slice(0, 2).map((m, i) => (
+                      <div key={i} className="p-2.5 bg-black/40 border border-white/08">
+                        <div className="text-white font-medium text-xs truncate">{m.value}</div>
+                        <div className="text-[10px] text-zinc-400 uppercase tracking-tight truncate mt-0.5">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Architectural Invariants Callout */}
+                  <div className="p-3 bg-[#120207]/80 border border-[#d9a648]/20 space-y-1.5 font-mono text-xs">
+                    <div className="text-[#f6dc8c] text-[10px] uppercase tracking-wider flex items-center gap-1.5">
+                      <Database className="h-3 w-3 text-[#d9a648]" />
+                      <span>Concurrency &amp; Invariants Guarantee</span>
+                    </div>
+                    <div className="text-zinc-300 text-[11px] leading-relaxed">
+                      {activeProject.architecture?.concurrencyGuarantee || "Row-level atomic locks with verified schema guards"}
+                    </div>
+                  </div>
+
+                  {/* Tech Stack Chips */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {activeProject.tags.slice(0, 4).map((tag, i) => (
+                      <span
+                        key={i}
+                        className="font-mono text-[10px] text-zinc-400 border border-white/10 px-2 py-0.5 bg-black/30"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Full Case Study CTA */}
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <Link
+                      href={`/projects/${activeProject.id}`}
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#f6dc8c] hover:bg-white text-black font-mono text-xs font-semibold py-2.5 transition-all shadow-[0_0_15px_rgba(217,166,72,0.25)]"
+                    >
+                      <span>Read Complete Architectural Blueprint</span>
+                      <ArrowRight className="h-3.5 w-3.5 text-black" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* ===================================================================
-            PART 2: COMMERCIAL CLIENT CONTRACTS
-            =================================================================== */}
-        {(filter === "all" || filter === "client") && (
-          <div id="commercial-contracts">
-
-            {/* Section Label */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 mb-10 hairline-b">
-              <div>
-                <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
-                  <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">02</span>
-                  <span className="text-zinc-600">/</span>
-                  <span className="text-zinc-300">COMMERCIAL CLIENT CONTRACTS</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-normal text-white">
-                  Commissioned Enterprise Webapps
-                </h3>
-              </div>
-              <p className="text-xs text-zinc-500 font-mono max-w-sm">
-                Engineered under contract &bull; Built to power revenue and operations
-              </p>
-            </div>
-
-            {/* Client Contracts - Compact 2-Column Grid instead of huge full-page scroll */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-              {clientContracts.map((project, idx) => {
-                const theme = VERTICAL_THEMES[project.accentColor || "amber"] || VERTICAL_THEMES.amber;
-                const isExpanded = !!expandedCards[project.id];
-
-                return (
-                  <div
-                    key={project.id}
-                    className={`border ${theme.border} ${theme.borderHover} glass-panel-interactive p-5 sm:p-6 transition-all duration-300 flex flex-col`}
+        {/* ========================================================================= */}
+        {/* VIEW 2: BENTO GRID VIEW (ALTERNATIVE LAYOUT)                              */}
+        {/* ========================================================================= */}
+        {viewMode === "grid" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="group glass-panel border border-white/10 hover:border-[#d9a648]/40 transition-all rounded-xs overflow-hidden flex flex-col"
+              >
+                {project.image ? (
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="block relative aspect-[16/10] w-full bg-black overflow-hidden border-b border-white/08"
                   >
-                    {/* Viewport Frame */}
-                    <div className="border border-white/10 bg-[#16030a]/60 overflow-hidden mb-4 group/img viewport-scanline">
-                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 bg-[#16030a]/80 backdrop-blur-md font-mono text-[11px] text-zinc-400">
-                        <div className="flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]/70" />
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#f6dc8c]/70" />
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/70" />
-                          <span className={`ml-2 font-light ${theme.textAccent}`}>
-                            {project.urlLabel || `${project.id}.com`}
-                          </span>
-                        </div>
-                        {project.url && (
-                          <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1 hover:underline ${theme.textAccent} text-[10px]`}
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <span>Live Production</span>
-                            <ArrowUpRight className="h-2.5 w-2.5" />
-                          </a>
-                        )}
-                      </div>
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      unoptimized
+                    />
+                  </Link>
+                ) : (
+                  <div className="h-44 w-full bg-zinc-950 flex items-center justify-center font-mono text-xs text-zinc-600 border-b border-white/08">
+                    {project.name.toUpperCase()}
+                  </div>
+                )}
 
-                      {project.image && (
-                        <Link
-                          href={`/projects/${project.id}`}
-                          className="block relative aspect-[16/9] w-full overflow-hidden bg-zinc-950"
-                          tabIndex={-1}
-                        >
-                          <Image
-                            src={project.image}
-                            alt={`${project.name} production`}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-cover object-top transition-transform duration-500 group/img-hover:scale-[1.03]"
-                            priority={idx === 0}
-                            unoptimized
-                          />
-                        </Link>
-                      )}
-                    </div>
-
-                    {/* Editorial Content */}
-                    <div className="flex flex-col flex-1">
-                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-500 uppercase tracking-wider mb-2">
-                        <span className={`border px-1.5 py-0.2 ${theme.badgeBg} ${theme.badgeText}`}>
-                          Contract
-                        </span>
-                        <span>&bull;</span>
-                        <span className="text-zinc-400 truncate">{project.clientName}</span>
-                      </div>
-
-                      <h4 className="text-xl font-normal text-white mb-1">
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h4 className="text-lg font-medium text-white group-hover:text-[#f6dc8c] transition-colors">
                         {project.name}
                       </h4>
-
-                      <p className={`text-[11px] font-mono mb-3 ${theme.textAccent}`}>
-                        {project.descriptor}
-                      </p>
-
-                      <p className={`text-xs text-zinc-400 font-light leading-relaxed mb-4 ${isExpanded ? "" : "line-clamp-3"}`}>
-                        {project.summary}
-                      </p>
-
-                      {/* Primary 2 Metrics */}
-                      <div className="grid grid-cols-2 gap-3 mb-4 border-t border-white/08 pt-3 font-mono text-xs">
-                        {project.metrics.slice(0, 2).map((m, mIdx) => (
-                          <div key={mIdx}>
-                            <div className="text-white font-medium text-xs">{m.value}</div>
-                            <div className="text-[9px] text-zinc-500 uppercase tracking-wider">{m.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Detailed bullets on expand */}
-                      {isExpanded && (
-                        <div className="space-y-2 mb-4 pl-3 font-mono text-xs text-zinc-400 border-l-2 border-white/10 animate-in fade-in duration-200">
-                          {project.bullets.slice(0, 3).map((bullet, bIdx) => (
-                            <div key={bIdx} className="leading-relaxed text-[11px]">
-                              &bull; {bullet}
-                            </div>
-                          ))}
-                        </div>
+                      {project.isClientContract ? (
+                        <span className="text-[9px] font-mono border border-amber-500/30 text-amber-300 px-1.5 py-0.2">
+                          Client
+                        </span>
+                      ) : (
+                        <span className="text-[9px] font-mono border border-sky-500/30 text-sky-300 px-1.5 py-0.2">
+                          Proprietary
+                        </span>
                       )}
-
-                      {/* Action Bar */}
-                      <div className="flex items-center gap-3 pt-3 border-t border-white/08 mt-auto">
-                        <button
-                          type="button"
-                          onClick={() => toggleExpand(project.id)}
-                          className="flex items-center gap-1 border border-white/10 hover:border-white/25 px-2.5 py-1.5 font-mono text-[10px] text-zinc-400 hover:text-white transition-colors"
-                        >
-                          <span>{isExpanded ? "Collapse" : "Full Specs"}</span>
-                          {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-                        </button>
-
-                        <Link
-                          href={`/projects/${project.id}`}
-                          className="flex-1 flex items-center justify-between bg-[#f6dc8c] hover:bg-white px-3.5 py-1.5 font-mono text-xs font-semibold text-[#120207] transition-all shadow-[0_0_15px_rgba(217,166,72,0.2)]"
-                        >
-                          <span>Case Study</span>
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
-                      </div>
                     </div>
+                    <p className="font-mono text-xs text-zinc-400 line-clamp-1 mb-2">
+                      {project.descriptor}
+                    </p>
+                    <p className="text-xs text-zinc-400 font-light line-clamp-2 leading-relaxed">
+                      {project.summary}
+                    </p>
                   </div>
-                );
-              })}
-            </div>
+
+                  <div className="pt-3 border-t border-white/08 flex items-center justify-between">
+                    <span className="font-mono text-xs text-white font-medium">
+                      {project.metrics[0]?.value || "100% Production"}
+                    </span>
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="inline-flex items-center gap-1 font-mono text-xs text-[#f6dc8c] hover:underline"
+                    >
+                      <span>Blueprint</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         )}
-
       </div>
     </section>
   );
