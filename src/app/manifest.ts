@@ -8,9 +8,14 @@ export default function manifest(): MetadataRoute.Manifest {
       "Full-Stack Systems Architect & Doctor of Optometry. Engineering deterministic operating systems, W3C WebMCP standards, and autonomous agent protocols.",
     start_url: "/",
     display: "standalone",
-    background_color: "#090a0d",
-    theme_color: "#3a0d1c",
+    background_color: "#120207",
+    theme_color: "#3f0e21",
     icons: [
+      {
+        src: "/icon.png",
+        sizes: "96x96",
+        type: "image/png",
+      },
       {
         src: "/icon.svg",
         sizes: "any",

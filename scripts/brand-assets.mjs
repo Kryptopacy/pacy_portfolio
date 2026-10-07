@@ -7,7 +7,7 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const SRC_LOGO = path.join(root, "brand-source", "pacylabs_logo.png");
 const SRC_OG = path.join(root, "brand-source", "pacylabs_og_image.jpg");
-const BURGUNDY = "#3a0d1c";
+const BURGUNDY = "#3f0e21"; // Authentic background sampled from the original logo
 
 await fs.mkdir(path.join(root, "public", "brand"), { recursive: true });
 await fs.mkdir(path.join(root, "public", "icons"), { recursive: true });
@@ -59,49 +59,84 @@ const pad = (buf, size, padPct) =>
       background: { r: 0, g: 0, b: 0, alpha: 0 },
     });
 
+// Primary transparent brand assets
 await (await pad(trimmed, 1024, 0.02)).png({ compressionLevel: 9, palette: false }).toFile(path.join(root, "public", "brand", "pacylabs-logo.png"));
 await (await pad(trimmed, 1024, 0.02)).webp({ quality: 90, alphaQuality: 100 }).toFile(path.join(root, "public", "brand", "pacylabs-logo.webp"));
 await (await pad(trimmed, 256, 0.02)).webp({ quality: 90, alphaQuality: 100 }).toFile(path.join(root, "public", "brand", "pacylabs-logo-256.webp"));
 
 // ---------------------------------------------------------------------------
-// 2. Spade mark (vector) — legible at 16px where the full lockup is not.
+// 2. Real Logo Favicon & Icon Generation
+//    Directly using the user's authentic Pacy Labs circuit spade & typography!
 // ---------------------------------------------------------------------------
-const spadePath =
-  "M32 7C32 7 11 24.5 11 37.5C11 45.6 17.4 50.6 24.6 48.8C27.2 48.1 29.1 46.6 30.2 44.7L26.6 55.5H37.4L33.8 44.7C34.9 46.6 36.8 48.1 39.4 48.8C46.6 50.6 53 45.6 53 37.5C53 24.5 32 7 32 7Z";
-const markSvg = (withBg) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f6dc8c"/>
-      <stop offset="0.55" stop-color="#d9a648"/>
-      <stop offset="1" stop-color="#a8702a"/>
-    </linearGradient>
-  </defs>
-  ${withBg ? `<rect width="64" height="64" rx="14" fill="${BURGUNDY}"/>` : ""}
-  <path d="${spadePath}" fill="url(#g)"/>
-  <circle cx="32" cy="31" r="3.2" fill="${withBg ? BURGUNDY : "#1a070d"}"/>
-  <path d="M32 34.2V41" stroke="${withBg ? BURGUNDY : "#1a070d"}" stroke-width="2.2" stroke-linecap="round"/>
-</svg>
-`;
-await fs.writeFile(path.join(root, "src", "app", "icon.svg"), markSvg(true));
-await fs.writeFile(path.join(root, "public", "brand", "pacylabs-mark.svg"), markSvg(false));
+const renderRealFavicon = async (size) => {
+  const rx = Math.max(3, Math.round(size * 0.19));
+  const innerSize = Math.max(12, Math.round(size * 0.90));
+  const bgSvg = `<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" rx="${rx}" fill="${BURGUNDY}"/></svg>`;
+  const bgBuf = await sharp(Buffer.from(bgSvg)).png().toBuffer();
+  
+  const logoInner = await sharp(trimmed)
+    .resize(innerSize, innerSize, { fit: "contain" })
+    .sharpen({ sigma: size <= 32 ? 0.9 : 0.6, m1: 1.5 })
+    .png()
+    .toBuffer();
 
-// favicon.ico — PNG-in-ICO container (16/32/48)
+  return sharp(bgBuf)
+    .composite([{ input: logoInner, gravity: "centre" }])
+    .png()
+    .toBuffer();
+};
+
+// Generate multi-resolution ICO file (16, 32, 48)
 const icoSizes = [16, 32, 48];
-const pngs = await Promise.all(icoSizes.map((s) => sharp(Buffer.from(markSvg(true)), { density: 384 }).resize(s, s).png().toBuffer()));
+const pngs = await Promise.all(icoSizes.map((s) => renderRealFavicon(s)));
 const header = Buffer.alloc(6 + 16 * pngs.length);
-header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(pngs.length, 4);
+header.writeUInt16LE(0, 0); 
+header.writeUInt16LE(1, 2); 
+header.writeUInt16LE(pngs.length, 4);
+
 let offset = header.length;
 pngs.forEach((png, idx) => {
   const e = 6 + idx * 16, s = icoSizes[idx];
-  header.writeUInt8(s, e); header.writeUInt8(s, e + 1); header.writeUInt8(0, e + 2); header.writeUInt8(0, e + 3);
-  header.writeUInt16LE(1, e + 4); header.writeUInt16LE(32, e + 6);
-  header.writeUInt32LE(png.length, e + 8); header.writeUInt32LE(offset, e + 12);
+  header.writeUInt8(s, e); 
+  header.writeUInt8(s, e + 1); 
+  header.writeUInt8(0, e + 2); 
+  header.writeUInt8(0, e + 3);
+  header.writeUInt16LE(1, e + 4); 
+  header.writeUInt16LE(32, e + 6);
+  header.writeUInt32LE(png.length, e + 8); 
+  header.writeUInt32LE(offset, e + 12);
   offset += png.length;
 });
-await fs.writeFile(path.join(root, "src", "app", "favicon.ico"), Buffer.concat([header, ...pngs]));
+
+const icoBuffer = Buffer.concat([header, ...pngs]);
+await fs.writeFile(path.join(root, "src", "app", "favicon.ico"), icoBuffer);
+await fs.writeFile(path.join(root, "public", "favicon.ico"), icoBuffer);
+
+// Generate canonical Next.js icon.png (96x96 and 32x32)
+const icon96 = await renderRealFavicon(96);
+const icon32 = await renderRealFavicon(32);
+await fs.writeFile(path.join(root, "src", "app", "icon.png"), icon96);
+await fs.writeFile(path.join(root, "public", "icon.png"), icon96);
+await fs.writeFile(path.join(root, "public", "favicon-32x32.png"), icon32);
+
+// Generate crisp SVG favicon embedding high-resolution real logo
+const logo512Buf = await (await pad(trimmed, 440, 0.01)).png().toBuffer();
+const logoBase64 = logo512Buf.toString("base64");
+const realSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="${BURGUNDY}"/>
+  <image href="data:image/png;base64,${logoBase64}" width="440" height="440" x="36" y="36"/>
+</svg>
+`;
+await fs.writeFile(path.join(root, "src", "app", "icon.svg"), realSvg);
+
+const realSvgTransparent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <image href="data:image/png;base64,${logoBase64}" width="512" height="512" x="0" y="0"/>
+</svg>
+`;
+await fs.writeFile(path.join(root, "public", "brand", "pacylabs-mark.svg"), realSvgTransparent);
 
 // ---------------------------------------------------------------------------
-// 3. App icons — full lockup on burgundy for >=180px surfaces
+// 3. App icons — Apple touch icon & PWA icons with the real logo
 // ---------------------------------------------------------------------------
 const onBurgundy = async (size, padPct) =>
   sharp({ create: { width: size, height: size, channels: 4, background: BURGUNDY } })
@@ -109,6 +144,7 @@ const onBurgundy = async (size, padPct) =>
     .png({ compressionLevel: 9 });
 
 await (await onBurgundy(180, 0.08)).toFile(path.join(root, "src", "app", "apple-icon.png"));
+await (await onBurgundy(180, 0.08)).toFile(path.join(root, "public", "apple-touch-icon.png"));
 await (await onBurgundy(192, 0.08)).toFile(path.join(root, "public", "icons", "icon-192.png"));
 await (await onBurgundy(512, 0.08)).toFile(path.join(root, "public", "icons", "icon-512.png"));
 await (await onBurgundy(512, 0.18)).toFile(path.join(root, "public", "icons", "maskable-512.png"));
@@ -123,4 +159,4 @@ const alt = "Pacy Labs — Olamilekan David Adegoke, Full-Stack Systems Architec
 await fs.writeFile(path.join(root, "src", "app", "opengraph-image.alt.txt"), alt);
 await fs.writeFile(path.join(root, "src", "app", "twitter-image.alt.txt"), alt);
 
-console.log("bg sampled:", bg.map(Math.round), "→ assets written");
+console.log("Real logo pipeline complete! All favicons, SVGs, ICOs, and app icons generated from actual Pacy Labs logo.");
