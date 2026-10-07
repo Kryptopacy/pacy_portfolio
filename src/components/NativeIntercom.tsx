@@ -85,7 +85,7 @@ Dispatched from pacylabs.xyz`;
             className="flex items-center gap-2 border border-[#d9a648]/40 bg-gradient-to-r from-[#3a0d1c]/90 to-[#58142c]/90 px-4 py-2 text-[#f6dc8c] hover:border-[#d9a648]/80 hover:shadow-[0_0_20px_rgba(217,166,72,0.3)] transition-all font-mono text-xs shadow-2xl rounded-sm"
             aria-label="Open Direct Dispatch"
           >
-            <span>Dispatch / Message</span>
+            <span>Message Me</span>
             <MessageSquare className="h-3.5 w-3.5 text-[#f6dc8c]" />
           </button>
         )}
@@ -99,8 +99,7 @@ Dispatched from pacylabs.xyz`;
             <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
               <div>
                 <span className="font-mono text-[10px] uppercase tracking-wider text-[#f6dc8c] flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648] animate-pulse" />
-                  <span>Direct Dispatch Channel</span>
+                  <span>Direct Message Channel</span>
                 </span>
                 <h3 className="font-medium text-white text-sm">
                   Olamilekan David Adegoke

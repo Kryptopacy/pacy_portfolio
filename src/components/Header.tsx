@@ -38,7 +38,6 @@ export default function Header({ onOpenIntercom }: HeaderProps) {
               <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-white group-hover:text-[#f6dc8c] transition-colors">
                 PACY LABS
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648] shadow-[0_0_8px_#d9a648] animate-pulse" />
             </div>
             <span className="font-mono text-[9px] text-[#a39299] uppercase tracking-tight">
               Olamilekan David Adegoke &bull; OD
@@ -85,7 +84,7 @@ export default function Header({ onOpenIntercom }: HeaderProps) {
             onClick={onOpenIntercom}
             className="inline-flex items-center gap-2 border border-[#d9a648]/40 bg-gradient-to-r from-[#3a0d1c]/80 to-[#58142c]/70 hover:from-[#58142c]/90 hover:to-[#3a0d1c]/90 px-3.5 py-1.5 font-mono text-xs text-[#f6dc8c] hover:border-[#d9a648]/80 hover:shadow-[0_0_15px_rgba(217,166,72,0.25)] transition-all duration-200"
           >
-            <span>Dispatch</span>
+            <span>Message Me</span>
             <MessageSquare className="h-3 w-3 text-[#f6dc8c]" />
           </button>
         </div>
