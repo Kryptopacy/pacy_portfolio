@@ -86,7 +86,25 @@ export default function Footer() {
                 <span>Email: pacy@cruisehq.fun</span>
               </a>
             </div>
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2">
+              <a
+                href="https://www.linkedin.com/in/olamilekanadegoke"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-zinc-400 hover:text-[#f6dc8c] transition-colors"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
+              <a
+                href="https://x.com/kryptopacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-zinc-400 hover:text-[#f6dc8c] transition-colors"
+              >
+                <span>X (@kryptopacy)</span>
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
               <a
                 href="https://github.com/kryptopacy"
                 target="_blank"

@@ -30,9 +30,39 @@ export default function DossierPage() {
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6">
             Clinical Diagnostic Rigor in Distributed Systems
           </h1>
-          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
+          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed mb-6">
             Medical diagnosis leaves zero room for trial-and-error in production. I translate the differential diagnostic methodology directly into software architecture—ruling out race conditions, proving concurrency boundaries, and engineering platforms that never fail under real monetary stakes.
           </p>
+
+          <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-zinc-400">
+            <a
+              href="https://www.linkedin.com/in/olamilekanadegoke"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-[#f6dc8c] transition-colors border border-white/10 px-3 py-1.5 bg-black/40"
+            >
+              <span>LinkedIn / olamilekanadegoke</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
+            <a
+              href="https://x.com/kryptopacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-[#f6dc8c] transition-colors border border-white/10 px-3 py-1.5 bg-black/40"
+            >
+              <span>X / @kryptopacy</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
+            <a
+              href="https://github.com/kryptopacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-[#f6dc8c] transition-colors border border-white/10 px-3 py-1.5 bg-black/40"
+            >
+              <span>GitHub / kryptopacy</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          </div>
         </div>
 
         {/* The Diagnostic Manifesto Card (2026 Glassmorphism) */}

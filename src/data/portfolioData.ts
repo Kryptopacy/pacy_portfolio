@@ -769,6 +769,9 @@ export const EXECUTIVE_PROFILE = {
   phone: "+234 913 026 2529",
   email: "pacy@cruisehq.fun",
   github: "https://github.com/kryptopacy",
+  twitter: "https://x.com/kryptopacy",
+  x: "https://x.com/kryptopacy",
+  linkedin: "https://www.linkedin.com/in/olamilekanadegoke",
   devto: "https://dev.to/kryptopacy",
   website: "https://pacylabs.xyz",
   education: {

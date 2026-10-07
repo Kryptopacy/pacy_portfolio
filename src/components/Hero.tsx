@@ -42,21 +42,12 @@ export default function Hero() {
           </div>
 
           <div className="flex items-center gap-3 text-[11px] text-zinc-400">
-            <span className="flex items-center gap-1.5 text-[#f6dc8c] border border-[#d9a648]/30 px-2 py-0.5 bg-[#3a0d1c]/40 font-mono">
-              <Activity className="h-3 w-3 text-[#d9a648]" />
-              <span>9 PRODUCTION SYSTEMS ACTIVE</span>
-            </span>
-            <span className="hidden md:inline text-zinc-500">&bull; EST. 2026</span>
+            <span className="text-zinc-500 font-mono">EST. 2026</span>
           </div>
         </div>
 
         {/* Master Headline Section */}
         <div className="max-w-5xl mb-14">
-          <div className="inline-flex items-center gap-2 font-mono text-xs text-[#f6dc8c] border border-[#d9a648]/30 px-3 py-1 bg-[#3a0d1c]/30 mb-6 backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-[#d9a648]" />
-            <span className="tracking-widest uppercase text-[10px]">High-Concurrency State Machines &bull; W3C WebMCP Standard</span>
-          </div>
-
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.06] mb-8">
             Engineering deterministic platforms and autonomous agent architectures.
           </h1>

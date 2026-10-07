@@ -116,8 +116,28 @@ export default function FounderSection() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-zinc-400">
-              <span>Direct Routing:</span>
+            <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs text-zinc-400">
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://www.linkedin.com/in/olamilekanadegoke"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-[#f6dc8c] transition-colors"
+                >
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="h-3 w-3" />
+                </a>
+                <span className="text-zinc-600">&bull;</span>
+                <a
+                  href="https://x.com/kryptopacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-zinc-300 hover:text-[#f6dc8c] transition-colors"
+                >
+                  <span>X (@kryptopacy)</span>
+                  <ArrowUpRight className="h-3 w-3" />
+                </a>
+              </div>
               <a
                 href="mailto:pacy@cruisehq.fun"
                 className="text-[#f6dc8c] hover:underline"
