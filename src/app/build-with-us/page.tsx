@@ -67,18 +67,19 @@ ${projectBrief || "Full architecture consultation requested."}
   };
 
   return (
-    <div className="py-14 sm:py-24 bg-[#090a0d]">
+    <div className="py-14 sm:py-24 bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         
         {/* Header */}
         <div className="mb-14 max-w-3xl">
-          <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">
-            COMMISSIONS &bull; CLIENT ADVISORY
+          <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="text-[#f6dc8c]">&bull;</span>
+            <span>COMMISSIONS &bull; CLIENT ADVISORY</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6">
             Commission an Enterprise Platform
           </h1>
-          <p className="text-base sm:text-xl text-zinc-300 font-light leading-relaxed">
+          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
             I partner directly with founders, enterprise executives, and institutions requiring zero-error operational systems. From custom hotel operating systems to W3C WebMCP agent infrastructure, every build is delivered with clinical diagnostic precision.
           </p>
         </div>
@@ -89,8 +90,10 @@ ${projectBrief || "Full architecture consultation requested."}
           <div className="lg:col-span-7 space-y-10">
             {/* Step 1: Platform Type */}
             <div className="space-y-4">
-              <label className="block font-mono text-xs text-zinc-400 uppercase tracking-wider">
-                01 / SELECT PLATFORM ARCHITECTURE
+              <label className="block font-mono text-xs text-[#f6dc8c] uppercase tracking-wider flex items-center gap-2">
+                <span>01</span>
+                <span>/</span>
+                <span>SELECT PLATFORM ARCHITECTURE</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
                 {[
@@ -105,10 +108,10 @@ ${projectBrief || "Full architecture consultation requested."}
                     key={type}
                     type="button"
                     onClick={() => setPlatformType(type)}
-                    className={`p-3.5 text-left border transition-colors ${
+                    className={`p-3.5 text-left border transition-all ${
                       platformType === type
-                        ? "border-white bg-zinc-100 text-black font-semibold"
-                        : "border-white/10 bg-[#0e1015] text-zinc-400 hover:border-white/30 hover:text-white"
+                        ? "bg-[#3a0d1c] text-[#f6dc8c] border-[#d9a648]/50 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                        : "glass-chip text-zinc-400 hover:border-white/30 hover:text-white"
                     }`}
                   >
                     {type}
@@ -119,8 +122,10 @@ ${projectBrief || "Full architecture consultation requested."}
 
             {/* Step 2: Concurrency & Infrastructure Features */}
             <div className="space-y-4">
-              <label className="block font-mono text-xs text-zinc-400 uppercase tracking-wider">
-                02 / REQUIRED ARCHITECTURAL MODULES
+              <label className="block font-mono text-xs text-[#f6dc8c] uppercase tracking-wider flex items-center gap-2">
+                <span>02</span>
+                <span>/</span>
+                <span>REQUIRED ARCHITECTURAL MODULES</span>
               </label>
               <div className="grid grid-cols-1 gap-2.5 font-mono text-xs">
                 {availableFeatures.map((feature) => {
@@ -130,16 +135,16 @@ ${projectBrief || "Full architecture consultation requested."}
                       key={feature}
                       type="button"
                       onClick={() => toggleFeature(feature)}
-                      className={`flex items-center gap-3 p-3 text-left border transition-colors ${
+                      className={`flex items-center gap-3 p-3 text-left border transition-all ${
                         isChecked
-                          ? "border-white/40 bg-white/5 text-white"
-                          : "border-white/10 bg-[#0e1015] text-zinc-400 hover:border-white/25 hover:text-white"
+                          ? "border-[#d9a648]/40 bg-[#3a0d1c]/40 text-[#f6dc8c] shadow-[0_0_10px_rgba(217,166,72,0.15)]"
+                          : "glass-chip text-zinc-400 hover:border-white/25 hover:text-white"
                       }`}
                     >
                       <div
                         className={`h-4 w-4 border flex items-center justify-center shrink-0 ${
                           isChecked
-                            ? "border-white bg-white text-black"
+                            ? "border-[#d9a648] bg-[#d9a648] text-[#120207]"
                             : "border-white/20"
                         }`}
                       >
@@ -154,8 +159,10 @@ ${projectBrief || "Full architecture consultation requested."}
 
             {/* Step 3: Target Timeline */}
             <div className="space-y-4">
-              <label className="block font-mono text-xs text-zinc-400 uppercase tracking-wider">
-                03 / TARGET DELIVERY WINDOW
+              <label className="block font-mono text-xs text-[#f6dc8c] uppercase tracking-wider flex items-center gap-2">
+                <span>03</span>
+                <span>/</span>
+                <span>TARGET DELIVERY WINDOW</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
                 {[
@@ -167,10 +174,10 @@ ${projectBrief || "Full architecture consultation requested."}
                     key={t}
                     type="button"
                     onClick={() => setTimeline(t)}
-                    className={`p-3 text-center border transition-colors ${
+                    className={`p-3 text-center border transition-all ${
                       timeline === t
-                        ? "border-white bg-zinc-100 text-black font-semibold"
-                        : "border-white/10 bg-[#0e1015] text-zinc-400 hover:border-white/25 hover:text-white"
+                        ? "bg-[#3a0d1c] text-[#f6dc8c] border-[#d9a648]/50 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                        : "glass-chip text-zinc-400 hover:border-white/25 hover:text-white"
                     }`}
                   >
                     {t}
@@ -181,8 +188,10 @@ ${projectBrief || "Full architecture consultation requested."}
 
             {/* Step 4: Contact Details */}
             <div className="space-y-4">
-              <label className="block font-mono text-xs text-zinc-400 uppercase tracking-wider">
-                04 / CONTACT INFORMATION &amp; BRIEF
+              <label className="block font-mono text-xs text-[#f6dc8c] uppercase tracking-wider flex items-center gap-2">
+                <span>04</span>
+                <span>/</span>
+                <span>CONTACT INFORMATION &amp; BRIEF</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
@@ -190,14 +199,14 @@ ${projectBrief || "Full architecture consultation requested."}
                   placeholder="Your Name"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="border border-white/10 bg-black/60 p-3 font-mono text-xs text-white placeholder-zinc-600 focus:border-white focus:outline-none"
+                  className="glass-input p-3 font-mono text-xs text-white placeholder-zinc-500 focus:outline-none"
                 />
                 <input
                   type="email"
                   placeholder="Your Email"
                   value={clientEmail}
                   onChange={(e) => setClientEmail(e.target.value)}
-                  className="border border-white/10 bg-black/60 p-3 font-mono text-xs text-white placeholder-zinc-600 focus:border-white focus:outline-none"
+                  className="glass-input p-3 font-mono text-xs text-white placeholder-zinc-500 focus:outline-none"
                 />
               </div>
               <input
@@ -205,23 +214,24 @@ ${projectBrief || "Full architecture consultation requested."}
                 placeholder="Company / Organization Name"
                 value={clientOrg}
                 onChange={(e) => setClientOrg(e.target.value)}
-                className="w-full border border-white/10 bg-black/60 p-3 font-mono text-xs text-white placeholder-zinc-600 focus:border-white focus:outline-none"
+                className="w-full glass-input p-3 font-mono text-xs text-white placeholder-zinc-500 focus:outline-none"
               />
               <textarea
                 rows={4}
                 placeholder="Briefly describe operational bottlenecks, required user roles, payment channels, or expected launch timing..."
                 value={projectBrief}
                 onChange={(e) => setProjectBrief(e.target.value)}
-                className="w-full border border-white/10 bg-black/60 p-3 font-mono text-xs text-white placeholder-zinc-600 focus:border-white focus:outline-none resize-none"
+                className="w-full glass-input p-3 font-mono text-xs text-white placeholder-zinc-500 focus:outline-none resize-none"
               />
             </div>
           </div>
 
           {/* Right Column: Dynamic Spec & Dispatch (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="sticky top-24 border border-white/10 bg-[#0e1015] p-6 sm:p-8 space-y-6">
-              <div className="pb-4 hairline-b font-mono text-xs text-zinc-400">
-                COMMISSION SPECIFICATION
+            <div className="sticky top-24 glass-panel p-6 sm:p-8 space-y-6 rounded-sm">
+              <div className="pb-4 hairline-b font-mono text-xs text-[#f6dc8c] flex items-center justify-between">
+                <span>COMMISSION SPECIFICATION</span>
+                <span className="text-[10px] border border-[#d9a648]/40 bg-[#3a0d1c]/50 px-1.5 py-0.5">ENCRYPTED</span>
               </div>
 
               {/* Dynamic Summary */}
@@ -242,7 +252,7 @@ ${projectBrief || "Full architecture consultation requested."}
                   </div>
                   <ul className="space-y-1.5 text-zinc-300 max-h-36 overflow-y-auto pr-1">
                     {selectedFeatures.map((f, i) => (
-                      <li key={i} className="text-xs text-zinc-400 border-l border-white/15 pl-2 leading-relaxed">
+                      <li key={i} className="text-xs text-zinc-400 border-l border-[#d9a648]/40 pl-2 leading-relaxed">
                         {f}
                       </li>
                     ))}
@@ -256,9 +266,9 @@ ${projectBrief || "Full architecture consultation requested."}
                 <button
                   type="button"
                   onClick={handleWhatsAppDispatch}
-                  className="flex items-center justify-center gap-2.5 w-full bg-zinc-100 hover:bg-white p-3.5 font-mono text-xs font-semibold text-black transition-colors"
+                  className="flex items-center justify-center gap-2.5 w-full bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-105 p-3.5 font-mono text-xs font-semibold text-[#120207] transition-all shadow-[0_0_20px_rgba(217,166,72,0.25)]"
                 >
-                  <MessageSquare className="h-4 w-4" />
+                  <MessageSquare className="h-4 w-4 text-[#120207]" />
                   <span>Dispatch via WhatsApp (+234 913 026 2529)</span>
                 </button>
 
@@ -266,7 +276,7 @@ ${projectBrief || "Full architecture consultation requested."}
                 <button
                   type="button"
                   onClick={handleEmailDispatch}
-                  className="flex items-center justify-center gap-2.5 w-full border border-white/20 bg-transparent hover:border-white/40 p-3.5 font-mono text-xs font-semibold text-white transition-colors"
+                  className="flex items-center justify-center gap-2.5 w-full glass-chip hover:border-[#d9a648]/40 hover:text-[#f6dc8c] p-3.5 font-mono text-xs font-semibold text-white transition-all"
                 >
                   <Mail className="h-4 w-4" />
                   <span>Send Direct Email (pacy@cruisehq.fun)</span>
@@ -274,8 +284,11 @@ ${projectBrief || "Full architecture consultation requested."}
               </div>
 
               {/* SLA Specification */}
-              <div className="border border-white/10 bg-black/40 p-4 font-mono text-xs text-zinc-400 space-y-2">
-                <div className="text-zinc-200 font-medium">Pacy Labs Architecture SLA</div>
+              <div className="glass-chip p-4 font-mono text-xs text-zinc-400 space-y-2 border border-[#d9a648]/20">
+                <div className="text-[#f6dc8c] font-medium flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]" />
+                  <span>Pacy Labs Architecture SLA</span>
+                </div>
                 <p className="text-[11px] leading-relaxed">
                   Guaranteed zero race conditions, atomic database transactions, 100% test coverage on mission-critical revenue RPCs, and full post-deployment handover documentation.
                 </p>

@@ -19,16 +19,16 @@ export default function Hero() {
   const [lensMode, setLensMode] = useState<"systems" | "clinical">("systems");
 
   return (
-    <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 hairline-b bg-[#090a0d] overflow-hidden">
-      {/* Ambient Brand Atmosphere: Deep Burgundy Core & Warm Circuit Gold Corona */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-[radial-gradient(ellipse_at_top,_rgba(58,13,28,0.45)_0%,_rgba(217,166,72,0.12)_40%,_transparent_75%)] blur-3xl opacity-80" />
+    <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 hairline-b bg-transparent overflow-hidden">
+      {/* Ambient Brand Atmosphere: Deep Imperial Burgundy Core & Circuit Gold Corona */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[radial-gradient(ellipse_at_top,_rgba(88,18,42,0.65)_0%,_rgba(58,13,28,0.40)_35%,_rgba(217,166,72,0.14)_60%,_transparent_80%)] blur-3xl opacity-85" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
 
         {/* Editorial Topline with Pacy Labs Insignia */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-12 hairline-b font-mono text-xs text-zinc-400">
           <div className="flex items-center gap-2.5">
-            <div className="h-6 w-6 relative shrink-0 p-0.5 rounded border border-[#d9a648]/40 bg-[#3a0d1c]/40">
+            <div className="h-6 w-6 relative shrink-0 p-0.5 rounded border border-[#d9a648]/50 bg-gradient-to-br from-[#3a0d1c]/90 to-[#140308] shadow-[0_0_12px_rgba(217,166,72,0.25)]">
               <Image
                 src="/brand/pacylabs-logo-256.webp"
                 alt="Pacy Labs Logo Mark"
@@ -54,7 +54,7 @@ export default function Hero() {
             Engineering deterministic platforms with clinical diagnostic precision.
           </h1>
 
-          <p className="text-base sm:text-xl text-zinc-400 font-light leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed max-w-3xl">
             In clinical differential diagnosis across{" "}
             <span className="text-white font-medium">1,500+ patient encounters</span>,
             diagnostic triage leaves zero margin for error. I bring that clinical rigor directly
@@ -64,23 +64,23 @@ export default function Hero() {
         </div>
 
         {/* Perspective Lens Toggle */}
-        <div className="mb-14 max-w-4xl border border-white/10 bg-[#0e1015] p-6 sm:p-7 glow-on-hover transition-all duration-300">
+        <div className="mb-14 max-w-4xl glass-panel p-6 sm:p-7 glow-on-hover transition-all duration-300">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-white/10">
             <span className="font-mono text-xs tracking-wider text-zinc-400 uppercase flex items-center gap-2">
-              <span className="text-sky-400">PERSPECTIVE MATRIX</span>
+              <span className="text-[#f6dc8c]">PERSPECTIVE MATRIX</span>
               <span className="text-zinc-600">/</span>
               <span>OPERATIONAL LENS</span>
             </span>
 
             {/* Segmented Control */}
-            <div className="flex items-center border border-white/15 bg-black/60 p-0.5 font-mono text-xs">
+            <div className="flex items-center glass-chip p-0.5 font-mono text-xs">
               <button
                 type="button"
                 onClick={() => setLensMode("systems")}
                 className={`px-3 py-1.5 transition-all duration-200 ${
                   lensMode === "systems"
-                    ? "bg-zinc-100 text-black font-semibold"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                    : "text-zinc-400 hover:text-white"
                 }`}
               >
                 Systems Architecture
@@ -90,8 +90,8 @@ export default function Hero() {
                 onClick={() => setLensMode("clinical")}
                 className={`px-3 py-1.5 transition-all duration-200 ${
                   lensMode === "clinical"
-                    ? "bg-zinc-100 text-black font-semibold"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5"
+                    ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                    : "text-zinc-400 hover:text-white"
                 }`}
               >
                 Clinical Differential
@@ -102,7 +102,7 @@ export default function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
             {lensMode === "systems" ? (
               <>
-                <div className="space-y-1.5 border-l-2 border-sky-500/50 pl-4 bg-sky-950/10 py-2 transition-all duration-200 hover:bg-sky-950/20 hover:border-sky-400/70">
+                <div className="space-y-1.5 border-l-2 border-sky-500/50 pl-4 bg-sky-950/15 py-2 transition-all duration-200 hover:bg-sky-950/25 hover:border-sky-400/70">
                   <div className="text-sky-400 uppercase text-[11px] tracking-widest">01 / Concurrency Control</div>
                   <div className="text-white font-medium text-sm">Atomic PL/pgSQL RPCs</div>
                   <p className="text-zinc-400 text-xs leading-relaxed font-sans">
@@ -110,7 +110,7 @@ export default function Hero() {
                   </p>
                 </div>
 
-                <div className="space-y-1.5 border-l-2 border-indigo-500/50 pl-4 bg-indigo-950/10 py-2 transition-all duration-200 hover:bg-indigo-950/20 hover:border-indigo-400/70">
+                <div className="space-y-1.5 border-l-2 border-indigo-500/50 pl-4 bg-indigo-950/15 py-2 transition-all duration-200 hover:bg-indigo-950/25 hover:border-indigo-400/70">
                   <div className="text-indigo-400 uppercase text-[11px] tracking-widest">02 / Agent Protocols</div>
                   <div className="text-white font-medium text-sm">W3C WebMCP Standard</div>
                   <p className="text-zinc-400 text-xs leading-relaxed font-sans">
@@ -118,7 +118,7 @@ export default function Hero() {
                   </p>
                 </div>
 
-                <div className="space-y-1.5 border-l-2 border-amber-500/50 pl-4 bg-amber-950/10 py-2 transition-all duration-200 hover:bg-amber-950/20 hover:border-amber-400/70">
+                <div className="space-y-1.5 border-l-2 border-amber-500/50 pl-4 bg-amber-950/15 py-2 transition-all duration-200 hover:bg-amber-950/25 hover:border-amber-400/70">
                   <div className="text-amber-400 uppercase text-[11px] tracking-widest">03 / Blast Radius Bounds</div>
                   <div className="text-white font-medium text-sm">EIP-7702 &amp; APEX Escrow</div>
                   <p className="text-zinc-400 text-xs leading-relaxed font-sans">
@@ -128,7 +128,7 @@ export default function Hero() {
               </>
             ) : (
               <>
-                <div className="space-y-1.5 border-l-2 border-amber-500/50 pl-4 bg-amber-950/10 py-2 transition-all duration-200 hover:bg-amber-950/20 hover:border-amber-400/70">
+                <div className="space-y-1.5 border-l-2 border-amber-500/50 pl-4 bg-amber-950/15 py-2 transition-all duration-200 hover:bg-amber-950/25 hover:border-amber-400/70">
                   <div className="text-amber-400 uppercase text-[11px] tracking-widest">01 / Differential Triage</div>
                   <div className="text-white font-medium text-sm">Isolating Pathologies</div>
                   <p className="text-zinc-400 text-xs leading-relaxed font-sans">
@@ -136,7 +136,7 @@ export default function Hero() {
                   </p>
                 </div>
 
-                <div className="space-y-1.5 border-l-2 border-rose-500/50 pl-4 bg-rose-950/10 py-2 transition-all duration-200 hover:bg-rose-950/20 hover:border-rose-400/70">
+                <div className="space-y-1.5 border-l-2 border-rose-500/50 pl-4 bg-rose-950/15 py-2 transition-all duration-200 hover:bg-rose-950/25 hover:border-rose-400/70">
                   <div className="text-rose-400 uppercase text-[11px] tracking-widest">02 / Error Tolerance</div>
                   <div className="text-white font-medium text-sm">Zero False-Positive Target</div>
                   <p className="text-zinc-400 text-xs leading-relaxed font-sans">
@@ -144,7 +144,7 @@ export default function Hero() {
                   </p>
                 </div>
 
-                <div className="space-y-1.5 border-l-2 border-emerald-500/50 pl-4 bg-emerald-950/10 py-2 transition-all duration-200 hover:bg-emerald-950/20 hover:border-emerald-400/70">
+                <div className="space-y-1.5 border-l-2 border-emerald-500/50 pl-4 bg-emerald-950/15 py-2 transition-all duration-200 hover:bg-emerald-950/25 hover:border-emerald-400/70">
                   <div className="text-emerald-400 uppercase text-[11px] tracking-widest">03 / Clinical Crossover</div>
                   <div className="text-white font-medium text-sm">Deterministic Software</div>
                   <p className="text-zinc-400 text-xs leading-relaxed font-sans">
@@ -158,21 +158,22 @@ export default function Hero() {
 
         {/* Proprietary Platforms Index — No commercial links here */}
         <div className="mb-12">
-          <div className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-4">
-            — 7 Proprietary Systems
+          <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+            <span className="text-[#f6dc8c]">&bull;</span>
+            <span>7 Proprietary Production Systems</span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 fade-up-stagger">
             {PROPRIETARY_HIGHLIGHTS.map((p) => (
               <Link
                 key={p.id}
                 href={`/projects/${p.id}`}
-                className={`group block border ${p.border} ${p.hoverBorder} bg-[#0e1015] px-4 py-3 transition-all duration-250 hover:bg-[#12151c] lift-hover`}
+                className={`group block border ${p.border} ${p.hoverBorder} glass-panel-interactive px-4 py-3 lift-hover`}
               >
                 <div className={`text-xs font-mono font-medium truncate ${p.color} mb-1 arrow-nudge`}>
                   {p.label}
                   <ArrowUpRight className="h-2.5 w-2.5 opacity-0 group-hover:opacity-100 transition-opacity -mt-0.5" />
                 </div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider truncate">
+                <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider truncate">
                   {p.sub}
                 </div>
               </Link>
@@ -180,13 +181,14 @@ export default function Hero() {
             {/* Commission CTA tile */}
             <Link
               href="/build-with-us"
-              className="group block border border-white/10 hover:border-white/25 bg-[#0e1015] px-4 py-3 transition-all duration-250 hover:bg-[#12151c] lift-hover"
+              className="group block border border-[#d9a648]/40 hover:border-[#d9a648]/80 glass-panel-interactive px-4 py-3 lift-hover bg-gradient-to-br from-[#3a0d1c]/40 to-transparent"
             >
-              <div className="text-xs font-mono text-zinc-300 group-hover:text-white mb-1 transition-colors">
-                Commission a Build
+              <div className="text-xs font-mono text-[#f6dc8c] group-hover:text-white mb-1 transition-colors flex items-center justify-between">
+                <span>Commission an OS</span>
+                <ArrowRight className="h-3 w-3 text-[#d9a648]" />
               </div>
-              <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider">
-                + Enterprise Contract →
+              <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">
+                Enterprise Contract
               </div>
             </Link>
           </div>
@@ -196,18 +198,18 @@ export default function Hero() {
         <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/08">
           <Link
             href="/build-with-us"
-            className="inline-flex items-center gap-2 bg-zinc-100 px-6 py-3 font-mono text-xs font-semibold text-black hover:bg-white transition-all duration-200 cta-slide"
+            className="inline-flex items-center gap-2 bg-[#f6dc8c] hover:bg-white px-6 py-3 font-mono text-xs font-semibold text-[#120207] transition-all duration-200 shadow-[0_0_20px_rgba(217,166,72,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
           >
             <span>Commission an Enterprise Build</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#120207]" />
           </Link>
 
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 border border-white/20 bg-black/40 px-6 py-3 font-mono text-xs text-zinc-300 hover:border-white/40 hover:text-white transition-all duration-200 hover:bg-white/5"
+            className="inline-flex items-center gap-2 glass-panel-interactive border border-white/20 px-6 py-3 font-mono text-xs text-zinc-200 hover:border-[#d9a648]/50 hover:text-[#f6dc8c] transition-all duration-200"
           >
             <span>Explore All Production Blueprints</span>
-            <ArrowRight className="h-4 w-4 text-zinc-500 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 text-[#d9a648] transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </div>

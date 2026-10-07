@@ -72,32 +72,34 @@ export default function SkillsPage() {
   };
 
   return (
-    <div className="py-14 sm:py-24 bg-[#090a0d]">
+    <div className="py-14 sm:py-24 bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         
         {/* Header */}
         <div className="mb-14 max-w-3xl">
-          <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">
-            AGENT CAPABILITIES &bull; OPEN TOOLING
+          <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="text-[#f6dc8c]">&bull;</span>
+            <span>AGENT CAPABILITIES &bull; OPEN TOOLING</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6">
             Autonomous Agent Protocols &amp; Audit Skills
           </h1>
-          <p className="text-base sm:text-xl text-zinc-300 font-light leading-relaxed">
+          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
             I don’t just build applications for human eyes—I architect protocols that instruct autonomous AI coding agents (Claude Code, Cursor, OpenCode, Codex) to integrate open standards, conduct paranoid security audits, and verify production guarantees.
           </p>
         </div>
 
-        {/* Interactive Terminal Simulator Box (No vanity pills) */}
-        <div className="mb-16 border border-white/10 bg-[#0e1015] overflow-hidden">
+        {/* Interactive Terminal Simulator Box (2026 Glassmorphism) */}
+        <div className="mb-16 glass-panel overflow-hidden">
           {/* Terminal Title Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-3.5 hairline-b bg-black/60 font-mono text-xs">
-            <span className="text-zinc-400">
-              pacy-agent-runner / interactive_eval
+          <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-3.5 hairline-b bg-[#16030a]/75 backdrop-blur-md font-mono text-xs">
+            <span className="text-zinc-300 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#d9a648] animate-pulse" />
+              <span>pacy-agent-runner / interactive_eval</span>
             </span>
 
             {/* Clean Segmented Buttons */}
-            <div className="flex items-center border border-white/15 bg-black/40 p-0.5">
+            <div className="flex items-center glass-chip p-0.5">
               {AGENT_SKILLS.map((skill) => (
                 <button
                   key={skill.id}
@@ -105,9 +107,9 @@ export default function SkillsPage() {
                     setSelectedSkillId(skill.id);
                     resetSimulation();
                   }}
-                  className={`px-3 py-1 transition-colors ${
+                  className={`px-3 py-1 transition-all ${
                     selectedSkillId === skill.id
-                      ? "bg-zinc-100 text-black font-semibold"
+                      ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_10px_rgba(217,166,72,0.2)]"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
@@ -151,13 +153,13 @@ export default function SkillsPage() {
                 {simState !== "running" ? (
                   <button
                     onClick={runSimulation}
-                    className="inline-flex items-center gap-2 bg-zinc-100 px-4 py-2 font-mono text-xs font-semibold text-black hover:bg-white transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#f6dc8c] hover:bg-white px-4 py-2 font-mono text-xs font-semibold text-[#120207] transition-all shadow-[0_0_15px_rgba(217,166,72,0.25)]"
                   >
                     <Play className="h-3.5 w-3.5 fill-current" />
                     <span>Run Live Simulation</span>
                   </button>
                 ) : (
-                  <div className="inline-flex items-center gap-2 border border-white/20 px-4 py-2 font-mono text-xs text-zinc-300">
+                  <div className="inline-flex items-center gap-2 glass-chip px-4 py-2 font-mono text-xs text-[#f6dc8c]">
                     <span>Executing Protocol Checks...</span>
                   </div>
                 )}
@@ -165,7 +167,7 @@ export default function SkillsPage() {
                 {simState !== "idle" && (
                   <button
                     onClick={resetSimulation}
-                    className="inline-flex items-center gap-1.5 border border-white/10 px-3 py-2 font-mono text-xs text-zinc-400 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 glass-chip px-3 py-2 font-mono text-xs text-zinc-400 hover:text-white transition-colors"
                   >
                     <RotateCcw className="h-3 w-3" />
                     <span>Reset</span>
@@ -176,12 +178,12 @@ export default function SkillsPage() {
               {/* Copy Install Command */}
               <button
                 onClick={() => handleCopy(selectedSkill.id, selectedSkill.installCommand)}
-                className="inline-flex items-center gap-2 border border-white/15 bg-transparent px-3.5 py-2 font-mono text-xs text-zinc-300 hover:border-white/30 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 glass-chip px-3.5 py-2 font-mono text-xs text-zinc-300 hover:border-[#d9a648]/40 hover:text-[#f6dc8c] transition-all"
               >
                 {copiedId === selectedSkill.id ? (
                   <>
-                    <Check className="h-3.5 w-3.5 text-zinc-200" />
-                    <span className="text-zinc-200">Copied to Clipboard!</span>
+                    <Check className="h-3.5 w-3.5 text-[#f6dc8c]" />
+                    <span className="text-[#f6dc8c]">Copied to Clipboard!</span>
                   </>
                 ) : (
                   <>
@@ -199,12 +201,13 @@ export default function SkillsPage() {
           {AGENT_SKILLS.map((skill) => (
             <div
               key={skill.id}
-              className="border border-white/10 bg-[#0e1015] p-6 sm:p-10"
+              className="glass-panel-interactive p-6 sm:p-10"
             >
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-8">
                 <div>
-                  <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">
-                    Published Agent Protocol
+                  <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 flex items-center gap-2">
+                    <span className="text-[#f6dc8c]">&bull;</span>
+                    <span>Published Agent Protocol</span>
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-normal text-white mb-2">
                     {skill.name}
@@ -220,7 +223,7 @@ export default function SkillsPage() {
                       href={skill.skillsShUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 border border-white/15 px-4 py-2 font-mono text-xs text-zinc-300 hover:border-white/30 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 glass-chip px-4 py-2 font-mono text-xs text-zinc-300 hover:border-[#d9a648]/40 hover:text-[#f6dc8c] transition-all"
                     >
                       <span>skills.sh Listing</span>
                       <ExternalLink className="h-3.5 w-3.5" />
@@ -232,7 +235,7 @@ export default function SkillsPage() {
                       href={skill.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 border border-white/15 px-4 py-2 font-mono text-xs text-zinc-300 hover:border-white/30 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 glass-chip px-4 py-2 font-mono text-xs text-zinc-300 hover:border-[#d9a648]/40 hover:text-[#f6dc8c] transition-all"
                     >
                       <span>GitHub</span>
                       <ExternalLink className="h-3.5 w-3.5" />
@@ -242,7 +245,7 @@ export default function SkillsPage() {
               </div>
 
               {/* Install Bar */}
-              <div className="mb-8 border border-white/10 bg-black/60 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
+              <div className="mb-8 glass-input p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
                 <div className="flex items-center gap-2 text-zinc-300 overflow-x-auto">
                   <span className="text-zinc-500 select-none">$</span>
                   <code>{skill.installCommand}</code>

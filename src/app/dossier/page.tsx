@@ -16,38 +16,40 @@ import { EXECUTIVE_PROFILE, TECHNICAL_SKILLS_RESUME } from "@/data/portfolioData
 
 export default function DossierPage() {
   return (
-    <div className="py-14 sm:py-24 bg-[#090a0d]">
+    <div className="py-14 sm:py-24 bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         
         {/* Header */}
         <div className="mb-14 max-w-3xl">
-          <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <span className="text-sky-400">EXECUTIVE DOSSIER</span>
+          <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="text-[#f6dc8c]">&bull;</span>
+            <span className="text-[#f6dc8c]">EXECUTIVE DOSSIER</span>
             <span>&bull;</span>
             <span>CLINICIAN-TO-SYSTEMS ARCHITECT</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6">
             Clinical Diagnostic Rigor in Distributed Systems
           </h1>
-          <p className="text-base sm:text-xl text-zinc-300 font-light leading-relaxed">
+          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
             Medical diagnosis leaves zero room for trial-and-error in production. I translate the differential diagnostic methodology directly into software architecture—ruling out race conditions, proving concurrency boundaries, and engineering platforms that never fail under real monetary stakes.
           </p>
         </div>
 
-        {/* The Diagnostic Manifesto Card (Clean architectural layout) */}
-        <div className="mb-16 border border-sky-500/20 bg-[#0e1015] p-6 sm:p-10">
-          <div className="font-mono text-xs text-sky-400 uppercase tracking-widest mb-4">
-            Architectural Philosophy &bull; The Differential Advantage
+        {/* The Diagnostic Manifesto Card (2026 Glassmorphism) */}
+        <div className="mb-16 glass-panel p-6 sm:p-10 border border-sky-500/30">
+          <div className="font-mono text-xs text-[#f6dc8c] uppercase tracking-widest mb-4 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]" />
+            <span>Architectural Philosophy &bull; The Differential Advantage</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-normal text-white mb-6">
             Why Optometric Clinical Training Outperforms Pure Coding Intuition
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-zinc-300 font-light leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-[#d4c5ca] font-light leading-relaxed">
             <p>
               In clinical medicine, symptom presentation is almost never the root pathology. Over 1,500+ patient encounters across tertiary hospital clinics (University of Ilorin Teaching Hospital) and outreach triages, every diagnosis required isolating confounding variables, ruling out the most catastrophic etiologies first, and establishing empirical certainty before prescribing an intervention.
             </p>
             <p>
-              When applied to software engineering, this eliminates &ldquo;vibe-based debugging&rdquo;. Every database lock (<code className="font-mono text-xs text-sky-300 bg-sky-950/40 px-1 py-0.5 border border-sky-500/30">SELECT FOR UPDATE</code>), every RLS policy, every WebMCP client tool schema, and every payment webhook is treated as a critical physiological pathway: monitored with telemetry, hardened with atomic constraints, and guaranteed to maintain equilibrium under high concurrent stress.
+              When applied to software engineering, this eliminates &ldquo;vibe-based debugging&rdquo;. Every database lock (<code className="font-mono text-xs text-[#f6dc8c] bg-[#3a0d1c]/60 px-1.5 py-0.5 border border-[#d9a648]/40 shadow-[0_0_8px_rgba(217,166,72,0.15)]">SELECT FOR UPDATE</code>), every RLS policy, every WebMCP client tool schema, and every payment webhook is treated as a critical physiological pathway: monitored with telemetry, hardened with atomic constraints, and guaranteed to maintain equilibrium under high concurrent stress.
             </p>
           </div>
         </div>
@@ -74,7 +76,7 @@ export default function DossierPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Category 1: Languages & Runtimes */}
-            <div className="border border-sky-500/20 bg-[#0e1015] p-6">
+            <div className="border border-sky-500/25 glass-panel-interactive p-6">
               <div className="flex items-center gap-2 text-sky-400 font-mono text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
                 <Code2 className="h-4 w-4" />
                 <span>Languages &amp; Runtimes</span>
@@ -97,7 +99,7 @@ export default function DossierPage() {
             </div>
 
             {/* Category 2: Full-Stack Frameworks & Engines */}
-            <div className="border border-indigo-500/20 bg-[#0e1015] p-6">
+            <div className="border border-indigo-500/25 glass-panel-interactive p-6">
               <div className="flex items-center gap-2 text-indigo-400 font-mono text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
                 <Layers className="h-4 w-4" />
                 <span>Full-Stack Frameworks &amp; Engines</span>
@@ -115,7 +117,7 @@ export default function DossierPage() {
             </div>
 
             {/* Category 3: AI LLMOps & Evaluation */}
-            <div className="border border-purple-500/20 bg-[#0e1015] p-6">
+            <div className="border border-purple-500/25 glass-panel-interactive p-6">
               <div className="flex items-center gap-2 text-purple-400 font-mono text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
                 <Cpu className="h-4 w-4" />
                 <span>AI LLMOps &amp; Evaluation</span>
@@ -133,7 +135,7 @@ export default function DossierPage() {
             </div>
 
             {/* Category 4: Protocols & Hardware */}
-            <div className="border border-emerald-500/20 bg-[#0e1015] p-6">
+            <div className="border border-emerald-500/25 glass-panel-interactive p-6">
               <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
                 <Terminal className="h-4 w-4" />
                 <span>Protocols &amp; Driverless Hardware</span>
@@ -151,7 +153,7 @@ export default function DossierPage() {
             </div>
 
             {/* Category 5: Clinical Methodology */}
-            <div className="border border-amber-500/20 bg-[#0e1015] p-6 md:col-span-2">
+            <div className="border border-amber-500/25 glass-panel-interactive p-6 md:col-span-2">
               <div className="flex items-center gap-2 text-amber-400 font-mono text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
                 <Stethoscope className="h-4 w-4" />
                 <span>Clinical Differential Diagnostic Methodologies in Systems</span>
@@ -173,13 +175,16 @@ export default function DossierPage() {
         {/* ========================================================================= */}
         {/* CREDENTIALS, CLINICAL HISTORY & CAREER CHRONOLOGY */}
         {/* ========================================================================= */}
+        {/* ========================================================================= */}
+        {/* CREDENTIALS, CLINICAL HISTORY & CAREER CHRONOLOGY */}
+        {/* ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
           {/* Left Column: Education & Clinical Credentials (5 cols) */}
           <div className="lg:col-span-5 space-y-8">
             {/* Formal Medical Degree */}
-            <div className="border border-white/10 bg-[#0e1015] p-6 sm:p-8">
-              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-                <GraduationCap className="h-4 w-4 text-sky-400" />
+            <div className="glass-panel p-6 sm:p-8">
+              <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <GraduationCap className="h-4 w-4 text-[#f6dc8c]" />
                 <span>Formal Clinical Degree</span>
               </div>
               <h3 className="text-2xl font-normal text-white mb-1">
@@ -188,25 +193,25 @@ export default function DossierPage() {
               <p className="text-sm font-mono text-zinc-400 mb-4">
                 {EXECUTIVE_PROFILE.education.institution} &bull; {EXECUTIVE_PROFILE.education.year}
               </p>
-              <div className="border border-sky-500/20 bg-sky-950/20 p-3.5 font-mono text-xs text-sky-300">
+              <div className="border border-[#d9a648]/30 bg-[#3a0d1c]/40 p-3.5 font-mono text-xs text-[#f6dc8c]">
                 {EXECUTIVE_PROFILE.education.license}
               </div>
             </div>
 
             {/* Clinical Practice History */}
-            <div className="border border-white/10 bg-[#0e1015] p-6 sm:p-8 space-y-6">
-              <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest flex items-center gap-2">
-                <Stethoscope className="h-4 w-4 text-amber-400" />
+            <div className="glass-panel p-6 sm:p-8 space-y-6">
+              <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest flex items-center gap-2">
+                <Stethoscope className="h-4 w-4 text-[#d9a648]" />
                 <span>Clinical Triage &amp; Hospital Practice</span>
               </div>
 
               {EXECUTIVE_PROFILE.clinicalHistory.map((item, idx) => (
-                <div key={idx} className="border-l-2 border-amber-500/30 pl-4 space-y-1">
+                <div key={idx} className="border-l-2 border-[#d9a648]/40 pl-4 space-y-1">
                   <div className="flex items-baseline justify-between gap-2">
                     <span className="text-sm font-medium text-white">{item.role}</span>
                     <span className="font-mono text-[11px] text-zinc-500">{item.period}</span>
                   </div>
-                  <div className="font-mono text-xs text-amber-400/90">{item.organization}</div>
+                  <div className="font-mono text-xs text-[#f6dc8c]">{item.organization}</div>
                   <p className="text-xs text-zinc-400 font-light leading-relaxed">
                     {item.details}
                   </p>
@@ -216,8 +221,8 @@ export default function DossierPage() {
           </div>
 
           {/* Right Column: Engineering Career Chronology (7 cols) */}
-          <div className="lg:col-span-7 border border-white/10 bg-[#0e1015] p-6 sm:p-8">
-            <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8 flex items-center gap-2">
+          <div className="lg:col-span-7 glass-panel p-6 sm:p-8">
+            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-8 flex items-center gap-2">
               <Briefcase className="h-4 w-4 text-emerald-400" />
               <span>Systems Engineering Chronology &amp; Production Deployments</span>
             </div>
@@ -231,21 +236,21 @@ export default function DossierPage() {
                   </h4>
                   <span className="font-mono text-xs text-zinc-500">May 2023 – Present</span>
                 </div>
-                <div className="font-mono text-xs text-sky-400 mb-3">Pacy Labs &bull; Remote</div>
+                <div className="font-mono text-xs text-[#f6dc8c] mb-3">Pacy Labs &bull; Remote</div>
                 <p className="text-sm text-zinc-300 leading-relaxed mb-4 font-light">
                   Architecting high-assurance production operating systems across commercial hospitality, hardware retail, autonomous agent protocols, and quantitative simulation.
                 </p>
                 <ul className="space-y-3 text-xs font-mono text-zinc-400">
-                  <li className="leading-relaxed border-l-2 border-amber-500/30 pl-3">
+                  <li className="leading-relaxed border-l-2 border-amber-500/40 pl-3">
                     <strong className="text-white">Joebrown Palace Hotel &amp; Suites (Commissioned Contract):</strong> Deployed end-to-end hospitality OS with atomic reservation locks (<code className="text-amber-300">book_room_atomically</code>), 2D canvas table management, multi-station KDS, and 11-tier RBAC.
                   </li>
-                  <li className="leading-relaxed border-l-2 border-emerald-500/30 pl-3">
+                  <li className="leading-relaxed border-l-2 border-emerald-500/40 pl-3">
                     <strong className="text-white">DreamwiseHUB (Commissioned Contract):</strong> Architected retail POS and repair CRM with dual inventory isolation, 7-stage device diagnostic pipeline, hardware ESC/POS WebUSB printing, and human-in-the-loop Gemini Intercom.
                   </li>
-                  <li className="leading-relaxed border-l-2 border-sky-500/30 pl-3">
+                  <li className="leading-relaxed border-l-2 border-sky-500/40 pl-3">
                     <strong className="text-white">Wetaego &amp; W3C WebMCP:</strong> Engineered agent-native commerce platform supporting 8 canonical WebMCP tools on <code className="text-sky-300">document.modelContext</code> and 14 machine discovery standards.
                   </li>
-                  <li className="leading-relaxed border-l-2 border-indigo-500/30 pl-3">
+                  <li className="leading-relaxed border-l-2 border-indigo-500/40 pl-3">
                     <strong className="text-white">CruiseHQ, Baunti &amp; Huiyi:</strong> City-scale social platform with closed-loop microeconomy, 9-algorithm provably-fair cryptographic draw engine, and zero-app multimodal video recap director.
                   </li>
                 </ul>
@@ -269,7 +274,7 @@ export default function DossierPage() {
         </div>
 
         {/* Master Resume PDF Viewer & Direct Download Bar */}
-        <div className="border border-white/10 bg-[#0e1015] p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="glass-panel p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border border-[#d9a648]/30">
           <div className="space-y-1">
             <h3 className="text-xl sm:text-2xl font-normal text-white">
               Official Executive Master Resume (PDF Edition)
@@ -284,7 +289,7 @@ export default function DossierPage() {
               href="/olamilekan_adegoke_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 px-5 py-2.5 font-mono text-xs text-zinc-300 hover:border-white/40 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 glass-chip px-5 py-2.5 font-mono text-xs text-zinc-300 hover:border-[#d9a648]/40 hover:text-[#f6dc8c] transition-all"
             >
               <span>View In Browser</span>
               <ExternalLink className="h-3.5 w-3.5" />
@@ -293,7 +298,7 @@ export default function DossierPage() {
             <a
               href="/olamilekan_adegoke_resume.pdf"
               download="Olamilekan_David_Adegoke_Resume.pdf"
-              className="inline-flex items-center gap-2 bg-zinc-100 px-5 py-2.5 font-mono text-xs font-semibold text-black hover:bg-white transition-colors"
+              className="inline-flex items-center gap-2 bg-[#f6dc8c] hover:bg-white px-5 py-2.5 font-mono text-xs font-semibold text-[#120207] transition-all shadow-[0_0_15px_rgba(217,166,72,0.25)]"
             >
               <Download className="h-3.5 w-3.5" />
               <span>Download PDF</span>

@@ -104,32 +104,33 @@ export default function SystemsSection() {
   const clientContracts = PROJECTS.filter((p) => p.isClientContract);
 
   return (
-    <section id="platforms" className="relative py-16 sm:py-24 bg-[#090a0d] hairline-b overflow-hidden">
-      {/* Subtle brand ambiance in background */}
-      <div className="pointer-events-none absolute top-1/4 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.25)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-60" />
-      <div className="pointer-events-none absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.20)_0%,_rgba(217,166,72,0.05)_40%,_transparent_70%)] blur-3xl opacity-50" />
+    <section id="platforms" className="relative py-16 sm:py-24 bg-transparent hairline-b overflow-hidden">
+      {/* Brand ambiance: Deep Burgundy Core & Warm Circuit Gold Corona */}
+      <div className="pointer-events-none absolute top-1/4 right-0 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(78,14,35,0.40)_0%,_rgba(217,166,72,0.08)_40%,_transparent_70%)] blur-3xl opacity-75" />
+      <div className="pointer-events-none absolute bottom-1/4 left-0 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(58,13,28,0.35)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-65" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
 
-        {/* Global Fast Filter Bar (Glanceable UX) */}
+        {/* Global Fast Filter Bar (Glanceable 2026 Glassmorphic UX) */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-14 pb-5 hairline-b">
           <div>
-            <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-1">
-              SYSTEM CATALOG // ARCHITECTURAL INDEX
+            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+              <span className="text-[#f6dc8c]">&bull;</span>
+              <span>SYSTEM CATALOG // ARCHITECTURAL INDEX</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-normal text-white">
               Production Architectures
             </h2>
           </div>
 
-          {/* Quick Segment Filter */}
-          <div className="flex items-center gap-1.5 border border-white/10 bg-black/60 p-1 font-mono text-xs">
+          {/* Quick Segment Filter with 2026 Glassmorphism */}
+          <div className="flex items-center gap-1.5 glass-panel p-1 font-mono text-xs rounded-sm">
             <button
               type="button"
               onClick={() => setFilter("all")}
-              className={`px-3 py-1.5 transition-colors ${
+              className={`px-3 py-1.5 transition-all duration-200 ${
                 filter === "all"
-                  ? "bg-zinc-100 text-black font-semibold"
+                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -138,9 +139,9 @@ export default function SystemsSection() {
             <button
               type="button"
               onClick={() => setFilter("proprietary")}
-              className={`px-3 py-1.5 transition-colors ${
+              className={`px-3 py-1.5 transition-all duration-200 ${
                 filter === "proprietary"
-                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -149,9 +150,9 @@ export default function SystemsSection() {
             <button
               type="button"
               onClick={() => setFilter("client")}
-              className={`px-3 py-1.5 transition-colors ${
+              className={`px-3 py-1.5 transition-all duration-200 ${
                 filter === "client"
-                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold"
+                  ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -169,8 +170,8 @@ export default function SystemsSection() {
             {/* Section Label */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 mb-10 hairline-b">
               <div>
-                <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
-                  <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/40 px-1.5 py-0.5">01</span>
+                <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/50 px-1.5 py-0.5 shadow-[0_0_8px_rgba(217,166,72,0.2)]">01</span>
                   <span className="text-zinc-600">/</span>
                   <span className="text-zinc-300">PROPRIETARY SYSTEMS &amp; AUTONOMOUS AGENTS</span>
                 </div>
@@ -178,7 +179,7 @@ export default function SystemsSection() {
                   Original Platforms &amp; Protocols
                 </h3>
               </div>
-              <p className="text-xs text-zinc-500 font-mono max-w-sm">
+              <p className="text-xs text-zinc-400 font-mono max-w-sm">
                 Glance through hero snapshots &bull; Expand for full RPCs &amp; metrics
               </p>
             </div>
@@ -192,15 +193,15 @@ export default function SystemsSection() {
                 return (
                   <div
                     key={project.id}
-                    className={`group flex flex-col border bg-[#0e1015] transition-all duration-300 ${theme.border} ${theme.borderHover} ${theme.bgHover} viewport-frame-hover glow-on-hover`}
+                    className={`group flex flex-col border glass-panel-interactive transition-all duration-300 ${theme.border} ${theme.borderHover} viewport-frame-hover`}
                   >
                     {/* Browser Viewport Chrome + Hero Image */}
                     <div className="border-b border-white/08 overflow-hidden viewport-scanline">
-                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 font-mono text-[11px] text-zinc-500 bg-black/60">
+                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 font-mono text-[11px] text-zinc-400 bg-[#16030a]/75 backdrop-blur-md">
                         <div className="flex items-center gap-1.5">
-                          <span className="h-2 w-2 bg-zinc-700/80" />
-                          <span className="h-2 w-2 bg-zinc-700/80" />
-                          <span className="h-2 w-2 bg-zinc-700/80" />
+                          <span className="h-2 w-2 rounded-full bg-zinc-700/80" />
+                          <span className="h-2 w-2 rounded-full bg-zinc-700/80" />
+                          <span className="h-2 w-2 rounded-full bg-zinc-700/80" />
                           <span className={`ml-2 truncate max-w-[150px] font-light ${theme.textAccent}`}>
                             {project.urlLabel}
                           </span>
@@ -361,15 +362,15 @@ export default function SystemsSection() {
                 return (
                   <div
                     key={project.id}
-                    className={`border ${theme.border} ${theme.borderHover} bg-[#0e1015] p-5 sm:p-6 transition-all duration-300 ${theme.bgHover} glow-on-hover flex flex-col`}
+                    className={`border ${theme.border} ${theme.borderHover} glass-panel-interactive p-5 sm:p-6 transition-all duration-300 flex flex-col`}
                   >
                     {/* Viewport Frame */}
-                    <div className="border border-white/10 bg-black/60 overflow-hidden mb-4 group/img viewport-scanline">
-                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 bg-black/80 font-mono text-[11px] text-zinc-500">
+                    <div className="border border-white/10 bg-[#16030a]/60 overflow-hidden mb-4 group/img viewport-scanline">
+                      <div className="flex items-center justify-between px-3 py-2 border-b border-white/08 bg-[#16030a]/80 backdrop-blur-md font-mono text-[11px] text-zinc-400">
                         <div className="flex items-center gap-1.5">
-                          <span className="h-2 w-2 bg-zinc-700" />
-                          <span className="h-2 w-2 bg-zinc-700" />
-                          <span className="h-2 w-2 bg-zinc-700" />
+                          <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                          <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                          <span className="h-2 w-2 rounded-full bg-zinc-700" />
                           <span className={`ml-2 font-light ${theme.textAccent}`}>
                             {project.urlLabel || `${project.id}.com`}
                           </span>
@@ -463,7 +464,7 @@ export default function SystemsSection() {
 
                         <Link
                           href={`/projects/${project.id}`}
-                          className="flex-1 flex items-center justify-between bg-zinc-100 hover:bg-white px-3.5 py-1.5 font-mono text-xs font-semibold text-black transition-colors"
+                          className="flex-1 flex items-center justify-between bg-[#f6dc8c] hover:bg-white px-3.5 py-1.5 font-mono text-xs font-semibold text-[#120207] transition-all shadow-[0_0_15px_rgba(217,166,72,0.2)]"
                         >
                           <span>Case Study</span>
                           <ArrowRight className="h-3.5 w-3.5" />

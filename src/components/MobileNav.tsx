@@ -17,7 +17,7 @@ export default function MobileNav() {
 
   return (
     <nav className="fixed bottom-3 left-3 right-3 z-50 md:hidden">
-      <div className="mx-auto max-w-sm border border-white/15 bg-[#090a0d]/95 p-1 shadow-2xl backdrop-blur-xl">
+      <div className="mx-auto max-w-sm glass-bar p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.85)] border border-white/15 rounded-md">
         <ul className="flex items-center justify-around">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -30,10 +30,10 @@ export default function MobileNav() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`flex flex-col items-center justify-center px-3 py-1.5 transition-colors ${
+                  className={`flex flex-col items-center justify-center px-3 py-1.5 transition-all ${
                     isActive
-                      ? "text-white font-medium bg-white/10"
-                      : "text-zinc-500 hover:text-zinc-300"
+                      ? "text-[#f6dc8c] font-medium bg-[#3a0d1c]/80 border border-[#d9a648]/40 shadow-[0_0_10px_rgba(217,166,72,0.25)] rounded-sm"
+                      : "text-zinc-400 hover:text-white"
                   }`}
                 >
                   <Icon className="h-4 w-4" />

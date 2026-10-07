@@ -15,14 +15,19 @@ export default function AgentSkillsSection() {
   };
 
   return (
-    <section id="agent-protocols" className="py-20 sm:py-28 bg-[#090a0d] hairline-b">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8">
+    <section id="agent-protocols" className="relative py-20 sm:py-28 bg-transparent hairline-b overflow-hidden">
+      {/* Brand Ambiance */}
+      <div className="pointer-events-none absolute top-1/3 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(58,13,28,0.35)_0%,_rgba(217,166,72,0.06)_40%,_transparent_70%)] blur-3xl opacity-60" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         
         {/* Section Heading - No vanity pills */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 mb-16 hairline-b">
           <div>
-            <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">
-              03 / OPEN INFRASTRUCTURE &bull; AGENT SKILLS
+            <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-2 flex items-center gap-2">
+              <span className="text-[#f6dc8c] font-semibold border border-[#d9a648]/40 bg-[#3a0d1c]/50 px-1.5 py-0.5 shadow-[0_0_8px_rgba(217,166,72,0.2)]">03</span>
+              <span className="text-zinc-600">/</span>
+              <span>OPEN INFRASTRUCTURE &bull; AGENT SKILLS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white">
               Published Agent Protocols &amp; Standards
@@ -30,7 +35,7 @@ export default function AgentSkillsSection() {
           </div>
           <Link
             href="/skills"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-400 hover:text-white transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-[#f6dc8c] hover:text-white transition-colors shrink-0"
           >
             <span>Open Terminal Simulation Suite</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -42,7 +47,7 @@ export default function AgentSkillsSection() {
           {AGENT_SKILLS.map((skill) => (
             <div
               key={skill.id}
-              className="flex flex-col justify-between border border-white/10 bg-[#0e1015] p-6 sm:p-8 hover:border-white/25 transition-colors"
+              className="flex flex-col justify-between glass-panel-interactive p-6 sm:p-8"
             >
               <div>
                 {/* Header */}

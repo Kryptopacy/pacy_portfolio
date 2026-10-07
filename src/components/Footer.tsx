@@ -4,32 +4,32 @@ import { Mail, MessageSquare, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#090a0d] pt-14 pb-20 md:pb-14 text-zinc-400">
+    <footer className="border-t border-white/10 bg-[#140308]/90 backdrop-blur-2xl pt-14 pb-20 md:pb-14 text-zinc-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand & Subtitle (5 cols) */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 shrink-0 flex items-center justify-center p-0.5 rounded border border-[#d9a648]/40 bg-gradient-to-br from-[#3a0d1c]/80 to-black">
+              <div className="relative h-10 w-10 shrink-0 flex items-center justify-center p-0.5 rounded border border-[#d9a648]/50 bg-gradient-to-br from-[#3a0d1c]/90 via-[#260510] to-[#140308] shadow-[0_0_15px_rgba(217,166,72,0.25)]">
                 <Image
                   src="/brand/pacylabs-logo-256.webp"
                   alt="Pacy Labs Logo"
                   width={34}
                   height={34}
-                  className="object-contain drop-shadow-[0_0_10px_rgba(217,166,72,0.35)]"
+                  className="object-contain drop-shadow-[0_0_10px_rgba(217,166,72,0.4)]"
                 />
               </div>
               <div className="flex flex-col">
                 <span className="font-mono text-sm font-semibold text-white tracking-widest flex items-center gap-2">
                   PACY LABS
-                  <span className="text-[10px] text-[#d9a648] font-mono border border-[#d9a648]/30 px-1 py-0.2 bg-[#3a0d1c]/40">EST. 2026</span>
+                  <span className="text-[10px] text-[#f6dc8c] font-mono border border-[#d9a648]/40 px-1 py-0.2 bg-[#3a0d1c]/50 shadow-[0_0_8px_rgba(217,166,72,0.15)]">EST. 2026</span>
                 </span>
                 <span className="font-mono text-[11px] text-zinc-500">
                   pacylabs.xyz
                 </span>
               </div>
             </div>
-            <p className="text-xs text-zinc-400 font-mono leading-relaxed max-w-sm">
+            <p className="text-xs text-[#d4c5ca] font-mono leading-relaxed max-w-sm">
               Olamilekan David Adegoke &bull; Doctor of Optometry (OD) &amp; Full-Stack Systems Architect. Engineering deterministic operating systems, high-concurrency commercial platforms, and W3C WebMCP agent tooling.
             </p>
           </div>

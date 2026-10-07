@@ -77,50 +77,51 @@ export default function ProjectsPage() {
   });
 
   return (
-    <div className="py-14 sm:py-24 bg-[#090a0d]">
+    <div className="py-14 sm:py-24 bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         
         {/* Header Section */}
         <div className="mb-14 max-w-3xl">
-          <div className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+          <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="text-[#f6dc8c]">&bull;</span>
             <span>DEPLOYED PLATFORMS &bull; ARCHITECTURAL BLUEPRINTS</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-6">
             Production Systems Catalog
           </h1>
-          <p className="text-base sm:text-xl text-zinc-300 font-light leading-relaxed">
+          <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
             Every platform documented here is an active production architecture running real-world workloads—from original distributed protocols and W3C WebMCP runtimes to enterprise webapps engineered under contract for corporate brands.
           </p>
         </div>
 
-        {/* Filter Bar (Clean architectural segments, no vanity pills) */}
+        {/* Filter Bar with 2026 Glassmorphism */}
         <div className="flex flex-wrap items-center gap-2 mb-12 pb-6 hairline-b font-mono text-xs">
           <button
             onClick={() => setFilter("all")}
-            className={`px-4 py-2 border transition-colors ${
+            className={`px-4 py-2 border transition-all ${
               filter === "all"
-                ? "border-white bg-zinc-100 text-black font-semibold"
-                : "border-white/10 text-zinc-400 hover:text-white hover:border-white/25"
+                ? "bg-[#3a0d1c] text-[#f6dc8c] border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                : "glass-chip text-zinc-400 hover:text-white hover:border-white/25"
             }`}
           >
             All Systems ({PROJECTS.length})
           </button>
           <button
             onClick={() => setFilter("proprietary")}
-            className={`px-4 py-2 border transition-colors ${
+            className={`px-4 py-2 border transition-all ${
               filter === "proprietary"
-                ? "border-sky-400 bg-sky-950/40 text-sky-300 font-semibold"
-                : "border-white/10 text-zinc-400 hover:text-white hover:border-white/25"
+                ? "bg-[#3a0d1c] text-[#f6dc8c] border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                : "glass-chip text-zinc-400 hover:text-white hover:border-white/25"
             }`}
           >
             Proprietary Architectures ({PROJECTS.filter((p) => !p.isClientContract).length})
           </button>
           <button
             onClick={() => setFilter("client")}
-            className={`px-4 py-2 border transition-colors ${
+            className={`px-4 py-2 border transition-all ${
               filter === "client"
-                ? "border-amber-400 bg-amber-950/40 text-amber-300 font-semibold"
-                : "border-white/10 text-zinc-400 hover:text-white hover:border-white/25"
+                ? "bg-[#3a0d1c] text-[#f6dc8c] border-[#d9a648]/40 font-semibold shadow-[0_0_12px_rgba(217,166,72,0.2)]"
+                : "glass-chip text-zinc-400 hover:text-white hover:border-white/25"
             }`}
           >
             Commercial Client Contracts ({PROJECTS.filter((p) => p.isClientContract).length})
@@ -135,7 +136,7 @@ export default function ProjectsPage() {
             return (
               <div
                 key={project.id}
-                className={`group flex flex-col justify-between border bg-[#0e1015] overflow-hidden transition-all duration-300 glow-on-hover ${theme.border} ${theme.borderHover} ${theme.bgHover}`}
+                className={`group flex flex-col justify-between border glass-panel-interactive overflow-hidden transition-all duration-300 ${theme.border} ${theme.borderHover}`}
               >
                 <div>
                   {/* Visual Viewport with Browser Bar */}

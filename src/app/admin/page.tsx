@@ -250,7 +250,7 @@ export default function AdminPage() {
   // -------------------------------------------------------------------------
   if (isAuthenticated === null) {
     return (
-      <div className="min-h-screen bg-[#090a0d] flex items-center justify-center font-mono text-xs text-zinc-500">
+      <div className="min-h-screen bg-transparent flex items-center justify-center font-mono text-xs text-[#f6dc8c]">
         Verifying cryptographic session...
       </div>
     );
@@ -258,8 +258,8 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#090a0d] flex items-center justify-center p-4">
-        <div className="w-full max-w-md border border-[#d9a648]/30 bg-[#0e1015] p-8 shadow-[0_0_30px_rgba(217,166,72,0.1)]">
+      <div className="min-h-screen bg-transparent flex items-center justify-center p-4">
+        <div className="w-full max-w-md glass-panel p-8 shadow-[0_20px_50px_rgba(18,2,7,0.7)] border border-[#d9a648]/30">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
             <div className="h-9 w-9 relative shrink-0 p-0.5 rounded border border-[#d9a648]/40 bg-[#3a0d1c]/40">
               <Image
@@ -274,7 +274,7 @@ export default function AdminPage() {
               <h1 className="font-mono text-sm font-semibold tracking-wider text-white">
                 PACY LABS CMS
               </h1>
-              <p className="font-mono text-[10px] text-zinc-500 uppercase">
+              <p className="font-mono text-[10px] text-zinc-400 uppercase">
                 Content Management &amp; Dispatch Console
               </p>
             </div>
@@ -282,7 +282,7 @@ export default function AdminPage() {
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block font-mono text-xs text-zinc-400 mb-1.5">
+              <label className="block font-mono text-xs text-zinc-300 mb-1.5">
                 Admin Passkey
               </label>
               <div className="relative">
@@ -291,16 +291,16 @@ export default function AdminPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter admin password..."
-                  className="w-full border border-white/10 bg-black/60 px-3.5 py-2.5 font-mono text-xs text-white placeholder-zinc-600 focus:border-[#d9a648] focus:outline-none"
+                  className="w-full glass-input px-3.5 py-2.5 font-mono text-xs text-white placeholder-zinc-500 focus:border-[#d9a648] focus:outline-none"
                   autoFocus
                 />
-                <Lock className="absolute right-3 top-3 h-4 w-4 text-zinc-600" />
+                <Lock className="absolute right-3 top-3 h-4 w-4 text-[#d9a648]" />
               </div>
             </div>
 
             {loginError && (
-              <div className="font-mono text-xs text-rose-400 bg-rose-950/20 border border-rose-900/40 p-2.5 flex items-center gap-2">
-                <AlertCircle className="h-4 w-4 shrink-0" />
+              <div className="font-mono text-xs text-rose-300 bg-rose-950/40 border border-rose-900/60 p-2.5 flex items-center gap-2">
+                <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
                 <span>{loginError}</span>
               </div>
             )}
@@ -308,13 +308,13 @@ export default function AdminPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-105 py-2.5 font-mono text-xs font-semibold text-black transition-all shadow-[0_0_15px_rgba(217,166,72,0.2)] disabled:opacity-50"
+              className="w-full bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-110 py-2.5 font-mono text-xs font-semibold text-black transition-all shadow-[0_0_24px_rgba(217,166,72,0.25)] disabled:opacity-50"
             >
               {loading ? "Authenticating..." : "Unlock Dashboard"}
             </button>
           </form>
 
-          <p className="mt-6 text-center font-mono text-[10px] text-zinc-600">
+          <p className="mt-6 text-center font-mono text-[10px] text-zinc-400">
             Default passkey: <code className="text-[#f6dc8c]">pacy2026</code> (Set ADMIN_PASSWORD in environment to customize)
           </p>
         </div>
@@ -326,9 +326,9 @@ export default function AdminPage() {
   // DASHBOARD SCREEN
   // -------------------------------------------------------------------------
   return (
-    <div className="min-h-screen bg-[#090a0d] text-white">
+    <div className="min-h-screen bg-transparent text-white">
       {/* Top Admin Bar */}
-      <header className="border-b border-white/10 bg-[#0e1015] px-4 sm:px-8 py-3.5 sticky top-0 z-50">
+      <header className="glass-bar border-b border-[#d9a648]/20 px-4 sm:px-8 py-3.5 sticky top-0 z-50">
         <div className="mx-auto max-w-7xl flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="h-8 w-8 relative shrink-0 p-0.5 rounded border border-[#d9a648]/40 bg-[#3a0d1c]/40">
@@ -473,8 +473,8 @@ export default function AdminPage() {
                       onClick={() => setSelectedProjectId(p.id)}
                       className={`cursor-pointer border p-3 transition-all ${
                         isSelected
-                          ? "border-[#d9a648] bg-[#0e1015] shadow-[0_0_15px_rgba(217,166,72,0.15)]"
-                          : "border-white/08 bg-black/40 hover:border-white/20 hover:bg-black/60"
+                          ? "border-[#d9a648] bg-[#3a0d1c]/40 shadow-[0_0_15px_rgba(217,166,72,0.2)]"
+                          : "border-white/10 bg-black/40 hover:border-[#d9a648]/40 hover:bg-[#1a040b]/40"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -484,14 +484,14 @@ export default function AdminPage() {
                         <span
                           className={`text-[9px] font-mono px-1.5 py-0.2 border uppercase shrink-0 ${
                             p.isClientContract
-                              ? "border-amber-500/30 text-amber-300 bg-amber-950/20"
-                              : "border-sky-500/30 text-sky-300 bg-sky-950/20"
+                              ? "border-amber-500/40 text-[#f6dc8c] bg-amber-950/30"
+                              : "border-[#d9a648]/40 text-[#f6dc8c] bg-[#3a0d1c]/30"
                           }`}
                         >
                           {p.isClientContract ? "Client" : "Proprietary"}
                         </span>
                       </div>
-                      <div className="font-mono text-[11px] text-zinc-500 truncate mt-0.5">
+                      <div className="font-mono text-[11px] text-zinc-400 truncate mt-0.5">
                         {p.urlLabel || p.id}
                       </div>
                     </div>
@@ -510,7 +510,7 @@ export default function AdminPage() {
             </div>
 
             {/* Right: Project Editor Form (8 cols) */}
-            <div className="lg:col-span-8 border border-white/10 bg-[#0e1015] p-6 sm:p-8">
+            <div className="lg:col-span-8 glass-panel p-6 sm:p-8">
               {selectedProject ? (
                 <div className="space-y-6">
                   <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -724,7 +724,7 @@ export default function AdminPage() {
             TAB 2: RESUME UPLOAD & MANAGEMENT
             ===================================================================== */}
         {activeTab === "resume" && (
-          <div className="max-w-3xl mx-auto border border-white/10 bg-[#0e1015] p-8 space-y-6">
+          <div className="max-w-3xl mx-auto glass-panel p-8 space-y-6">
             <div>
               <h2 className="text-2xl font-normal text-white mb-2">
                 Resume PDF File Management
@@ -736,8 +736,8 @@ export default function AdminPage() {
               </p>
             </div>
 
-            <div className="border-2 border-dashed border-white/20 bg-black/40 p-8 text-center space-y-4 hover:border-[#d9a648]/60 transition-colors">
-              <FileText className="h-10 w-10 text-[#d9a648] mx-auto opacity-80" />
+            <div className="border-2 border-dashed border-[#d9a648]/30 bg-[#120207]/60 p-8 text-center space-y-4 hover:border-[#d9a648]/80 transition-colors">
+              <FileText className="h-10 w-10 text-[#d9a648] mx-auto opacity-90" />
               <div>
                 <div className="font-mono text-sm text-white font-medium mb-1">
                   Upload New Master Resume PDF
@@ -762,7 +762,7 @@ export default function AdminPage() {
               </div>
             </div>
 
-            <div className="border border-white/10 bg-black/40 p-4 flex items-center justify-between font-mono text-xs">
+            <div className="border border-white/10 bg-[#120207]/60 p-4 flex items-center justify-between font-mono text-xs">
               <div>
                 <div className="text-zinc-300 font-medium">Current Active Resume:</div>
                 <div className="text-zinc-500 text-[11px]">/public/olamilekan_adegoke_resume.pdf</div>
@@ -783,7 +783,7 @@ export default function AdminPage() {
             TAB 3: PROFILE & CONTACT MANAGEMENT
             ===================================================================== */}
         {activeTab === "profile" && profile && (
-          <div className="max-w-3xl mx-auto border border-white/10 bg-[#0e1015] p-8 space-y-6">
+          <div className="max-w-3xl mx-auto glass-panel p-8 space-y-6">
             <div>
               <h2 className="text-2xl font-normal text-white mb-2">
                 Executive Profile &amp; Contact Details
