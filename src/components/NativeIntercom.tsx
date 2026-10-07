@@ -97,9 +97,10 @@ export default function NativeIntercom({ isOpen, onClose, onOpen }: NativeInterc
   // Set up Supabase Realtime channel for live founder replies
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase || !conversationId) return;
+    const client = supabase;
 
     // Listen to new messages for this conversation
-    const channel = supabase
+    const channel = client
       .channel(`intercom:${conversationId}`)
       .on(
         "postgres_changes",
@@ -120,7 +121,7 @@ export default function NativeIntercom({ isOpen, onClose, onOpen }: NativeInterc
                 {
                   id: newMsg.id,
                   sender_type: "founder",
-                  sender_name: newMsg.sender_name || "Dr. Olamilekan David Adegoke",
+                  sender_name: newMsg.sender_name || "Olamilekan David Adegoke",
                   text: newMsg.text,
                   created_at: newMsg.created_at || new Date().toISOString(),
                 },
@@ -132,7 +133,7 @@ export default function NativeIntercom({ isOpen, onClose, onOpen }: NativeInterc
       .subscribe();
 
     return () => {
-      supabase.removeChannel(channel);
+      client.removeChannel(channel);
     };
   }, [conversationId]);
 

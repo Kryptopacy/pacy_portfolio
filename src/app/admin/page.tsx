@@ -157,9 +157,10 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!selectedConvId || !isSupabaseConfigured || !supabase) return;
+    const client = supabase;
 
     const fetchMessages = async () => {
-      const { data } = await supabase
+      const { data } = await client
         .from("intercom_messages")
         .select("*")
         .eq("conversation_id", selectedConvId)
@@ -171,7 +172,7 @@ export default function AdminPage() {
     fetchMessages();
 
     // Subscribe to new messages for selected conversation
-    const channel = supabase
+    const channel = client
       .channel(`admin:intercom:${selectedConvId}`)
       .on(
         "postgres_changes",
@@ -194,7 +195,7 @@ export default function AdminPage() {
       .subscribe();
 
     return () => {
-      supabase.removeChannel(channel);
+      client.removeChannel(channel);
     };
   }, [selectedConvId]);
 
@@ -1014,6 +1015,8 @@ export default function AdminPage() {
               </button>
             </div>
           </div>
+        )}
+
         {/* =====================================================================
             TAB 4: INTERCOM LIVE INBOX (FOUNDER TAKEOVER)
             ===================================================================== */}
