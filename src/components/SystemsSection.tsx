@@ -4,10 +4,24 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/data/portfolioData";
-import { ArrowUpRight, ArrowRight, ExternalLink, ShieldCheck, Cpu, Database } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ExternalLink, ShieldCheck, Cpu, Database, Terminal, Sparkles } from "lucide-react";
+import WetaegoSandbox from "@/components/interactive/WetaegoSandbox";
+import GozAISandbox from "@/components/interactive/GozAISandbox";
+import BauntiSandbox from "@/components/interactive/BauntiSandbox";
+import { playMechanicalClick } from "@/lib/soundEffects";
 
 export default function SystemsSection() {
   const [filter, setFilter] = useState<"all" | "proprietary" | "client">("all");
+  const [sandboxViews, setSandboxViews] = useState<{ [key: string]: "preview" | "sandbox" }>({
+    wetaego: "preview",
+    gozai: "preview",
+    baunti: "preview",
+  });
+
+  const toggleSandbox = (id: string, mode: "preview" | "sandbox") => {
+    playMechanicalClick();
+    setSandboxViews((prev) => ({ ...prev, [id]: mode }));
+  };
 
   const filteredProjects = PROJECTS.filter((p) => {
     if (filter === "proprietary") return !p.isClientContract;
@@ -95,42 +109,76 @@ export default function SystemsSection() {
               {/* Flagship Screenshot Viewport (7 Cols) */}
               <div className="lg:col-span-7 relative flex flex-col border-b lg:border-b-0 lg:border-r border-white/10 bg-black/60">
                 {/* Viewport Chrome Header */}
-                <div className="flex items-center justify-between px-4 py-2.5 bg-[#140308]/90 border-b border-white/10 font-mono text-xs text-zinc-400">
+                <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 bg-[#140308]/90 border-b border-white/10 font-mono text-xs text-zinc-400">
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="text-zinc-200 font-medium">{flagship.urlLabel}</span>
                   </div>
+
+                  {/* Switcher: Preview vs Interactive Sandbox */}
+                  <div className="flex items-center gap-1 bg-black/60 p-0.5 rounded border border-white/10 text-[11px]">
+                    <button
+                      type="button"
+                      onClick={() => toggleSandbox("wetaego", "preview")}
+                      className={`px-2.5 py-1 transition-all rounded-xs flex items-center gap-1.5 ${
+                        sandboxViews.wetaego === "preview"
+                          ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium shadow-[0_0_10px_rgba(217,166,72,0.15)]"
+                          : "text-zinc-400 hover:text-zinc-200"
+                      }`}
+                    >
+                      <span>🖼️ Preview</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleSandbox("wetaego", "sandbox")}
+                      className={`px-2.5 py-1 transition-all rounded-xs flex items-center gap-1.5 ${
+                        sandboxViews.wetaego === "sandbox"
+                          ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium shadow-[0_0_12px_rgba(217,166,72,0.25)]"
+                          : "text-zinc-400 hover:text-white"
+                      }`}
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#f6dc8c] animate-ping" />
+                      <span>⚡ Live WebMCP Sandbox</span>
+                    </button>
+                  </div>
+
                   {flagship.url && (
                     <a
                       href={flagship.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[11px]"
+                      className="hidden sm:inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[11px]"
                     >
-                      <span>Visit Live System</span>
+                      <span>Visit Live</span>
                       <ArrowUpRight className="h-3 w-3" />
                     </a>
                   )}
                 </div>
 
-                {/* Main Hero Visual */}
-                <Link
-                  href={`/projects/${flagship.id}`}
-                  className="group block relative aspect-[16/10] sm:aspect-[16/9] w-full flex-1 overflow-hidden"
-                >
-                  {flagship.image && (
-                    <Image
-                      src={flagship.image}
-                      alt={`${flagship.name} interface preview`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-                      priority
-                      unoptimized
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Link>
+                {/* Main Hero Visual OR Interactive Sandbox */}
+                {sandboxViews.wetaego === "sandbox" ? (
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-center bg-black/90">
+                    <WetaegoSandbox />
+                  </div>
+                ) : (
+                  <Link
+                    href={`/projects/${flagship.id}`}
+                    className="group block relative aspect-[16/10] sm:aspect-[16/9] w-full flex-1 overflow-hidden"
+                  >
+                    {flagship.image && (
+                      <Image
+                        src={flagship.image}
+                        alt={`${flagship.name} interface preview`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                        priority
+                        unoptimized
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </Link>
+                )}
               </div>
 
               {/* Flagship Technical Deep Dive (5 Cols) */}
@@ -169,8 +217,16 @@ export default function SystemsSection() {
                 </div>
 
                 {/* Footer Link CTAs */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs">
-                  <span className="text-zinc-500 text-[11px]">W3C WebMCP Native</span>
+                <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      toggleSandbox("wetaego", sandboxViews.wetaego === "sandbox" ? "preview" : "sandbox")
+                    }
+                    className="text-[#f6dc8c] hover:underline flex items-center gap-1.5 text-[11px]"
+                  >
+                    <span>{sandboxViews.wetaego === "sandbox" ? "← Back to Preview" : "⚡ Test Live WebMCP Tool Call"}</span>
+                  </button>
 
                   <Link
                     href={`/projects/${flagship.id}`}
@@ -198,41 +254,78 @@ export default function SystemsSection() {
                 className="group glass-panel border border-white/12 hover:border-[#d9a648]/60 transition-all duration-300 rounded-sm overflow-hidden flex flex-col hover:shadow-[0_20px_45px_rgba(0,0,0,0.85)]"
               >
                 {/* Header Bar */}
-                <div className="flex items-center justify-between px-4 py-2.5 bg-[#140308]/90 border-b border-white/08 font-mono text-xs text-zinc-400">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]" />
-                    <span className="text-zinc-200 font-medium">{project.urlLabel || "pacylabs.xyz"}</span>
+                <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 bg-[#140308]/90 border-b border-white/08 font-mono text-xs text-zinc-400">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648] shrink-0" />
+                    <span className="text-zinc-200 font-medium truncate">{project.urlLabel || "pacylabs.xyz"}</span>
                   </div>
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[11px]"
-                    >
-                      <span>Live</span>
-                      <ArrowUpRight className="h-3 w-3" />
-                    </a>
-                  )}
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    {project.id === "gozai" && (
+                      <div className="flex items-center gap-1 bg-black/60 p-0.5 rounded border border-white/10 text-[10px]">
+                        <button
+                          type="button"
+                          onClick={() => toggleSandbox("gozai", "preview")}
+                          className={`px-2 py-0.5 transition-all rounded-xs ${
+                            sandboxViews.gozai === "preview"
+                              ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium"
+                              : "text-zinc-400 hover:text-white"
+                          }`}
+                        >
+                          Preview
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => toggleSandbox("gozai", "sandbox")}
+                          className={`px-2 py-0.5 transition-all rounded-xs flex items-center gap-1 ${
+                            sandboxViews.gozai === "sandbox"
+                              ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium shadow-[0_0_10px_rgba(217,166,72,0.2)]"
+                              : "text-zinc-400 hover:text-white"
+                          }`}
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          <span>⚡ Triage Sandbox</span>
+                        </button>
+                      </div>
+                    )}
+
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[11px]"
+                      >
+                        <span>Live</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
-                {/* Screenshot */}
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="block relative aspect-[16/10] w-full bg-black/60 overflow-hidden border-b border-white/08"
-                >
-                  {project.image && (
-                    <Image
-                      src={project.image}
-                      alt={`${project.name} preview`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                      unoptimized
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Link>
+                {/* Screenshot OR Interactive Sandbox */}
+                {project.id === "gozai" && sandboxViews.gozai === "sandbox" ? (
+                  <div className="p-3 bg-black/90 border-b border-white/08">
+                    <GozAISandbox />
+                  </div>
+                ) : (
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="block relative aspect-[16/10] w-full bg-black/60 overflow-hidden border-b border-white/08"
+                  >
+                    {project.image && (
+                      <Image
+                        src={project.image}
+                        alt={`${project.name} preview`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        unoptimized
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </Link>
+                )}
 
                 {/* Card Details */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -294,48 +387,112 @@ export default function SystemsSection() {
                 className="group glass-panel border border-white/10 hover:border-[#d9a648]/50 transition-all duration-300 rounded-sm overflow-hidden flex flex-col hover:shadow-[0_16px_36px_rgba(0,0,0,0.85)]"
               >
                 {/* Viewport Header Bar */}
-                <div className="flex items-center justify-between px-3.5 py-2 border-b border-white/08 bg-[#16030a]/80 font-mono text-[11px] text-zinc-400">
+                <div className="flex flex-wrap items-center justify-between gap-1.5 px-3.5 py-2 border-b border-white/08 bg-[#16030a]/80 font-mono text-[11px] text-zinc-400">
                   <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]/80" />
-                    <span className="text-zinc-300 truncate max-w-[170px] font-medium">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#d9a648]/80 shrink-0" />
+                    <span className="text-zinc-300 truncate max-w-[130px] font-medium">
                       {project.urlLabel || "pacylabs.xyz"}
                     </span>
                   </div>
 
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[10px]"
-                    >
-                      <span>Live</span>
-                      <ArrowUpRight className="h-2.5 w-2.5" />
-                    </a>
-                  )}
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    {project.id === "baunti" && (
+                      <div className="flex items-center gap-0.5 bg-black/60 p-0.5 rounded border border-white/10 text-[9px]">
+                        <button
+                          type="button"
+                          onClick={() => toggleSandbox("baunti", "preview")}
+                          className={`px-1.5 py-0.5 transition-all rounded-xs ${
+                            sandboxViews.baunti === "preview"
+                              ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium"
+                              : "text-zinc-400 hover:text-white"
+                          }`}
+                        >
+                          Preview
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => toggleSandbox("baunti", "sandbox")}
+                          className={`px-1.5 py-0.5 transition-all rounded-xs flex items-center gap-1 ${
+                            sandboxViews.baunti === "sandbox"
+                              ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium shadow-[0_0_8px_rgba(217,166,72,0.2)]"
+                              : "text-zinc-400 hover:text-white"
+                          }`}
+                        >
+                          <span className="h-1 w-1 rounded-full bg-rose-400 animate-ping" />
+                          <span>⚡ Fair Draw</span>
+                        </button>
+                      </div>
+                    )}
+
+                    {project.id === "wetaego" && (
+                      <button
+                        type="button"
+                        onClick={() => toggleSandbox("wetaego", sandboxViews.wetaego === "sandbox" ? "preview" : "sandbox")}
+                        className="px-1.5 py-0.5 text-[9px] bg-black/60 text-[#f6dc8c] border border-white/10 rounded-xs"
+                      >
+                        {sandboxViews.wetaego === "sandbox" ? "Preview" : "⚡ Sandbox"}
+                      </button>
+                    )}
+
+                    {project.id === "gozai" && (
+                      <button
+                        type="button"
+                        onClick={() => toggleSandbox("gozai", sandboxViews.gozai === "sandbox" ? "preview" : "sandbox")}
+                        className="px-1.5 py-0.5 text-[9px] bg-black/60 text-[#f6dc8c] border border-white/10 rounded-xs"
+                      >
+                        {sandboxViews.gozai === "sandbox" ? "Preview" : "⚡ Sandbox"}
+                      </button>
+                    )}
+
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[#f6dc8c] hover:underline text-[10px]"
+                      >
+                        <span>Live</span>
+                        <ArrowUpRight className="h-2.5 w-2.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
-                {/* Hero Screenshot Preview */}
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="block relative aspect-[16/10] w-full bg-zinc-950 overflow-hidden border-b border-white/08"
-                >
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={`${project.name} interface preview`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                      unoptimized
-                    />
-                  ) : (
-                    <div className="h-full w-full flex items-center justify-center font-mono text-xs text-zinc-600">
-                      {project.name.toUpperCase()} PREVIEW
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Link>
+                {/* Hero Screenshot Preview OR Interactive Sandbox */}
+                {project.id === "baunti" && sandboxViews.baunti === "sandbox" ? (
+                  <div className="p-2.5 bg-black/90 border-b border-white/08">
+                    <BauntiSandbox />
+                  </div>
+                ) : project.id === "wetaego" && sandboxViews.wetaego === "sandbox" ? (
+                  <div className="p-2.5 bg-black/90 border-b border-white/08">
+                    <WetaegoSandbox />
+                  </div>
+                ) : project.id === "gozai" && sandboxViews.gozai === "sandbox" ? (
+                  <div className="p-2.5 bg-black/90 border-b border-white/08">
+                    <GozAISandbox />
+                  </div>
+                ) : (
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="block relative aspect-[16/10] w-full bg-zinc-950 overflow-hidden border-b border-white/08"
+                  >
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={`${project.name} interface preview`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="h-full w-full flex items-center justify-center font-mono text-xs text-zinc-600">
+                        {project.name.toUpperCase()} PREVIEW
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </Link>
+                )}
 
                 {/* Project Details */}
                 <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3.5">
