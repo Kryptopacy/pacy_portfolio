@@ -58,21 +58,22 @@ export const PROJECTS: Project[] = [
     id: "wetaego",
     name: "Wetaego",
     descriptor:
-      "The AI-Native Commerce & Service Operating System: Dual-Sided Voice/Vision Co-Pilot, Autonomous Agent WebMCP & Hardware-Agnostic POS",
+      "The AI-Native Business Operating System & Unified Commerce Platform: Full-Spectrum Operations Suite, Dual-Sided AI & Agent-Ready WebMCP",
     url: "https://wetaego.com",
     urlLabel: "wetaego.com",
     image: "/projects/wetaego_hero.png",
     accentColor: "blue",
     metrics: [
-      { label: "Instant AI Onboarding", value: "Zero-Setup Dual-Sided AI Native (Customer + Merchant)" },
-      { label: "Merchant Vision Co-Pilot", value: "Multimodal 1 FPS Camera Menu & Inventory Auditing" },
-      { label: "Customer AI Concierge", value: "24/7 Grounded Voice/Chat with Live Staff Escalation" },
-      { label: "Agent Protocol Suite", value: "W3C WebMCP & 14 Open Discovery Standards (RFC 9727, x402)" },
+      { label: "Full-Spectrum Operations", value: "POS, Dispatch, Inventory BOM, BMS Bookings & PMS" },
+      { label: "Instant AI-Native Core", value: "Zero-Setup Dual-Sided AI (Customer Concierge + Merchant Co-Pilot)" },
+      { label: "Hardware & Fleet Scale", value: "Driverless Printing, Offline IndexedDB & Sub-1s Fleet Cloning" },
+      { label: "Next-Gen Agent Commerce", value: "W3C WebMCP & 14 Open Discovery RFCs (x402, MPP)" },
     ],
     tags: [
       "Next.js 16",
       "React 19",
       "TypeScript",
+      "Full Business OS",
       "Dual-Sided AI Native",
       "W3C WebMCP",
       "Gemini Multimodal Live (Audio + Vision)",
@@ -116,12 +117,17 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "The commerce and service operating system that instantly makes any business AI-native out-of-the-box. The moment an account is created, the business inherits a complete dual-sided AI architecture: a 24/7 frontline customer AI concierge (Tego) grounded in live catalog data for dietary recommendations, appointment booking, and instant staff escalation, paired with a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus, handwritten receipts, and stockroom shelves via camera. Combined with an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome), driverless raw ESC/POS thermal printing, offline-first IndexedDB resilience, and multi-branch franchise replication.",
+      "The complete enterprise operating system and unified commerce platform that runs every operational layer of a modern business while making it AI-native out-of-the-box. On the business side, Wetaego provides a full-spectrum operational suite unifying high-speed counter POS with barcode scanning, multi-station order dispatch, Bill of Materials (BOM) inventory tracking, appointment bookings (BMS), property listings (PMS), B2B quote generation, delivery fleet tracking, push-to-talk staff radio intercom, in-house VIP BNPL tabs, and sub-second multi-branch franchise replication—operating seamlessly on any device with driverless WebUSB/WebBluetooth ESC/POS printing and offline IndexedDB resilience. Setting up an account instantly provisions dual-sided native AI: a 24/7 frontline customer concierge for ordering and slot booking with live staff escalation, a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus and stockroom shelves via 1 FPS camera vision, and an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome).",
     modules: [
       {
-        name: "Instant AI-Native Dual-Sided Architecture",
+        name: "Full-Spectrum Business Operations OS (POS, BMS, PMS, Quotes, Dispatch)",
         description:
-          "Setting up an account immediately provisions native AI on both sides of the business: a 24/7 customer concierge grounded in verified catalog data for orders and bookings, and a merchant dashboard co-pilot with bidirectional voice dialogue and staff handoff.",
+          "Unifies high-speed counter POS with barcode scanning, multi-status order dispatch boards, timed appointment calendars (BMS), property stay management (PMS), dynamic B2B quote builders with 2-tap customer approvals, multi-zone delivery tracking, and staff timeclocks.",
+      },
+      {
+        name: "Instant Dual-Sided AI-Native Architecture",
+        description:
+          "Setting up an account immediately provisions native AI on both sides of the business: a 24/7 customer concierge (Tego) grounded in verified catalog data for orders and bookings with live staff handoff, and an admin voice/vision co-pilot.",
       },
       {
         name: "Tego Multimodal Live Co-Pilot (Voice & Vision)",
@@ -134,29 +140,24 @@ export const PROJECTS: Project[] = [
           "Automatically exposes 8 canonical commercial tools on document.modelContext, turning the merchant's storefront into an autonomous tool API for browsing agents (ChatGPT, Claude, Chrome) with RFC 9727 discovery, x402 micropayments, and a Human-in-the-Loop safe payment gate.",
       },
       {
-        name: "Hardware-Agnostic POS & Zero-Downtime Offline Queue",
+        name: "Inventory BOM, CRM Loyalty & VIP IOU Tab Financing",
         description:
-          "Runs on any smartphone, tablet, or laptop without proprietary terminal lock-in (Toast, Square). Transactions buffer locally in IndexedDB (offline-queue-store.ts) during network drops and sync seamlessly upon reconnection.",
+          "Raw ingredient decrement tracking per order, low-stock threshold alerts, automated customer shadow profiles at checkout with LTV metrics, and in-house VIP store credit financing / BNPL tab ledgers with automated debt reminders.",
       },
       {
-        name: "Driverless Binary ESC/POS Thermal Printing",
+        name: "Hardware-Agnostic Engine, Driverless Printing & Fleet Sync",
         description:
-          "Emits raw ESC/POS binary command streams directly across WebUSB, WebSerial, and WebBluetooth without desktop daemons, triggering automatic paper cuts and cash drawer kicks.",
-      },
-      {
-        name: "Multi-Branch Fleet Duplication & VIP IOU Tab Ledger",
-        description:
-          "Replicates entire multi-department supermarket and restaurant catalogs across franchise locations in under a second (duplicatePageAction) and digitizes in-house VIP BNPL store tabs without predatory third-party fees.",
+          "Runs on any smartphone, tablet, or PC without proprietary terminal lock-in (Toast, Square). Features driverless raw ESC/POS printing over WebUSB/WebBluetooth, offline IndexedDB transaction buffers (offline-queue-store.ts), and 1-second franchise catalog duplication.",
       },
     ],
     bullets: [
-      "Engineered zero-setup dual-sided AI architecture that makes any business AI-native out-of-the-box with customer-facing concierges and merchant dashboard co-pilots.",
-      "Built Tego Multimodal Live AI combining bidirectional 16kHz/24kHz PCM voice dialogue with continuous 1 FPS camera video streaming for automated visual menu and inventory auditing.",
-      "Pioneered autonomous agent commerce implementing W3C WebMCP on document.modelContext and 14 open discovery standards (RFC 9727, x402, MPP) with safe Human-in-the-Loop authorization.",
-      "Delivered hardware-agnostic commerce eliminating proprietary POS terminal lock-in with driverless WebUSB/WebBluetooth ESC/POS thermal printing and offline IndexedDB queueing.",
+      "Architected full-spectrum business operating system unifying counter POS, multi-station order dispatch, BOM inventory, appointment bookings (BMS), property listings (PMS), B2B quotes, and push-to-talk staff intercom.",
+      "Engineered zero-setup dual-sided AI architecture that makes any business AI-native out-of-the-box with 24/7 customer concierges and merchant dashboard multimodal voice/camera co-pilots.",
+      "Pioneered autonomous agent commerce implementing W3C WebMCP on document.modelContext and 14 open discovery standards (RFC 9727, x402, MPP) with safe Human-in-the-Loop payment authorization.",
+      "Delivered hardware-agnostic infrastructure with driverless binary WebUSB/WebBluetooth ESC/POS thermal printing, offline-first IndexedDB resilience, and sub-second multi-branch fleet duplication.",
     ],
     architecture: {
-      category: "Dual-Sided AI-Native Commerce & Autonomous Agent Protocol OS",
+      category: "Full-Spectrum Business OS, Dual-Sided AI & Autonomous Agent Commerce",
       concurrencyGuarantee:
         "Row-level locks (SELECT FOR UPDATE), offline queue replay reconciliation, and atomic two-phase wallet transfers.",
       protocolOrAi:
