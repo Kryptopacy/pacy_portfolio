@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
         destination: "/build-with-us",
         permanent: false,
       },
+      {
+        source: "/projects/gozai",
+        destination: "/projects/gozvision",
+        permanent: true,
+      },
     ];
   },
 };

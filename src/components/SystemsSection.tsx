@@ -6,7 +6,7 @@ import Link from "next/link";
 import { PROJECTS } from "@/data/portfolioData";
 import { ArrowUpRight, ArrowRight, ExternalLink, ShieldCheck, Cpu, Database, Terminal, Sparkles } from "lucide-react";
 import WetaegoSandbox from "@/components/interactive/WetaegoSandbox";
-import GozAISandbox from "@/components/interactive/GozAISandbox";
+import GozVisionSandbox from "@/components/interactive/GozVisionSandbox";
 import BauntiSandbox from "@/components/interactive/BauntiSandbox";
 import { playMechanicalClick } from "@/lib/soundEffects";
 
@@ -14,7 +14,7 @@ export default function SystemsSection() {
   const [filter, setFilter] = useState<"all" | "proprietary" | "client">("all");
   const [sandboxViews, setSandboxViews] = useState<{ [key: string]: "preview" | "sandbox" }>({
     wetaego: "preview",
-    gozai: "preview",
+    gozvision: "preview",
     baunti: "preview",
   });
 
@@ -34,9 +34,9 @@ export default function SystemsSection() {
 
   // Split out flagship (Wetaego) when viewing All
   const flagship = PROJECTS.find((p) => p.id === "wetaego");
-  const secondaryFlagships = PROJECTS.filter((p) => p.id === "cruisehq" || p.id === "gozai");
+  const secondaryFlagships = PROJECTS.filter((p) => p.id === "cruisehq" || p.id === "gozvision");
   const otherProjects = filteredProjects.filter(
-    (p) => filter !== "all" || (p.id !== "wetaego" && p.id !== "cruisehq" && p.id !== "gozai")
+    (p) => filter !== "all" || (p.id !== "wetaego" && p.id !== "cruisehq" && p.id !== "gozvision")
   );
 
   return (
@@ -244,7 +244,7 @@ export default function SystemsSection() {
         )}
 
         {/* ========================================================================= */}
-        {/* TIER 2: CO-FLAGSHIPS (CruiseHQ & GozAI) - Shown when "All" */}
+        {/* TIER 2: CO-FLAGSHIPS (CruiseHQ & GozVision) - Shown when "All" */}
         {/* ========================================================================= */}
         {filter === "all" && secondaryFlagships.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14 sm:mb-20">
@@ -261,13 +261,13 @@ export default function SystemsSection() {
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0">
-                    {project.id === "gozai" && (
+                    {project.id === "gozvision" && (
                       <div className="flex items-center gap-1 bg-black/60 p-0.5 rounded border border-white/10 text-[10px]">
                         <button
                           type="button"
-                          onClick={() => toggleSandbox("gozai", "preview")}
+                          onClick={() => toggleSandbox("gozvision", "preview")}
                           className={`px-2 py-0.5 transition-all rounded-xs ${
-                            sandboxViews.gozai === "preview"
+                            sandboxViews.gozvision === "preview"
                               ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium"
                               : "text-zinc-400 hover:text-white"
                           }`}
@@ -276,15 +276,15 @@ export default function SystemsSection() {
                         </button>
                         <button
                           type="button"
-                          onClick={() => toggleSandbox("gozai", "sandbox")}
+                          onClick={() => toggleSandbox("gozvision", "sandbox")}
                           className={`px-2 py-0.5 transition-all rounded-xs flex items-center gap-1 ${
-                            sandboxViews.gozai === "sandbox"
+                            sandboxViews.gozvision === "sandbox"
                               ? "bg-[#3a0d1c] text-[#f6dc8c] border border-[#d9a648]/40 font-medium shadow-[0_0_10px_rgba(217,166,72,0.2)]"
                               : "text-zinc-400 hover:text-white"
                           }`}
                         >
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                          <span>⚡ Triage Sandbox</span>
+                          <span>⚡ Practice Console</span>
                         </button>
                       </div>
                     )}
@@ -304,9 +304,9 @@ export default function SystemsSection() {
                 </div>
 
                 {/* Screenshot OR Interactive Sandbox */}
-                {project.id === "gozai" && sandboxViews.gozai === "sandbox" ? (
+                {project.id === "gozvision" && sandboxViews.gozvision === "sandbox" ? (
                   <div className="p-3 bg-black/90 border-b border-white/08">
-                    <GozAISandbox />
+                    <GozVisionSandbox />
                   </div>
                 ) : (
                   <Link
@@ -434,13 +434,13 @@ export default function SystemsSection() {
                       </button>
                     )}
 
-                    {project.id === "gozai" && (
+                    {project.id === "gozvision" && (
                       <button
                         type="button"
-                        onClick={() => toggleSandbox("gozai", sandboxViews.gozai === "sandbox" ? "preview" : "sandbox")}
+                        onClick={() => toggleSandbox("gozvision", sandboxViews.gozvision === "sandbox" ? "preview" : "sandbox")}
                         className="px-1.5 py-0.5 text-[9px] bg-black/60 text-[#f6dc8c] border border-white/10 rounded-xs"
                       >
-                        {sandboxViews.gozai === "sandbox" ? "Preview" : "⚡ Sandbox"}
+                        {sandboxViews.gozvision === "sandbox" ? "Preview" : "⚡ Sandbox"}
                       </button>
                     )}
 
@@ -467,9 +467,9 @@ export default function SystemsSection() {
                   <div className="p-2.5 bg-black/90 border-b border-white/08">
                     <WetaegoSandbox />
                   </div>
-                ) : project.id === "gozai" && sandboxViews.gozai === "sandbox" ? (
+                ) : project.id === "gozvision" && sandboxViews.gozvision === "sandbox" ? (
                   <div className="p-2.5 bg-black/90 border-b border-white/08">
-                    <GozAISandbox />
+                    <GozVisionSandbox />
                   </div>
                 ) : (
                   <Link
