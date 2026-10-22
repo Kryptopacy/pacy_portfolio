@@ -166,25 +166,25 @@ export const PROJECTS: Project[] = [
   {
     id: "cruisehq",
     name: "CruiseHQ",
-    descriptor: "Urban Culture, Nightlife & Real-World Gathering Operating System, Community Hubs & Voice AI Master",
+    descriptor:
+      "The Social Operating System for Cities: Events, Communities, Places & Verified Plugs, Multiplayer Hangouts & Arcade AI Host",
     url: "https://cruisehq.fun",
     urlLabel: "cruisehq.fun",
     image: "/projects/cruisehq_hero.png",
     accentColor: "indigo",
     metrics: [
-      { label: "Gate Admission Speed", value: "Sub-Second Camera QR Viewfinder" },
-      { label: "Social & Party Games", value: "51 Cultural Games + 9 Minigames" },
-      { label: "Voice Automation", value: "TCG Multimodal Voice DOM Controller" },
-      { label: "Ecosystem Currency", value: "$CRUISE Multi-Scope Utility Ledger" },
+      { label: "City Infrastructure", value: "Events, Hubs, Places & Verified Plugs" },
+      { label: "Gate Admission Speed", value: "Sub-Second Mobile Camera QR Scanner" },
+      { label: "Social & Party Gaming", value: "51 Cultural Games + In-Browser AI Studio" },
+      { label: "Realtime Multiplayer", value: "HQ Rooms, WebRTC Audio Mesh & TCG Voice AI" },
     ],
     tags: [
       "Next.js 15",
       "TypeScript",
       "Gemini Multimodal Live API",
-      "Supabase Realtime",
-      "PostgreSQL RLS",
+      "Supabase (PostgreSQL & pgvector)",
       "WebRTC Audio Mesh",
-      "Bachs Multi-Rail Checkout",
+      "Bachs Multi-Rail Checkout & Payouts",
       "Serwist PWA",
       "In-Browser AI Game Studio",
     ],
@@ -192,7 +192,7 @@ export const PROJECTS: Project[] = [
       frontend: [
         "Next.js 15 (App Router)",
         "Tailwind CSS",
-        "Mobile QR Gate Check-In Viewfinder (`/dashboard/organizer/checkin`)",
+        "Mobile QR Gate Check-In Viewfinder (/dashboard/organizer/checkin)",
         "WebRTC Peer-to-Peer Voice Audio Mesh",
         "Real-Time Active Speaker Halo Detection",
         "Browser Soundboard FX & Web Audio Chimes",
@@ -202,10 +202,11 @@ export const PROJECTS: Project[] = [
         "Atomic spend_cruise & grant_cruise RPCs",
         "Service-Role Minting Guard",
         "Deny-by-Default RLS Policies",
-        "PostGIS Geolocation Venue Mapping",
+        "PostGIS Geolocation Venue & Plug Mapping",
       ],
       aiAndRealtime: [
         "TCG Multimodal Voice AI Concierge (Gemini Live API)",
+        "Long-Term pgvector Memory (match_cruisehq_memories)",
         "20+ Client Tool Declarations Mutating React DOM",
         "AI Co-Host Voice Summoning in Live Lounges",
         "In-Browser 60 FPS HTML5 AI Game Studio",
@@ -213,59 +214,60 @@ export const PROJECTS: Project[] = [
       ],
       paymentsAndProtocols: [
         "Bachs Multi-Rail Checkout (Cards, Bank Transfer, Crypto)",
+        "Bachs Dual-Rail Payouts (NUBAN Bank Accounts & USDT Wallets)",
         "Unified Cross-Product $CRUISE Credit Ledger",
         "Idempotent Webhook Ticket Generation",
-        "Affiliate Split-at-Source Commission Engine",
+        "Cruisaiders Affiliate Split-at-Source Commission Engine",
       ],
     },
     summary:
-      "The complete operating system for urban culture, nightlife events, and real-world gatherings. Unifies multi-tier ticketing with Bachs multi-rail checkout, instant mobile camera QR gate admission scanner with real-time throughput metrics, decentralized community hubs with WebRTC live audio lounges, TCG (The Cruise God) multimodal voice AI concierge that physically controls the React DOM, the GamesMaster directory of 51 cultural party games with automated voice hosting, 9 native multiplayer minigames, and an in-browser AI game studio generating playable 60 FPS HTML5 games with $CRUISE gas refund guarantees.",
+      "The complete social operating system and cultural headquarters for cities. Unifies multi-tier event ticketing with Bachs card/crypto checkout, sub-second mobile camera QR gate admission scanning (/dashboard/organizer/checkin), decentralized community hubs with WebRTC live audio lounges, a living directory of verified venues and culture plugs, real-time multiplayer HQ Rooms with synchronized guest participation, the GamesMaster directory of 51 authentic cultural party games, an in-browser AI game studio compiling 60 FPS HTML5 games, and TCG (The Cruise God)—a voice-first Gemini Live companion with long-term pgvector memory that hosts gatherings and physically drives the React DOM.",
     modules: [
       {
         name: "Event Ticketing & Mobile Camera Gate Scanner",
         description:
-          "Multi-tier ticket issuance with Bachs unified checkout (Cards, Transfers, Crypto), paired with a dedicated mobile camera QR gate scanner (/dashboard/organizer/checkin) featuring real-time throughput metrics, Web Audio chimes, and haptics.",
+          "Multi-tier ticket issuance with Bachs unified checkout (Cards, Transfers, Crypto), paired with a dedicated mobile camera QR gate scanner (/dashboard/organizer/checkin) featuring real-time admission throughput metrics, Web Audio chimes, and haptic feedback.",
       },
       {
         name: "Community Hubs & WebRTC Live Lounge",
         description:
-          "Decentralized creator hubs with $CRUISE entry fees, Discord-grade WebRTC peer-to-peer audio mesh, active speaker halo detection, native screen sharing, and browser soundboard FX.",
+          "Decentralized scene hubs with optional $CRUISE membership fees, Discord-grade WebRTC peer-to-peer audio mesh, active speaker halo detection, native screen sharing, and browser soundboard FX.",
       },
       {
-        name: "TCG Multimodal Voice Concierge & DOM Controller",
+        name: "Places & Verified Plugs Directory",
         description:
-          "Voice-first companion running over bidirectional WebSockets that interprets natural speech to execute 20+ client tool declarations, directly manipulating the React DOM and hosting live audio stages.",
+          "Living discovery directory and map for city venues (bars, lounges, creative studios, restaurants) and verified service plugs (streetwear brands, mobile bars, DJs, creators, photographers) claimable by verified businesses.",
       },
       {
-        name: "GamesMaster Directory (51 Cultural Games)",
+        name: "HQ Rooms — Real-Time Multiplayer Sessions",
         description:
-          "Comprehensive database of worldwide classics and deep Nigerian social gathering games (Ayo Olopon, Ten-Ten, Whot, Drink or Tell the Truth) with automated TCG AI voice hosting, timers, and drinking penalties.",
+          "Two-way interactive room engine (/tcg and /room/CODE) where hosts broadcast live polls, group chat, party icebreakers (Truths, Dares, Charades), guest co-host microphones, and The AUX with synchronized Spotify lyrics.",
       },
       {
-        name: "Arcade Hub & In-Browser AI Game Studio",
+        name: "GamesMaster Directory & Arcade AI Studio",
         description:
-          "9 native multiplayer minigames (Conce-Conce, TriviaRush, Impostor) with weekly rival ladders, plus an in-browser AI game studio where users prompt playable 60 FPS HTML5 games directly inside /arcade with $CRUISE refund guarantees.",
+          "Comprehensive directory of 51 worldwide and Nigerian cultural gathering games (Ayo Olopon, Ten-Ten, Whot, Suwe) with automated AI voice refereeing, paired with an in-browser AI studio prompting playable 60 FPS HTML5 games.",
       },
       {
-        name: "Cross-Product $CRUISE Utility Ledger",
+        name: "Cross-Product $CRUISE Utility Ledger & Bachs Payouts",
         description:
-          "Shared microeconomy powering CruiseHQ (Events & Culture), Baunti (Prize Escrow), and Huiyi (Video Recaps) under synchronized atomic database RPCs.",
+          "Shared microeconomy powering CruiseHQ, Baunti (Prize Escrow), and Huiyi (Video Recaps) with automated dual-rail payouts to Nigerian bank accounts (NUBAN) and USDT crypto wallets.",
       },
     ],
     bullets: [
-      "Architected urban nightlife operating system with mobile camera QR gate admission scanner, multi-tier Bachs checkout, and post-event recap integration.",
-      "Engineered TCG: bidirectional Gemini Live voice AI concierge executing 20+ client tool declarations directly mutating the React DOM and hosting audio stages.",
-      "Built GamesMaster and Arcade platforms featuring 51 cultural party games, 9 native multiplayer minigames, and an in-browser AI game studio generating playable HTML5 games.",
-      "Implemented unified $CRUISE ledger spanning events, community hub memberships, and cross-product utility across Baunti and Huiyi.",
+      "Architected city-wide social headquarters unifying event ticketing, mobile camera QR gate admission scanning, and post-event recap integration.",
+      "Engineered decentralized community hubs featuring Discord-grade WebRTC peer-to-peer live audio lounges, active speaker halo detection, and screen sharing.",
+      "Built real-time multiplayer HQ Rooms with synchronized guest participation, live polls, Spotify AUX control, and the GamesMaster directory of 51 cultural gathering games.",
+      "Implemented TCG (The Cruise God): voice-first Gemini Live companion with long-term pgvector memory executing 20+ client tools directly mutating the React DOM.",
     ],
     architecture: {
-      category: "Urban Culture, Real-Time Voice & Multiplayer Event Infrastructure",
+      category: "Social City Infrastructure, Real-Time Voice & Multiplayer Event Systems",
       concurrencyGuarantee:
-        "Atomic spend_cruise RPCs, service-role-only minting, and split-at-source ticketing reconciliation.",
+        "Atomic spend_cruise & grant_cruise RPCs, service-role-only minting, and split-at-source ticketing reconciliation.",
       protocolOrAi:
-        "Gemini Multimodal Live API, 20+ React DOM tool declarations, WebRTC peer audio mesh.",
+        "Gemini Multimodal Live API (16 client tools), long-term pgvector memory, WebRTC peer audio mesh, in-browser AI game compiler.",
       dbOrInfra:
-        "Supabase PostgreSQL, Upstash Redis caching, Serwist PWA at 220+ sitemap scale.",
+        "Supabase PostgreSQL (shared ecosystem layer), Upstash Redis rate-limiting, Serwist PWA, Bachs dual-rail payouts.",
     },
   },
   {
