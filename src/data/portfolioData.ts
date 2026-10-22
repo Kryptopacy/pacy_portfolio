@@ -57,27 +57,29 @@ export const PROJECTS: Project[] = [
   {
     id: "wetaego",
     name: "Wetaego",
-    descriptor: "Hardware-Agnostic Commerce & Service Operating System for Modern Brands, Human Guests & Autonomous AI Agents",
+    descriptor:
+      "The AI-Native Commerce & Service Operating System: Dual-Sided Voice/Vision Co-Pilot, Autonomous Agent WebMCP & Hardware-Agnostic POS",
     url: "https://wetaego.com",
     urlLabel: "wetaego.com",
     image: "/projects/wetaego_hero.png",
     accentColor: "blue",
     metrics: [
-      { label: "Hardware Architecture", value: "100% Web-Native (Zero Lock-In)" },
-      { label: "Offline Resilience", value: "Zero-Downtime IndexedDB Queue" },
-      { label: "Multi-Branch Fleets", value: "Sub-1s Catalog Duplication" },
-      { label: "Agent Protocol Readiness", value: "W3C WebMCP & 14 Open Discovery RFCs" },
+      { label: "Instant AI Onboarding", value: "Zero-Setup Dual-Sided AI Native (Customer + Merchant)" },
+      { label: "Merchant Vision Co-Pilot", value: "Multimodal 1 FPS Camera Menu & Inventory Auditing" },
+      { label: "Customer AI Concierge", value: "24/7 Grounded Voice/Chat with Live Staff Escalation" },
+      { label: "Agent Protocol Suite", value: "W3C WebMCP & 14 Open Discovery Standards (RFC 9727, x402)" },
     ],
     tags: [
       "Next.js 16",
       "React 19",
       "TypeScript",
+      "Dual-Sided AI Native",
       "W3C WebMCP",
+      "Gemini Multimodal Live (Audio + Vision)",
       "Offline-First IndexedDB",
-      "Supabase Realtime",
-      "PostgreSQL RLS",
-      "Gemini Multimodal Live API",
-      "Upstash Redis",
+      "PostgreSQL 16 RLS",
+      "Hardware-Agnostic POS",
+      "Bachs & Paystack",
       "x402 / MPP",
       "Serwist PWA",
     ],
@@ -85,7 +87,7 @@ export const PROJECTS: Project[] = [
       frontend: [
         "Next.js 16 (React 19)",
         "Tailwind CSS v4",
-        "Universal Design Token Engine (`design_tokens` JSONB)",
+        "Universal Design Token Engine (design_tokens JSONB)",
         "Split-Screen Visual Builder",
         "Serwist PWA (Offline-First)",
         "Zustand + IndexedDB Cache Hydration",
@@ -93,17 +95,17 @@ export const PROJECTS: Project[] = [
       databaseAndConcurrency: [
         "PostgreSQL 16 Multi-Tenant RLS",
         "SELECT FOR UPDATE Row-Level Locks",
-        "Offline Queue Sync (`offline-queue-store.ts`)",
+        "Offline Queue Sync (offline-queue-store.ts)",
         "Atomic Two-Phase Checkout RPCs",
         "Supabase Realtime WebSockets",
         "Upstash Redis Edge WAF",
       ],
       aiAndRealtime: [
         "Tego Multimodal Live Voice & Vision (16kHz/24kHz PCM)",
-        "Continuous 1 FPS Camera Menu/Inventory Auditing",
-        "Business-Adaptive Role Personas",
-        "Zero-Hallucination Database Grounding",
-        "Real-Time Manager WebSocket Escalation",
+        "Continuous 1 FPS Camera Menu & Stockroom Auditing",
+        "Dual-Sided AI (Frontline Customer Concierge + Admin Co-Pilot)",
+        "Zero-Hallucination Database Grounding & Allergen Filtering",
+        "Real-Time Manager WebSocket Escalation & Staff Handoff",
       ],
       paymentsAndProtocols: [
         "W3C WebMCP Native (8 Canonical In-Browser Tools)",
@@ -114,51 +116,51 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "Hardware-agnostic commerce and service operating system built to dismantle predatory POS lock-in (Toast, Square, OpenTable). Operates seamlessly on any mobile phone, tablet, or web browser with zero proprietary hardware. Features zero-downtime offline-first order queueing in IndexedDB, 100% white-label customer data sovereignty, in-house VIP IOU / BNPL tab financing without third-party fees, sub-second multi-branch catalog replication, Tego multimodal live voice/vision scanning, and industry-leading autonomous AI agent commerce across 14 open discovery standards (W3C WebMCP, RFC 9727, Coinbase x402).",
+      "The commerce and service operating system that instantly makes any business AI-native out-of-the-box. The moment an account is created, the business inherits a complete dual-sided AI architecture: a 24/7 frontline customer AI concierge (Tego) grounded in live catalog data for dietary recommendations, appointment booking, and instant staff escalation, paired with a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus, handwritten receipts, and stockroom shelves via camera. Combined with an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome), driverless raw ESC/POS thermal printing, offline-first IndexedDB resilience, and multi-branch franchise replication.",
     modules: [
       {
-        name: "Hardware-Agnostic Engine & Zero-Downtime Offline Queue",
+        name: "Instant AI-Native Dual-Sided Architecture",
         description:
-          "Runs on any web browser with zero mandatory terminal hardware. When venue internet drops during peak rushes, transactions buffer locally in IndexedDB (offline-queue-store.ts) and reconcile automatically upon reconnection.",
+          "Setting up an account immediately provisions native AI on both sides of the business: a 24/7 customer concierge grounded in verified catalog data for orders and bookings, and a merchant dashboard co-pilot with bidirectional voice dialogue and staff handoff.",
       },
       {
-        name: "Universal Design Token Engine & Visual Builder",
+        name: "Tego Multimodal Live Co-Pilot (Voice & Vision)",
         description:
-          "Abstracts storefront visuals into semantic JSONB tokens supporting 9 polymorphic layout templates (Bento Grid, Masonry, Glassmorphism) across 6 verticals (Dining, Hospitality, Boutique Retail, Wellness, Trades, Studios).",
+          "Real-time 16kHz/24kHz audio dialogue paired with continuous 1 FPS camera video ingestion, allowing merchants to point their phone at physical paper menus, handwritten invoices, or stockroom inventory to automate catalog onboarding without manual typing.",
       },
       {
-        name: "In-House VIP IOU / BNPL Tab Ledger",
+        name: "Autonomous Agent Storefront (W3C WebMCP & 14 RFCs)",
         description:
-          "Digitizes the high-trust 'put it on my tab' culture for regular patrons with merchant-set credit limits and automated reconciliation, eliminating predatory third-party BNPL processing fees.",
+          "Automatically exposes 8 canonical commercial tools on document.modelContext, turning the merchant's storefront into an autonomous tool API for browsing agents (ChatGPT, Claude, Chrome) with RFC 9727 discovery, x402 micropayments, and a Human-in-the-Loop safe payment gate.",
       },
       {
-        name: "Multi-Branch Fleet Duplication & Location Autonomy",
+        name: "Hardware-Agnostic POS & Zero-Downtime Offline Queue",
         description:
-          "Replicates entire multi-department supermarket and restaurant catalogs across franchise locations in under a second (duplicatePageAction) while preserving store-level manager out-of-stock autonomy.",
+          "Runs on any smartphone, tablet, or laptop without proprietary terminal lock-in (Toast, Square). Transactions buffer locally in IndexedDB (offline-queue-store.ts) during network drops and sync seamlessly upon reconnection.",
       },
       {
-        name: "Tego Multimodal Live Voice & Vision AI",
+        name: "Driverless Binary ESC/POS Thermal Printing",
         description:
-          "Bidirectional 16kHz/24kHz PCM audio dialogue + continuous 1 FPS camera video ingestion for live physical menu and inventory auditing with zero-hallucination guardrails and seamless human staff handoff.",
+          "Emits raw ESC/POS binary command streams directly across WebUSB, WebSerial, and WebBluetooth without desktop daemons, triggering automatic paper cuts and cash drawer kicks.",
       },
       {
-        name: "W3C WebMCP & 14 Open Agent Standards",
+        name: "Multi-Branch Fleet Duplication & VIP IOU Tab Ledger",
         description:
-          "First-in-class autonomous agent checkout exposing 8 canonical tools on document.modelContext, RFC 9727 API catalogs, and Coinbase x402 protocols with mandatory Human-in-the-Loop authorization.",
+          "Replicates entire multi-department supermarket and restaurant catalogs across franchise locations in under a second (duplicatePageAction) and digitizes in-house VIP BNPL store tabs without predatory third-party fees.",
       },
     ],
     bullets: [
-      "Engineered hardware-agnostic commerce architecture liberating merchants from Toast/Square proprietary lock-in with zero-downtime IndexedDB offline queueing.",
-      "Built universal design token engine with split-screen visual builder supporting 9 polymorphic layout templates across 6 distinct commercial verticals.",
-      "Implemented in-house VIP IOU tab financing ledger and sub-second multi-branch franchise catalog duplication with store-level manager autonomy.",
-      "Pioneered autonomous agent commerce implementing W3C WebMCP on document.modelContext and 14 open discovery standards (RFC 9727, x402, MPP).",
+      "Engineered zero-setup dual-sided AI architecture that makes any business AI-native out-of-the-box with customer-facing concierges and merchant dashboard co-pilots.",
+      "Built Tego Multimodal Live AI combining bidirectional 16kHz/24kHz PCM voice dialogue with continuous 1 FPS camera video streaming for automated visual menu and inventory auditing.",
+      "Pioneered autonomous agent commerce implementing W3C WebMCP on document.modelContext and 14 open discovery standards (RFC 9727, x402, MPP) with safe Human-in-the-Loop authorization.",
+      "Delivered hardware-agnostic commerce eliminating proprietary POS terminal lock-in with driverless WebUSB/WebBluetooth ESC/POS thermal printing and offline IndexedDB queueing.",
     ],
     architecture: {
-      category: "Hardware-Agnostic Commerce & Autonomous Agent Protocol OS",
+      category: "Dual-Sided AI-Native Commerce & Autonomous Agent Protocol OS",
       concurrencyGuarantee:
         "Row-level locks (SELECT FOR UPDATE), offline queue replay reconciliation, and atomic two-phase wallet transfers.",
       protocolOrAi:
-        "W3C WebMCP (8 client tools), 14 open agent standards (RFC 9727), Gemini Multimodal Live API (PCM audio + 1 FPS video).",
+        "Dual-sided AI architecture (Tego Voice/Vision + Frontline Concierge), W3C WebMCP (8 tools), 14 agent discovery RFCs, Gemini Live API.",
       dbOrInfra:
         "PostgreSQL 16 with RLS tenant isolation, Supabase Realtime, Upstash Redis edge WAF, Serwist PWA.",
     },
