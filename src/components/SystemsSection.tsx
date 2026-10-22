@@ -57,7 +57,7 @@ export default function SystemsSection() {
               Systems &amp; Architectures
             </h2>
             <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed">
-              Every platform documented here is an active production architecture running real-world workloads, spanning distributed protocols, W3C WebMCP runtimes, and enterprise systems engineered under contract.
+              Production platforms, operational operating systems, and agent protocols engineered and shipped by Pacy Labs.
             </p>
           </div>
 
@@ -126,7 +126,7 @@ export default function SystemsSection() {
                           : "text-zinc-400 hover:text-zinc-200"
                       }`}
                     >
-                      <span>🖼️ Preview</span>
+                      <span>Preview</span>
                     </button>
                     <button
                       type="button"
@@ -138,7 +138,7 @@ export default function SystemsSection() {
                       }`}
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-[#f6dc8c] animate-ping" />
-                      <span>⚡ Live WebMCP Sandbox</span>
+                      <span>Live WebMCP Sandbox</span>
                     </button>
                   </div>
 
@@ -225,7 +225,7 @@ export default function SystemsSection() {
                     }
                     className="text-[#f6dc8c] hover:underline flex items-center gap-1.5 text-[11px]"
                   >
-                    <span>{sandboxViews.wetaego === "sandbox" ? "← Back to Preview" : "⚡ Test Live WebMCP Tool Call"}</span>
+                    <span>{sandboxViews.wetaego === "sandbox" ? "← Back to Preview" : "Test Live WebMCP Tool Call"}</span>
                   </button>
 
                   <Link
@@ -284,7 +284,7 @@ export default function SystemsSection() {
                           }`}
                         >
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                          <span>⚡ Practice Console</span>
+                          <span>Practice Console</span>
                         </button>
                       </div>
                     )}

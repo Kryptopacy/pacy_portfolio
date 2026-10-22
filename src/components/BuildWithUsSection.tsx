@@ -64,10 +64,10 @@ Dispatched via pacylabs.xyz`;
                 Build With Pacy Labs
               </h2>
               <p className="text-sm sm:text-base text-[#d4c5ca] font-light leading-relaxed mb-4">
-                We engineer robust enterprise software and operational platforms. From bespoke hospitality operating systems like <strong className="text-white font-medium">Joebrown Palace Hotel</strong> to omnichannel hardware retail systems like <strong className="text-white font-medium">DreamwiseHUB</strong>, our clients trust us to build systems that handle daily business operations with high reliability.
+                We engineer custom business software and operational operating systems. Joebrown Palace Hotel runs its front desk, folios, and kitchen dispatch on our hospitality platform; DreamwiseHUB manages multi-location retail and technician repair queues with our hardware POS and CRM.
               </p>
               <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
-                Whether you need a custom business OS, an autonomous agent-ready WebMCP platform, or an exhaustive architectural audit before launch, we build with disciplined engineering standards.
+                We take on targeted architecture commissions, platform builds, and technical audits for founders and operators who need dependable software.
               </p>
             </div>
 

@@ -110,7 +110,7 @@ export default function ResumeDossier() {
                 </div>
                 <div className="font-mono text-xs text-zinc-500 mb-3">Catholic Optic Outreach | Nigeria</div>
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  Managed cumulative volume of 1,500+ patient encounters, translating differential clinical triage into structured benchmark datasets and medical reasoning QA to evaluate health-tech algorithms with zero defect tolerance.
+                  Managed cumulative volume of 1,500+ patient encounters, developing structured clinical evaluation datasets and clinical reasoning benchmarks for health-tech diagnostic models.
                 </p>
               </div>
 

@@ -268,7 +268,7 @@ export default function DossierPage() {
                 </div>
                 <div className="font-mono text-xs text-[#f6dc8c] mb-3">Pacy Labs &bull; Remote</div>
                 <p className="text-sm text-zinc-300 leading-relaxed mb-4 font-light">
-                  Architecting high-assurance production operating systems across commercial hospitality, hardware retail, autonomous agent protocols, and quantitative simulation.
+                  Architecting production operating systems across commercial hospitality, hardware retail, autonomous agent protocols, and quantitative simulation.
                 </p>
                 <ul className="space-y-3 text-xs font-mono text-zinc-400">
                   <li className="leading-relaxed border-l-2 border-amber-500/40 pl-3">
@@ -296,7 +296,7 @@ export default function DossierPage() {
                 </div>
                 <div className="font-mono text-xs text-amber-400 mb-3">Clinical Practice &bull; Nigeria</div>
                 <p className="text-sm text-zinc-300 leading-relaxed font-light">
-                  Conducted comprehensive differential diagnoses of ocular and systemic conditions, interpreting multi-spectral retinal imaging, visual field perimetry, and anterior segment biomicroscopy under zero-error margins. Translated rigorous diagnostic verification protocols directly into high-assurance distributed software.
+                  Conducted comprehensive differential diagnoses of ocular and systemic conditions, interpreting multi-spectral retinal imaging, visual field perimetry, and anterior segment biomicroscopy under zero-error margins. Translated diagnostic verification methods directly into reliable distributed software.
                 </p>
               </div>
             </div>

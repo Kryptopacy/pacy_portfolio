@@ -80,7 +80,7 @@ ${projectBrief || "Full architecture consultation requested."}
             Commission an Enterprise Platform
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
-            I partner directly with founders, enterprise executives, and business operators requiring reliable operational systems. From custom hospitality management systems to W3C WebMCP agent infrastructure, every build is delivered with disciplined architecture and strict state guarantees.
+            I partner with founders and business operators building custom operational software. Every platform is designed around explicit data models, atomic concurrency controls, and long-term maintainability.
           </p>
         </div>
 

@@ -36,7 +36,7 @@ export default function SkillsPage() {
         "Found document.modelContext.registerTool: [search_catalog, add_to_cart, initiate_checkout]",
         "Inspecting JSONSchema input declarations: STRICT PASS (RFC 8288 compatible)",
         "Checking human-in-the-loop payment gate: CONFIRMED (requires confirmation modal)",
-        "Audit Score: 98/100 [GRADE: S-TIER PRODUCTION READY]",
+        "Audit Score: 98/100 [GRADE: PRODUCTION READY]",
       ],
       "codebase-auditor": [
         "Running Developer Pay Handoff Simulator...",
@@ -85,7 +85,7 @@ export default function SkillsPage() {
             Autonomous Agent Protocols &amp; Audit Skills
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
-            Beyond building human-facing applications, I architect protocols that guide autonomous AI coding agents (Claude Code, Cursor, OpenCode, Codex) to implement open standards, conduct rigorous pre-ship architecture audits, and verify production guarantees.
+            Published agent skills and protocol tooling that allow autonomous coding agents (Claude Code, Cursor, Codex, OpenCode) to wire W3C WebMCP standards, run pre-ship validation checks, and verify production invariants.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export default function SkillsPage() {
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
-                  {skill.name.split(" ")[0]}
+                  {skill.id === "webmcp-auditor" ? "WebMCP" : skill.id === "codebase-auditor" ? "Auditor" : "Reverse OTP"}
                 </button>
               ))}
             </div>

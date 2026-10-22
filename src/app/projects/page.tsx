@@ -90,7 +90,7 @@ export default function ProjectsPage() {
             Production Systems Catalog
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
-            Every platform documented here is an active production architecture running real-world workloads, spanning distributed protocols, W3C WebMCP runtimes, and enterprise software engineered under contract.
+            Production platforms, operational operating systems, and agent protocols engineered and shipped by Pacy Labs.
           </p>
         </div>
 

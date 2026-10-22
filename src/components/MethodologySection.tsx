@@ -22,7 +22,7 @@ export default function MethodologySection() {
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-md font-mono text-left sm:text-right">
-            How clinical diagnostic training informs root-cause debugging, concurrency controls, and high-assurance software engineering.
+            How clinical diagnostic training informs root-cause analysis, concurrency controls, and production reliability.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function MethodologySection() {
               Complex distributed systems benefit from the exact same discipline. A race condition under flash-sale checkout pressure, an overbooked hotel room, or an agent tool failure during financial settlement is rarely an isolated anomaly. It is an unmapped failure mode in an under-constrained system.
             </p>
             <p className="text-white font-normal">
-              At Pacy Labs, we approach codebases with diagnostic rigor: forming falsifiable hypotheses, validating boundary conditions, and enforcing state transitions with atomic database constraints (<code className="font-mono text-sm text-[#f6dc8c] bg-[#3a0d1c]/60 px-1.5 py-0.5 border border-[#d9a648]/40 shadow-[0_0_8px_rgba(217,166,72,0.15)]">SELECT FOR UPDATE</code>, strict PostgreSQL Row-Level Security, and typed schemas) so invalid states are structurally impossible.
+              We approach systems with diagnostic rigor: forming falsifiable hypotheses, validating boundary conditions, and enforcing state transitions with atomic database constraints (<code className="font-mono text-sm text-[#f6dc8c] bg-[#3a0d1c]/60 px-1.5 py-0.5 border border-[#d9a648]/40 shadow-[0_0_8px_rgba(217,166,72,0.15)]">SELECT FOR UPDATE</code>, strict PostgreSQL Row-Level Security, and typed schemas) so invalid states cannot occur.
             </p>
           </div>
 
@@ -49,7 +49,7 @@ export default function MethodologySection() {
                 <span>Principle 01 / Root-Cause Diagnosis</span>
               </div>
               <h3 className="text-base font-medium text-white">
-                Eliminate Root Causes, Not Just Surface Symptoms
+                Eliminate Root Causes at the Source
               </h3>
               <p className="text-zinc-400 leading-relaxed font-sans text-xs">
                 We avoid superficial patches. We trace issues back to schema design, race conditions, or isolation boundaries, fixing the underlying failure mode at the source.

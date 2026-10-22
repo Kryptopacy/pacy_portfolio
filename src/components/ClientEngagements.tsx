@@ -14,7 +14,7 @@ const ENGAGEMENT_MODELS = [
       "End-to-end design and engineering of an enterprise platform or operating system with deterministic concurrency guarantees, custom PostgreSQL schemas, modern Next.js/React frontend, and autonomous agent readiness.",
     deliverables: [
       "Custom PostgreSQL schema with strict RLS & atomic PL/pgSQL locks",
-      "Next.js 16 / React 19 high-craft interface with sub-100ms UI targets",
+      "Next.js 16 / React 19 interface with sub-100ms UI response targets",
       "Multi-rail payment gateway (Cards, USSD, Bank Transfers, Crypto)",
       "Role-based staff portals & real-time WebSocket state machines",
       "Full source code ownership, zero-defect deployment, and CI/CD pipelines",

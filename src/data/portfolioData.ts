@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "The complete enterprise operating system and unified commerce platform that runs every operational layer of a modern business while making it AI-native out-of-the-box. On the business side, Wetaego provides a full-spectrum operational suite unifying high-speed counter POS with barcode scanning, multi-station order dispatch, Bill of Materials (BOM) inventory tracking, appointment bookings (BMS), property listings (PMS), B2B quote generation, delivery fleet tracking, push-to-talk staff radio intercom, in-house VIP BNPL tabs, and sub-second multi-branch franchise replication, operating on any device with driverless WebUSB/WebBluetooth ESC/POS printing and offline IndexedDB resilience. Setting up an account instantly provisions dual-sided native AI: a 24/7 frontline customer concierge for ordering and slot booking with live staff escalation, a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus and stockroom shelves via 1 FPS camera vision, and an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome).",
+      "The complete enterprise operating system and unified commerce platform that runs every operational layer of a modern business with native AI capabilities built in. On the business side, Wetaego provides a full-spectrum operational suite unifying high-speed counter POS with barcode scanning, multi-station order dispatch, Bill of Materials (BOM) inventory tracking, appointment bookings (BMS), property listings (PMS), B2B quote generation, delivery fleet tracking, push-to-talk staff radio intercom, in-house VIP BNPL tabs, and sub-second multi-branch franchise replication, operating on any device with driverless WebUSB/WebBluetooth ESC/POS printing and offline IndexedDB resilience. Setting up an account instantly provisions dual-sided native AI: a 24/7 frontline customer concierge for ordering and slot booking with live staff escalation, a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus and stockroom shelves via 1 FPS camera vision, and an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome).",
     modules: [
       {
         name: "Full-Spectrum Business Operations OS (POS, BMS, PMS, Quotes, Dispatch)",
@@ -152,7 +152,7 @@ export const PROJECTS: Project[] = [
     ],
     bullets: [
       "Architected full-spectrum business operating system unifying counter POS, multi-station order dispatch, BOM inventory, appointment bookings (BMS), property listings (PMS), B2B quotes, and push-to-talk staff intercom.",
-      "Engineered zero-setup dual-sided AI architecture that makes any business AI-native out-of-the-box with 24/7 customer concierges and merchant dashboard multimodal voice/camera co-pilots.",
+      "Engineered zero-setup dual-sided AI architecture that makes any business AI-ready on day one with 24/7 customer concierges and merchant dashboard multimodal voice/camera co-pilots.",
       "Pioneered autonomous agent commerce implementing W3C WebMCP on document.modelContext and 14 open discovery standards (RFC 9727, x402, MPP) with safe Human-in-the-Loop payment authorization.",
       "Delivered hardware-agnostic infrastructure with driverless binary WebUSB/WebBluetooth ESC/POS thermal printing, offline-first IndexedDB resilience, and sub-second multi-branch fleet duplication.",
     ],
@@ -1052,7 +1052,7 @@ export const PROJECTS: Project[] = [
       {
         name: "Human-in-the-Loop Gemini Support Intercom",
         description:
-          "Floating customer chat grounded in enterprise FAQs with seamless WebSocket escalation to technicians when human expertise is requested.",
+          "Floating customer chat grounded in enterprise FAQs with direct WebSocket routing to technicians when human expertise is requested.",
       },
       {
         name: "Automated Nominatim Geocoding & Order Routing",
@@ -1064,7 +1064,7 @@ export const PROJECTS: Project[] = [
       "Architected dual inventory model mathematically separating customer retail inventory from internal workshop repair stock (screws, IC chips, thermal paste), safeguarding true gross margins.",
       "Engineered multi-stage technician servicing CRM (received → diagnosing → waiting_on_parts → completed → collected) with public customer self-service tracking codes.",
       "Enforced non-negotiable security boundaries across 7 user tiers using PostgreSQL RLS and proxy middleware, with automatic owner whitelist triggers and audit trails.",
-      "Built floating Gemini AI customer intercom grounded in enterprise FAQs with seamless WebSocket escalation to technicians when human diagnostic expertise is required.",
+      "Built floating Gemini AI customer intercom grounded in enterprise FAQs with direct WebSocket routing to technicians when human diagnostic expertise is required.",
     ],
     architecture: {
       category: "Commissioned Enterprise Contract // Retail & Hardware CRM",
@@ -1132,7 +1132,7 @@ export const AGENT_SKILLS: AgentSkill[] = [
     installCommand: "npx skills add kryptopacy/pacy-reverse-otp-builder",
     repoUrl: "https://github.com/kryptopacy/pacy-reverse-otp-builder",
     description:
-      "An agent skill that intercepts traditional, costly outbound SMS OTP implementations and coaches AI coding agents to build seamless Inbound Verification (Reverse OTP) flows using messaging deep links.",
+      "An agent skill that intercepts traditional, costly outbound SMS OTP implementations and coaches AI coding agents to build direct Inbound Verification (Reverse OTP) flows using messaging deep links.",
     capabilities: [
       "Bypasses Telco Spam Filters: Eliminates delivery failures and carrier filtering issues.",
       "Zero Outbound Carrier Fees: User sends pre-filled verification UUID directly via deep link to secure webhook.",
@@ -1184,7 +1184,7 @@ export const TECHNICAL_SKILLS_RESUME = {
     {
       name: "Next.js 16 (App Router) & React 19",
       details:
-        "Server Components, Action RPCs, partial prerendering, dynamic route segments, high-craft responsive layouts",
+        "Server Components, Action RPCs, partial prerendering, dynamic route segments, responsive layouts with sub-second paint targets",
     },
     {
       name: "Supabase & PostgreSQL 16",
@@ -1194,7 +1194,7 @@ export const TECHNICAL_SKILLS_RESUME = {
     {
       name: "Tailwind CSS v4",
       details:
-        "Bespoke architectural styling, fluid responsive scales, dark mode surface hierarchies, CSS canvas shaders",
+        "Custom design system, fluid responsive scales, dark mode surface hierarchies, CSS canvas shaders",
     },
     {
       name: "Flutter & Serwist PWA",
