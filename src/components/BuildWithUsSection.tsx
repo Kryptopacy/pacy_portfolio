@@ -64,10 +64,10 @@ Dispatched via pacylabs.xyz`;
                 Build With Pacy Labs
               </h2>
               <p className="text-sm sm:text-base text-[#d4c5ca] font-light leading-relaxed mb-4">
-                We engineer mission-critical enterprise platforms where failure is catastrophic. From bespoke hospitality operating systems like <strong className="text-white font-medium">Joebrown Palace Hotel</strong> to omnichannel hardware retail systems like <strong className="text-white font-medium">DreamwiseHUB</strong>, our clients trust us with their revenue cores.
+                We engineer robust enterprise software and operational platforms. From bespoke hospitality operating systems like <strong className="text-white font-medium">Joebrown Palace Hotel</strong> to omnichannel hardware retail systems like <strong className="text-white font-medium">DreamwiseHUB</strong>, our clients trust us to build systems that handle daily business operations with high reliability.
               </p>
               <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
-                Whether you need a bespoke operational OS, an autonomous agent-ready WebMCP platform, or an exhaustive architectural audit before launch, we build with clinical precision.
+                Whether you need a custom business OS, an autonomous agent-ready WebMCP platform, or an exhaustive architectural audit before launch, we build with disciplined engineering standards.
               </p>
             </div>
 
@@ -95,20 +95,20 @@ Dispatched via pacylabs.xyz`;
               <div className="glass-panel-interactive p-4 space-y-1">
                 <div className="text-white font-medium flex items-center gap-2">
                   <span className="text-[#f6dc8c]">&bull;</span>
-                  <span>Paranoid Codebase Audits</span>
+                  <span>Pre-Ship Architecture Audits</span>
                 </div>
                 <p className="text-zinc-400 font-sans text-xs pl-3">
-                  Pre-ship verification enforcing empirical proof for RLS policies, concurrency locks, and operational states.
+                  Pre-ship verification enforcing test coverage for database constraints, concurrency locks, and edge cases.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Intake Form (7 cols) with 2026 Glassmorphism */}
+          {/* Right Column: Intake Form (7 cols) */}
           <div className="lg:col-span-7 glass-panel p-6 sm:p-8">
             <div className="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-6 hairline-b pb-3 flex items-center justify-between">
               <span>Direct Project Commission Intake</span>
-              <span className="text-[10px] text-[#f6dc8c] font-mono border border-[#d9a648]/30 px-1.5 py-0.5 bg-[#3a0d1c]/40">ENCRYPTED DISPATCH</span>
+              <span className="text-[10px] text-[#f6dc8c] font-mono border border-[#d9a648]/30 px-1.5 py-0.5 bg-[#3a0d1c]/40">DIRECT DISPATCH</span>
             </div>
 
             <form className="space-y-5">

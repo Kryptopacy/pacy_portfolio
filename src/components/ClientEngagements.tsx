@@ -9,13 +9,13 @@ const ENGAGEMENT_MODELS = [
     tier: "01 // TURNKEY COMMISSION",
     title: "Full-Stack Systems & OS Build",
     duration: "4 – 8 Weeks Sprint",
-    idealFor: "Funded startups, hospitality groups, multi-location retail, or Web3 foundations needing bespoke platforms.",
+    idealFor: "Startups, hospitality groups, multi-location retail, or platforms needing custom business software.",
     summary:
       "End-to-end design and engineering of an enterprise platform or operating system with deterministic concurrency guarantees, custom PostgreSQL schemas, modern Next.js/React frontend, and autonomous agent readiness.",
     deliverables: [
       "Custom PostgreSQL schema with strict RLS & atomic PL/pgSQL locks",
       "Next.js 16 / React 19 high-craft interface with sub-100ms UI targets",
-      "Multi-rail payment gateway (Cards, USSD, Crypto, x402 micropayments)",
+      "Multi-rail payment gateway (Cards, USSD, Bank Transfers, Crypto)",
       "Role-based staff portals & real-time WebSocket state machines",
       "Full source code ownership, zero-defect deployment, and CI/CD pipelines",
     ],
@@ -24,35 +24,35 @@ const ENGAGEMENT_MODELS = [
     featured: true,
   },
   {
-    tier: "02 // FORENSIC SPRINT",
+    tier: "02 // ARCHITECTURE AUDIT",
     title: "Systems & Concurrency Audit",
-    duration: "1 Week Intensive",
-    idealFor: "Existing production applications experiencing race conditions, double-spend collisions, or preparing for high-traffic launch.",
+    duration: "1 – 2 Weeks Intensive",
+    idealFor: "Existing production applications experiencing race conditions, data collisions, or preparing for high-traffic launch.",
     summary:
-      "A forensic, hospital-grade triage audit of your codebase. We stress-test state transitions, eliminate memory leaks and race conditions, tune database locks, and harden API boundaries.",
+      "A thorough architecture and concurrency audit of your codebase. We stress-test state transitions, eliminate memory leaks and race conditions, optimize database queries, and harden API boundaries.",
     deliverables: [
-      "Exhaustive differential architecture & debt report",
+      "Comprehensive architecture & technical debt report",
       "Elimination of race conditions via SELECT FOR UPDATE row-locking",
-      "Database query & index tuning (expression indexes, pooler vacuuming)",
+      "Database query & index tuning (indexes, connection pooling, cache strategy)",
       "W3C WebMCP readiness & agent security evaluation",
-      "Executive sign-off verdict: Approved, Held, or Hardened",
+      "Actionable remediation plan and technical sign-off",
     ],
-    ctaText: "Request Forensic Audit",
+    ctaText: "Request Architecture Audit",
     ctaHref: "/build-with-us",
     featured: false,
   },
   {
     tier: "03 // FRACTIONAL ADVISORY",
-    title: "Principal Systems Architect",
+    title: "Principal Systems Advisory",
     duration: "Monthly Retainer",
-    idealFor: "Founders and CTOs needing world-class systems leadership without hiring a full-time executive salary.",
+    idealFor: "Founders and CTOs needing senior systems leadership, code review, and architecture validation.",
     summary:
       "Direct technical advisory on system design, distributed consensus, agentic protocols, and multimodal AI pipelines. Weekly architecture reviews, RFC design, and code vetting.",
     deliverables: [
       "Weekly synchronous architectural design reviews",
       "Review & sign-off on PRs, database migrations, and protocols",
       "Evaluation and calibration of LLM/multimodal agent pipelines",
-      "Direct WhatsApp & Slack hotline for critical incident triage",
+      "Direct communication channel for critical incident triage",
       "Priority scheduling for engineering sprint execution",
     ],
     ctaText: "Inquire for Retainer",
@@ -79,13 +79,13 @@ export default function ClientEngagements() {
               Engagement Models &amp; Sprints
             </h2>
             <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed">
-              We operate as a high-velocity, sovereign engineering lab. Engagements are structured with clear deliverables, deterministic milestones, and zero architectural debt.
+              Engagements are structured with explicit deliverables, clear milestones, and production-tested standards. We partner with teams who prioritize reliable architecture and long-term stability.
             </p>
           </div>
 
           <div className="flex items-center gap-2 font-mono text-xs text-zinc-400 shrink-0">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Accepting Q4 2026 Commissions</span>
+            <span>Accepting Commissions</span>
           </div>
         </div>
 

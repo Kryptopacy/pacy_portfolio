@@ -27,7 +27,7 @@ export default function BuildWithUsPage() {
     "Multi-Station KDS & Driverless Thermal Printing (WebUSB/WebSerial)",
     "Dual-Rail Payments (Bachs, Paystack, Crypto x402)",
     "Interactive 2D Drag-and-Drop Floor Plan Canvas",
-    "Pacy Codebase Auditor 20-Point Launch Sign-Off",
+    "20-Point Launch & Security Sign-Off",
   ];
 
   const toggleFeature = (feature: string) => {
@@ -80,7 +80,7 @@ ${projectBrief || "Full architecture consultation requested."}
             Commission an Enterprise Platform
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
-            I partner directly with founders, enterprise executives, and institutions requiring zero-error operational systems. From custom hotel operating systems to W3C WebMCP agent infrastructure, every build is delivered with clinical diagnostic precision.
+            I partner directly with founders, enterprise executives, and business operators requiring reliable operational systems. From custom hospitality management systems to W3C WebMCP agent infrastructure, every build is delivered with disciplined architecture and strict state guarantees.
           </p>
         </div>
 
@@ -231,7 +231,7 @@ ${projectBrief || "Full architecture consultation requested."}
             <div className="sticky top-24 glass-panel p-6 sm:p-8 space-y-6 rounded-sm">
               <div className="pb-4 hairline-b font-mono text-xs text-[#f6dc8c] flex items-center justify-between">
                 <span>COMMISSION SPECIFICATION</span>
-                <span className="text-[10px] border border-[#d9a648]/40 bg-[#3a0d1c]/50 px-1.5 py-0.5">ENCRYPTED</span>
+                <span className="text-[10px] border border-[#d9a648]/40 bg-[#3a0d1c]/50 px-1.5 py-0.5">DIRECT DISPATCH</span>
               </div>
 
               {/* Dynamic Summary */}
@@ -290,7 +290,7 @@ ${projectBrief || "Full architecture consultation requested."}
                   <span>Pacy Labs Architecture SLA</span>
                 </div>
                 <p className="text-[11px] leading-relaxed">
-                  Guaranteed zero race conditions, atomic database transactions, 100% test coverage on mission-critical revenue RPCs, and full post-deployment handover documentation.
+                  Guaranteed zero race conditions, atomic database transactions, thorough test coverage on critical business RPCs, and full post-deployment handover documentation.
                 </p>
               </div>
             </div>

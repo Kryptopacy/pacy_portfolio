@@ -1104,18 +1104,18 @@ export const AGENT_SKILLS: AgentSkill[] = [
   {
     id: "codebase-auditor",
     name: "Pacy Codebase Auditor",
-    tagline: "A paranoid, senior auditor suite for pre-ship validation and payment handoffs",
+    tagline: "Pre-ship verification and milestone validation for software delivery",
     packageSlug: "kryptopacy/pacy-codebase-auditor",
     installCommand: "npx skills add kryptopacy/pacy-codebase-auditor",
     skillsShUrl: "https://skills.sh/kryptopacy/pacy-codebase-auditor",
     repoUrl: "https://github.com/kryptopacy/pacy-codebase-auditor",
     description:
-      "An exhaustive two-skill suite built on a pessimistic, guilty-until-proven-innocent audit workflow. Contains the Developer Pay Handoff Simulator and the Codebase Doctor to ensure zero unvetted code reaches production.",
+      "A rigorous two-skill suite containing the Developer Pay Handoff Simulator and the Codebase Doctor, enforcing structural integrity, complete error handling, and test-backed sign-offs before shipping or milestone payout.",
     capabilities: [
       "Developer Pay Handoff Simulator: Renders rigorous sign-off verdicts (approved, held for debt, rejected) before releasing payment or shipping.",
       "Codebase Doctor: Produces visual HTML architectural reports identifying real structural debt and conducts design-grilling convergence loops.",
       "20-Point Launch Checklist: Enforces empirical proof for meta tags, custom 404s, mobile breakpoints, error boundaries, and legal pages.",
-      "Zero-Vibe Standard: Closes every route, RPC, and table with verifiable evidence or explicit written exemption.",
+      "Zero-Assumption Standard: Verifies every route, RPC, and database table with automated tests or explicit contractual constraints.",
     ],
     pillarsOrRubric: [
       "Pillars 1-3: Code Quality, Type Rigor, DB Schema & RLS Integrity",

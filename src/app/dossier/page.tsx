@@ -31,7 +31,7 @@ export default function DossierPage() {
             Clinical Diagnostic Rigor in Distributed Systems
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed mb-6">
-            Medical diagnosis leaves zero room for trial-and-error in production. I translate the differential diagnostic methodology directly into software architecture—ruling out race conditions, proving concurrency boundaries, and engineering platforms that never fail under real monetary stakes.
+            Clinical diagnosis demands methodical root-cause analysis over superficial symptom treatment. I translate this diagnostic discipline directly into software engineering—identifying failure modes upfront, enforcing atomic concurrency boundaries, and building platforms designed for long-term operational stability.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-zinc-400">
@@ -72,14 +72,14 @@ export default function DossierPage() {
             <span>Architectural Philosophy &bull; The Differential Advantage</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-normal text-white mb-6">
-            Why Optometric Clinical Training Outperforms Pure Coding Intuition
+            Diagnostic Thinking in Software Architecture
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-[#d4c5ca] font-light leading-relaxed">
             <p>
-              In clinical medicine, symptom presentation is almost never the root pathology. Over 1,500+ patient encounters across tertiary hospital clinics (University of Ilorin Teaching Hospital) and outreach triages, every diagnosis required isolating confounding variables, ruling out the most catastrophic etiologies first, and establishing empirical certainty before prescribing an intervention.
+              In clinical healthcare, symptom presentation is rarely the root cause. Across 1,500+ patient encounters at the University of Ilorin Teaching Hospital Eye Clinic and community outreaches, accurate diagnosis required systematically testing alternative hypotheses, isolating confounding factors, and confirming evidence before prescribing an intervention.
             </p>
             <p>
-              When applied to software engineering, this eliminates &ldquo;vibe-based debugging&rdquo;. Every database lock (<code className="font-mono text-xs text-[#f6dc8c] bg-[#3a0d1c]/60 px-1.5 py-0.5 border border-[#d9a648]/40 shadow-[0_0_8px_rgba(217,166,72,0.15)]">SELECT FOR UPDATE</code>), every RLS policy, every WebMCP client tool schema, and every payment webhook is treated as a critical physiological pathway: monitored with telemetry, hardened with atomic constraints, and guaranteed to maintain equilibrium under high concurrent stress.
+              In software engineering, this diagnostic mindset replaces guesswork and superficial bug patches. Database constraints, concurrency locks (<code className="font-mono text-xs text-[#f6dc8c] bg-[#3a0d1c]/60 px-1.5 py-0.5 border border-[#d9a648]/40 shadow-[0_0_8px_rgba(217,166,72,0.15)]">SELECT FOR UPDATE</code>), Row-Level Security policies, and API boundaries are treated as strict invariants: tested under edge conditions, enforced atomically, and structured so invalid states cannot occur.
             </p>
           </div>
         </div>

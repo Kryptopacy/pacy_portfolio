@@ -19,18 +19,18 @@ export default function Hero() {
           </span>
           <span className="text-zinc-600">&bull;</span>
           <span className="font-mono text-[11px] text-zinc-300 tracking-wide">
-            AUTONOMOUS SYSTEMS STUDIO
+            SOFTWARE ARCHITECTURE &amp; SYSTEMS LAB
           </span>
         </div>
 
         {/* Master Headline Section */}
         <div className="max-w-5xl mb-10 sm:mb-12">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.05] mb-6">
-            Engineering deterministic platforms and autonomous agent architectures.
+            Building production platforms, full-stack operating systems, and agent-ready software.
           </h1>
 
           <p className="text-lg sm:text-2xl text-[#d4c5ca] font-light leading-relaxed max-w-3xl">
-            An independent software architecture laboratory. We design and deploy high-throughput operating systems, W3C WebMCP agent protocols, and production web applications engineered for zero-defect execution under extreme concurrency.
+            An independent software architecture laboratory founded by Dr. Olamilekan David Adegoke. We engineer end-to-end business platforms, high-concurrency web applications, and autonomous agent protocols (W3C WebMCP)—built for real operational stability, clean data models, and zero fluff.
           </p>
         </div>
 
@@ -60,20 +60,20 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Clean Architectural Telemetry Strip (No fake card clutter) */}
+        {/* Clean Architectural Telemetry Strip */}
         <div className="pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 font-mono text-xs">
           <div>
             <div className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
               Production Portfolio
             </div>
             <div className="text-white text-sm sm:text-base font-medium flex items-center gap-1.5">
-              <span className="text-[#f6dc8c]">10</span> Active Systems
+              <span className="text-[#f6dc8c]">10</span> Shipped Platforms
             </div>
           </div>
 
           <div>
             <div className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
-              Agent Standards
+              Agent Protocols
             </div>
             <div className="text-white text-sm sm:text-base font-medium flex items-center gap-1.5">
               <span className="text-[#f6dc8c]">W3C</span> WebMCP Native
@@ -82,19 +82,19 @@ export default function Hero() {
 
           <div>
             <div className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
-              Concurrency Invariant
+              Concurrency Discipline
             </div>
             <div className="text-white text-sm sm:text-base font-medium flex items-center gap-1.5">
-              <span className="text-[#f6dc8c]">Zero</span> Race Conditions
+              <span className="text-[#f6dc8c]">Atomic</span> Database Locks
             </div>
           </div>
 
           <div>
             <div className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
-              Methodology Foundation
+              Engineering Mindset
             </div>
             <div className="text-white text-sm sm:text-base font-medium flex items-center gap-1.5">
-              <span className="text-[#f6dc8c]">Clinical</span> Differential Triage
+              <span className="text-[#f6dc8c]">Diagnostic</span> Root-Cause Triage
             </div>
           </div>
         </div>

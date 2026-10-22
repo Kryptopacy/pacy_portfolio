@@ -75,7 +75,7 @@ export default function FounderSection() {
               </div>
 
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-6">
-                Directing systems design, distributed concurrency models, and autonomous agent protocols with clinical precision.
+                Designing full-stack business operating systems, deterministic concurrency models, and agent-ready WebMCP applications with rigorous diagnostic discipline.
               </p>
 
               {/* Core Credentials Badges */}
@@ -141,17 +141,17 @@ export default function FounderSection() {
           <div className="lg:col-span-7 glass-panel p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="font-mono text-xs text-[#f6dc8c] uppercase tracking-widest mb-2">
-                DISCIPLINE &amp; EXECUTION RECORD
+                TECHNICAL STANDARDS &amp; ARCHITECTURE
               </div>
               <h4 className="text-xl sm:text-2xl font-light text-white mb-6">
-                High-Assurance Engineering Standards
+                Core Architectural Principles
               </h4>
 
               <div className="space-y-5">
                 <div className="border-l border-[#d9a648]/50 pl-4 relative">
                   <div className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-[#d9a648]" />
                   <div className="font-mono text-xs text-[#f6dc8c] mb-0.5">
-                    01 // Zero Double-Bookings
+                    01 // Concurrency Control
                   </div>
                   <h5 className="text-sm font-medium text-white mb-1">
                     Atomic State Machine Locks
@@ -164,7 +164,7 @@ export default function FounderSection() {
                 <div className="border-l border-white/15 pl-4 relative">
                   <div className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-zinc-500" />
                   <div className="font-mono text-xs text-[#f6dc8c] mb-0.5">
-                    02 // Autonomous AI Standards
+                    02 // Agent Protocols &amp; AI
                   </div>
                   <h5 className="text-sm font-medium text-white mb-1">
                     W3C WebMCP Protocol Implementation
@@ -177,13 +177,13 @@ export default function FounderSection() {
                 <div className="border-l border-white/15 pl-4 relative">
                   <div className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-zinc-500" />
                   <div className="font-mono text-xs text-[#f6dc8c] mb-0.5">
-                    03 // Cryptographic Verification
+                    03 // Protocol &amp; Financial Integrity
                   </div>
                   <h5 className="text-sm font-medium text-white mb-1">
                     EIP-7702 &amp; APEX Escrow Infrastructure
                   </h5>
                   <p className="text-xs text-zinc-300 leading-relaxed font-sans font-light">
-                    Monotonic milestone verification, multi-sig escrow disbursement, and 338,000+ indexed autonomous agent identities on EVM networks.
+                    Monotonic milestone verification, multi-sig escrow disbursement, and smart contract protocol integrations.
                   </p>
                 </div>
               </div>
