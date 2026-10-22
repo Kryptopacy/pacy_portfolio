@@ -954,13 +954,13 @@ export const PROJECTS: Project[] = [
   {
     id: "dreamwise",
     name: "DreamwiseHUB",
-    descriptor: "Omnichannel Tech Retail POS & Multi-Stage Repair CRM (Commissioned by Dreamwise Computer Enterprise)",
+    descriptor: "Omnichannel Tech Retail POS & Multi-Stage Repair CRM (Commissioned by Dreamwise Innovative Computer Enterprise)",
     url: "https://dreamwisehub.com",
     urlLabel: "dreamwisehub.com",
     isClientContract: true,
-    clientName: "Dreamwise Computer Enterprise",
+    clientName: "Dreamwise Innovative Computer Enterprise",
     image: "/projects/dreamwise_hero.png",
-    accentColor: "emerald",
+    accentColor: "blue",
     metrics: [
       { label: "Security & Authorization", value: "7-Tier PostgreSQL RLS" },
       { label: "Inventory Model", value: "Dual Retail/Workshop Isolation" },
