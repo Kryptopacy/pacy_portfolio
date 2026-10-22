@@ -57,120 +57,125 @@ export const PROJECTS: Project[] = [
   {
     id: "wetaego",
     name: "Wetaego",
-    descriptor: "Polymorphic Multi-Vertical Commerce OS, W3C WebMCP Agent Runtime & Driverless Hardware POS",
+    descriptor: "Hardware-Agnostic Commerce & Service Operating System for Modern Brands, Human Guests & Autonomous AI Agents",
     url: "https://wetaego.com",
     urlLabel: "wetaego.com",
     image: "/projects/wetaego_hero.png",
     accentColor: "blue",
     metrics: [
-      { label: "Vertical Engines", value: "6 Polymorphic" },
-      { label: "Concurrency Lock", value: "SELECT FOR UPDATE" },
-      { label: "Agent Client Tools", value: "8 WebMCP Tools" },
-      { label: "Thermal Print Mode", value: "Zero-Daemon Driverless" },
+      { label: "Hardware Architecture", value: "100% Web-Native (Zero Lock-In)" },
+      { label: "Offline Resilience", value: "Zero-Downtime IndexedDB Queue" },
+      { label: "Multi-Branch Fleets", value: "Sub-1s Catalog Duplication" },
+      { label: "Agent Protocol Readiness", value: "W3C WebMCP & 14 Open Discovery RFCs" },
     ],
     tags: [
       "Next.js 16",
       "React 19",
       "TypeScript",
       "W3C WebMCP",
+      "Offline-First IndexedDB",
       "Supabase Realtime",
       "PostgreSQL RLS",
       "Gemini Multimodal Live API",
       "Upstash Redis",
       "x402 / MPP",
-      "WebUSB / WebSerial",
       "Serwist PWA",
     ],
     techStackByCategory: {
       frontend: [
         "Next.js 16 (React 19)",
         "Tailwind CSS v4",
+        "Universal Design Token Engine (`design_tokens` JSONB)",
+        "Split-Screen Visual Builder",
         "Serwist PWA (Offline-First)",
-        "HTML5 Canvas",
-        "Zustand + IndexedDB Sync",
+        "Zustand + IndexedDB Cache Hydration",
       ],
       databaseAndConcurrency: [
-        "PostgreSQL 16",
-        "Supabase Realtime",
-        "Row-Level Security (RLS)",
-        "SELECT FOR UPDATE Locks",
-        "20+ PL/pgSQL Atomic RPCs",
-        "Upstash Redis",
+        "PostgreSQL 16 Multi-Tenant RLS",
+        "SELECT FOR UPDATE Row-Level Locks",
+        "Offline Queue Sync (`offline-queue-store.ts`)",
+        "Atomic Two-Phase Checkout RPCs",
+        "Supabase Realtime WebSockets",
+        "Upstash Redis Edge WAF",
       ],
       aiAndRealtime: [
-        "W3C WebMCP (document.modelContext)",
-        "Gemini Multimodal Live API",
-        "16kHz/24kHz Bidirectional WebSockets",
-        "Vercel AI SDK",
-        "1 FPS Camera Vision Pipeline",
+        "Tego Multimodal Live Voice & Vision (16kHz/24kHz PCM)",
+        "Continuous 1 FPS Camera Menu/Inventory Auditing",
+        "Business-Adaptive Role Personas",
+        "Zero-Hallucination Database Grounding",
+        "Real-Time Manager WebSocket Escalation",
       ],
       paymentsAndProtocols: [
-        "RFC 9727 & RFC 8288 Discovery",
-        "Coinbase x402 Micropayments",
-        "Machine Payment Protocol (MPP)",
-        "Paystack Cards & Transfers",
-        "Bachs USDC/USDT/SOL",
-        "WebUSB / WebSerial ESC/POS Driverless",
+        "W3C WebMCP Native (8 Canonical In-Browser Tools)",
+        "RFC 9727 API Catalog & RFC 8288 Link Headers",
+        "Coinbase x402 & Machine Payment Protocol (MPP)",
+        "In-House VIP IOU / BNPL Tab Financing Ledger",
+        "Multi-Gateway Settlement (Cards, Bank Transfer, USSD, Crypto)",
       ],
     },
     summary:
-      "Polymorphic commerce operating system serving 6 enterprise verticals (Dining, Hospitality, Boutique Retail, Wellness, Trades, and Creative Studios) under a single high-assurance PostgreSQL schema. Features autonomous browser checkout via W3C WebMCP, Gemini Live multimodal voice/vision scanning, driverless ESC/POS printing over WebUSB/WebSerial, and RFC 9727 machine discovery.",
+      "Hardware-agnostic commerce and service operating system built to dismantle predatory POS lock-in (Toast, Square, OpenTable). Operates seamlessly on any mobile phone, tablet, or web browser with zero proprietary hardware. Features zero-downtime offline-first order queueing in IndexedDB, 100% white-label customer data sovereignty, in-house VIP IOU / BNPL tab financing without third-party fees, sub-second multi-branch catalog replication, Tego multimodal live voice/vision scanning, and industry-leading autonomous AI agent commerce across 14 open discovery standards (W3C WebMCP, RFC 9727, Coinbase x402).",
     modules: [
       {
-        name: "Polymorphic Multi-Tenant Architecture",
+        name: "Hardware-Agnostic Engine & Zero-Downtime Offline Queue",
         description:
-          "Serves 6 distinct industries under one PostgreSQL database schema with strict RLS tenant isolation, polymorphic table joins, and custom schema triggers.",
+          "Runs on any web browser with zero mandatory terminal hardware. When venue internet drops during peak rushes, transactions buffer locally in IndexedDB (offline-queue-store.ts) and reconcile automatically upon reconnection.",
       },
       {
-        name: "W3C WebMCP Autonomous Agent Layer",
+        name: "Universal Design Token Engine & Visual Builder",
         description:
-          "Registers 8 canonical client tools (search_catalog, add_to_cart, initiate_checkout, submit_order) on document.modelContext for autonomous browser agents with a mandatory Human-in-the-Loop payment gate.",
+          "Abstracts storefront visuals into semantic JSONB tokens supporting 9 polymorphic layout templates (Bento Grid, Masonry, Glassmorphism) across 6 verticals (Dining, Hospitality, Boutique Retail, Wellness, Trades, Studios).",
       },
       {
-        name: "Tego Voice & Vision Copilot",
+        name: "In-House VIP IOU / BNPL Tab Ledger",
         description:
-          "Gemini Multimodal Live API running over raw PCM WebSockets (16kHz in, 24kHz out) with adaptive vertical personas, barge-in support, and 1 FPS camera video stream for physical menu scanning.",
+          "Digitizes the high-trust 'put it on my tab' culture for regular patrons with merchant-set credit limits and automated reconciliation, eliminating predatory third-party BNPL processing fees.",
       },
       {
-        name: "Driverless Hardware Peripheral Engine",
+        name: "Multi-Branch Fleet Duplication & Location Autonomy",
         description:
-          "Zero-daemon ESC/POS thermal receipt printing and automated cash drawer kicks executing directly from the browser over WebUSB, WebSerial (RS232 COM), and WebBluetooth.",
+          "Replicates entire multi-department supermarket and restaurant catalogs across franchise locations in under a second (duplicatePageAction) while preserving store-level manager out-of-stock autonomy.",
       },
       {
-        name: "Machine Discovery & Multi-Rail Settle",
+        name: "Tego Multimodal Live Voice & Vision AI",
         description:
-          "Enables autonomous AI bot purchases via HTTP 402 paywalls, x402 protocols, Paystack checkout, and a Bearer-authenticated Staff MCP Server (/api/mcp) for fleet management.",
+          "Bidirectional 16kHz/24kHz PCM audio dialogue + continuous 1 FPS camera video ingestion for live physical menu and inventory auditing with zero-hallucination guardrails and seamless human staff handoff.",
+      },
+      {
+        name: "W3C WebMCP & 14 Open Agent Standards",
+        description:
+          "First-in-class autonomous agent checkout exposing 8 canonical tools on document.modelContext, RFC 9727 API catalogs, and Coinbase x402 protocols with mandatory Human-in-the-Loop authorization.",
       },
     ],
     bullets: [
-      "Engineered polymorphic multi-tenant PostgreSQL architecture with strict RLS isolation, atomic decrement RPCs, and SELECT FOR UPDATE row-locking preventing concurrency collisions.",
-      "Implemented the W3C WebMCP specification at platform level, dynamically registering 8 canonical tools on document.modelContext with mandatory human-in-the-loop payment gates.",
-      "Published 14 open machine-discovery standards (RFC 9727, RFC 8288, Coinbase x402, Machine Payment Protocol) enabling autonomous agents to settle invoices via HTTP 402.",
-      "Built Tego: real-time voice and vision co-pilot via Gemini Multimodal Live API over 16kHz/24kHz bidirectional WebSockets with driverless zero-daemon ESC/POS thermal printing over WebUSB and WebSerial.",
+      "Engineered hardware-agnostic commerce architecture liberating merchants from Toast/Square proprietary lock-in with zero-downtime IndexedDB offline queueing.",
+      "Built universal design token engine with split-screen visual builder supporting 9 polymorphic layout templates across 6 distinct commercial verticals.",
+      "Implemented in-house VIP IOU tab financing ledger and sub-second multi-branch franchise catalog duplication with store-level manager autonomy.",
+      "Pioneered autonomous agent commerce implementing W3C WebMCP on document.modelContext and 14 open discovery standards (RFC 9727, x402, MPP).",
     ],
     architecture: {
-      category: "Multi-Vertical Commerce & Agentic Protocol Infrastructure",
+      category: "Hardware-Agnostic Commerce & Autonomous Agent Protocol OS",
       concurrencyGuarantee:
-        "Row-level locks (SELECT FOR UPDATE), atomic inventory decrements, and idempotent payment webhooks.",
+        "Row-level locks (SELECT FOR UPDATE), offline queue replay reconciliation, and atomic two-phase wallet transfers.",
       protocolOrAi:
-        "W3C WebMCP (8 client tools), RFC 9727 discovery, Gemini Multimodal Live API (PCM audio + 1 FPS video).",
+        "W3C WebMCP (8 client tools), 14 open agent standards (RFC 9727), Gemini Multimodal Live API (PCM audio + 1 FPS video).",
       dbOrInfra:
-        "PostgreSQL 16 with RLS tenant isolation, Supabase Realtime, Upstash Redis caching, Serwist PWA.",
+        "PostgreSQL 16 with RLS tenant isolation, Supabase Realtime, Upstash Redis edge WAF, Serwist PWA.",
     },
   },
   {
     id: "cruisehq",
     name: "CruiseHQ",
-    descriptor: "City-Scale Social Operating System, Closed-Loop Microeconomy & DOM-Controlling Voice AI Concierge",
+    descriptor: "Urban Culture, Nightlife & Real-World Gathering Operating System, Community Hubs & Voice AI Master",
     url: "https://cruisehq.fun",
     urlLabel: "cruisehq.fun",
     image: "/projects/cruisehq_hero.png",
     accentColor: "indigo",
     metrics: [
-      { label: "Database Migrations", value: "44 Structured" },
-      { label: "Voice Client Tools", value: "20+ DOM Declarations" },
-      { label: "Search Latency Cut", value: "94% via 3-Tier Cache" },
-      { label: "Ecosystem Microeconomy", value: "Closed-Loop $CRUISE" },
+      { label: "Gate Admission Speed", value: "Sub-Second Camera QR Viewfinder" },
+      { label: "Social & Party Games", value: "51 Cultural Games + 9 Minigames" },
+      { label: "Voice Automation", value: "TCG Multimodal Voice DOM Controller" },
+      { label: "Ecosystem Currency", value: "$CRUISE Multi-Scope Utility Ledger" },
     ],
     tags: [
       "Next.js 15",
@@ -178,100 +183,104 @@ export const PROJECTS: Project[] = [
       "Gemini Multimodal Live API",
       "Supabase Realtime",
       "PostgreSQL RLS",
-      "Upstash Redis",
-      "pgvector",
-      "Bachs Split-Checkout",
+      "WebRTC Audio Mesh",
+      "Bachs Multi-Rail Checkout",
       "Serwist PWA",
-      "ElevenLabs",
+      "In-Browser AI Game Studio",
     ],
     techStackByCategory: {
       frontend: [
-        "Next.js 15",
+        "Next.js 15 (App Router)",
         "Tailwind CSS",
-        "Serwist Offline PWA (220+ Routes)",
-        "Presence Avatars",
-        "Multimodal Client Tools",
+        "Mobile QR Gate Check-In Viewfinder (`/dashboard/organizer/checkin`)",
+        "WebRTC Peer-to-Peer Voice Audio Mesh",
+        "Real-Time Active Speaker Halo Detection",
+        "Browser Soundboard FX & Web Audio Chimes",
       ],
       databaseAndConcurrency: [
-        "Supabase PostgreSQL (44 Migrations)",
-        "pgvector Semantic Search",
-        "Atomic spend_cruise RPCs",
+        "Supabase PostgreSQL (Shared Ecosystem Data Layer)",
+        "Atomic spend_cruise & grant_cruise RPCs",
         "Service-Role Minting Guard",
-        "Deny-by-Default RLS",
+        "Deny-by-Default RLS Policies",
+        "PostGIS Geolocation Venue Mapping",
       ],
       aiAndRealtime: [
-        "Gemini Multimodal Live API",
-        "ElevenLabs Voice Pipeline",
-        "20+ Client Tool Handlers (switchMode, openTool)",
-        "Supabase Broadcast & Presence",
-        "Spotify AUX Proxy (AES-256)",
+        "TCG Multimodal Voice AI Concierge (Gemini Live API)",
+        "20+ Client Tool Declarations Mutating React DOM",
+        "AI Co-Host Voice Summoning in Live Lounges",
+        "In-Browser 60 FPS HTML5 AI Game Studio",
+        "Automated GamesMaster Rule & Penalty Announcer",
       ],
       paymentsAndProtocols: [
-        "$CRUISE Closed-Loop Microeconomy",
-        "Bachs Split-Checkout",
-        "Cruisaider Commission Attributor",
-        "Paystack Webhooks",
-        "HMAC-SHA256 Webhook Verification",
+        "Bachs Multi-Rail Checkout (Cards, Bank Transfer, Crypto)",
+        "Unified Cross-Product $CRUISE Credit Ledger",
+        "Idempotent Webhook Ticket Generation",
+        "Affiliate Split-at-Source Commission Engine",
       ],
     },
     summary:
-      "City-scale social graph, event ticketing engine, and real-time multiplayer arcade spanning 44 database migrations. Driven by TCG—a bidirectional voice AI concierge that interprets natural speech to execute client tool declarations and physically manipulate the React DOM in real time.",
+      "The complete operating system for urban culture, nightlife events, and real-world gatherings. Unifies multi-tier ticketing with Bachs multi-rail checkout, instant mobile camera QR gate admission scanner with real-time throughput metrics, decentralized community hubs with WebRTC live audio lounges, TCG (The Cruise God) multimodal voice AI concierge that physically controls the React DOM, the GamesMaster directory of 51 cultural party games with automated voice hosting, 9 native multiplayer minigames, and an in-browser AI game studio generating playable 60 FPS HTML5 games with $CRUISE gas refund guarantees.",
     modules: [
       {
-        name: "Voice-Controlled React DOM Engine (TCG)",
+        name: "Event Ticketing & Mobile Camera Gate Scanner",
         description:
-          "TCG agent parses natural speech into client tool declarations (openTool, switchMode, analyzeImage), directly triggering React state transitions without human clicks.",
+          "Multi-tier ticket issuance with Bachs unified checkout (Cards, Transfers, Crypto), paired with a dedicated mobile camera QR gate scanner (/dashboard/organizer/checkin) featuring real-time throughput metrics, Web Audio chimes, and haptics.",
       },
       {
-        name: "3-Tier Sub-Second Caching Architecture",
+        name: "Community Hubs & WebRTC Live Lounge",
         description:
-          "Queries check Supabase DB (7-day TTL) → Upstash Redis (15-min TTL) → Firecrawl Search API with automatic background cache replenishment, cutting query latency by 94%.",
+          "Decentralized creator hubs with $CRUISE entry fees, Discord-grade WebRTC peer-to-peer audio mesh, active speaker halo detection, native screen sharing, and browser soundboard FX.",
       },
       {
-        name: "Closed-Loop $CRUISE Microeconomy",
+        name: "TCG Multimodal Voice Concierge & DOM Controller",
         description:
-          "Atomic spend_cruise and grant_cruise RPCs with service-role security, split-at-source event ticket payouts, and affiliate commission attribution.",
+          "Voice-first companion running over bidirectional WebSockets that interprets natural speech to execute 20+ client tool declarations, directly manipulating the React DOM and hosting live audio stages.",
       },
       {
-        name: "QR Multiplayer Room Engine & AUX Proxy",
+        name: "GamesMaster Directory (51 Cultural Games)",
         description:
-          "Enables instant frictionless room joining via mobile QR scan with Supabase Presence, crowd drops, real-time co-host voice streaming, and AES-256 encrypted Spotify AUX proxying.",
+          "Comprehensive database of worldwide classics and deep Nigerian social gathering games (Ayo Olopon, Ten-Ten, Whot, Drink or Tell the Truth) with automated TCG AI voice hosting, timers, and drinking penalties.",
       },
       {
-        name: "Hardened Namespaced Schemas",
+        name: "Arcade Hub & In-Browser AI Game Studio",
         description:
-          "Shared infrastructure with deny-by-default RLS, service-role-only ledger mutations, and HMAC-SHA256 webhook reconciliation.",
+          "9 native multiplayer minigames (Conce-Conce, TriviaRush, Impostor) with weekly rival ladders, plus an in-browser AI game studio where users prompt playable 60 FPS HTML5 games directly inside /arcade with $CRUISE refund guarantees.",
+      },
+      {
+        name: "Cross-Product $CRUISE Utility Ledger",
+        description:
+          "Shared microeconomy powering CruiseHQ (Events & Culture), Baunti (Prize Escrow), and Huiyi (Video Recaps) under synchronized atomic database RPCs.",
       },
     ],
     bullets: [
-      "Architected a city-scale social platform spanning 44 database migrations with a closed-loop $CRUISE microeconomy, atomic spend/grant RPCs, and source-split Bachs checkout.",
-      "Engineered TCG: a bidirectional WebSocket voice agent with 20+ client tool declarations mutating React state, pgvector memory recall, and Spotify AUX control via AES-256 proxy.",
-      "Built low-latency multiplayer rooms with Supabase Presence/Broadcast, QR peer onboarding, sub-group channels, and remote co-host voice injection.",
-      "Implemented deny-by-default RLS policies across all tables and enforced HMAC-SHA256 signature verification on incoming payment webhooks.",
+      "Architected urban nightlife operating system with mobile camera QR gate admission scanner, multi-tier Bachs checkout, and post-event recap integration.",
+      "Engineered TCG: bidirectional Gemini Live voice AI concierge executing 20+ client tool declarations directly mutating the React DOM and hosting audio stages.",
+      "Built GamesMaster and Arcade platforms featuring 51 cultural party games, 9 native multiplayer minigames, and an in-browser AI game studio generating playable HTML5 games.",
+      "Implemented unified $CRUISE ledger spanning events, community hub memberships, and cross-product utility across Baunti and Huiyi.",
     ],
     architecture: {
-      category: "City-Scale Social Graph & Real-Time Voice Infrastructure",
+      category: "Urban Culture, Real-Time Voice & Multiplayer Event Infrastructure",
       concurrencyGuarantee:
         "Atomic spend_cruise RPCs, service-role-only minting, and split-at-source ticketing reconciliation.",
       protocolOrAi:
-        "Gemini Multimodal Live API, 20+ client tool declarations, pgvector semantic memory.",
+        "Gemini Multimodal Live API, 20+ React DOM tool declarations, WebRTC peer audio mesh.",
       dbOrInfra:
-        "Supabase PostgreSQL with 44 migrations, Upstash Redis 3-tier caching, Serwist PWA at 220+ sitemap scale.",
+        "Supabase PostgreSQL, Upstash Redis caching, Serwist PWA at 220+ sitemap scale.",
     },
   },
   {
     id: "baunti",
     name: "BAUNTI",
-    descriptor: "Escrowed Prize & Bounty Protocol, Provably-Fair Cryptographic Draws & Museum-Grade Artifacts",
+    descriptor: "Upfront-Escrowed Prize & Bounty Protocol with Provably-Fair Cryptographic Verification & Creator Royalties",
     url: "https://baunti.cruisehq.fun",
     urlLabel: "baunti.cruisehq.fun",
     image: "/projects/baunti_hero.jpg",
     accentColor: "rose",
     metrics: [
-      { label: "Draw Algorithms", value: "9 Provably-Fair" },
-      { label: "Cryptographic Seed", value: "SHA-256 HMAC Commit-Reveal" },
-      { label: "Convertibility Economics", value: "3-Class Asymmetric" },
-      { label: "Logo Rush Arcade", value: "3,400+ Vector Marks" },
+      { label: "Escrow Guarantee", value: "100% Upfront-Locked (Zero Default)" },
+      { label: "Draw Integrity", value: "9 Provably-Fair SHA-256 HMAC Formats" },
+      { label: "Pot Distribution", value: "The Slice Exact-Sum Mathematical Solver" },
+      { label: "Creator Royalties", value: "15% Perpetual $CRUISE Blueprint Yield" },
     ],
     tags: [
       "Next.js 16",
@@ -280,7 +289,7 @@ export const PROJECTS: Project[] = [
       "$CRUISE Escrow",
       "Provably Fair",
       "Supabase",
-      "Logo Rush",
+      "Exact-Sum Math",
       "Wax Seal Canvas",
     ],
     techStackByCategory: {
@@ -289,30 +298,30 @@ export const PROJECTS: Project[] = [
         "Tailwind CSS",
         "Museum-Grade Parchment Canvas",
         "Wax Seal Shaders",
-        "Logo Rush Arcade Engine",
+        "Public Verifiable Draw Studio",
       ],
       databaseAndConcurrency: [
         "Supabase PostgreSQL",
         "Upfront Escrow Locking RPCs (pool:<challengeId>)",
-        "Asymmetric Partitioning (`earned` vs `purchased` vs `promo`)",
+        "Asymmetric 3-Class Balance Guard (earned vs. purchased vs. promo)",
         "Atomic pot_settle RPCs",
-        "Public Verifiable Audit Ledger",
+        "Immutable Audit Ledgers",
       ],
       aiAndRealtime: [
-        "Commit-Reveal SHA-256 Draw Engine",
-        "Automated Winner Share Solver (The Slice)",
-        "Instant Pot Disbursal",
+        "Commit-Reveal SHA-256 HMAC Seed Protocol",
+        "The Slice Mathematical Random Share Solver",
+        "Instant Automated Pot Disbursal",
         "Real-Time Draw Room Sync",
       ],
       paymentsAndProtocols: [
-        "$CRUISE Credit Protocol",
-        "USDT & Naira Bank Transfers",
-        "Bachs Webhook Collection",
-        "Anti-Sybil Blueprint Royalties (The Lab)",
+        "$CRUISE Escrow & Preferential 5% Rate",
+        "Bachs Multi-Gateway (USDT, Cards, Bank Transfers)",
+        "Anti-Sybil Blueprint Royalty Engine (The Lab)",
+        "Idempotent Settlement Webhooks",
       ],
     },
     summary:
-      "High-integrity platform turning marketing and community budgets into upfront-escrowed prize competitions. Sponsors lock prize pools irrevocably in Naira, USDT, or $CRUISE credits (pool:<challengeId>). Winners are selected via 9 provably-fair cryptographic algorithms backed by commit-reveal SHA-256 HMAC seeds, with random shares mathematically solved by The Slice.",
+      "High-integrity prize competition and marketing bounty protocol that permanently eliminates sponsor defaults. Sponsors lock prize pools irrevocably in Naira, USDT, or $CRUISE (pool:<challengeId>) before a single entry opens. Features 9 provably-fair draw formats backed by commit-reveal SHA-256 HMAC seeds, The Slice mathematical solver distributing exact-sum random shares across multiple winners without fractional dust, 3-class asymmetric liquidity partitioning (earned vs. purchased vs. promo), and The Lab creator incubator awarding 15% perpetual royalties to community blueprint inventors.",
     modules: [
       {
         name: "Upfront Escrow Locking Engine",
@@ -320,64 +329,69 @@ export const PROJECTS: Project[] = [
           "Prize pools lock irrevocably before entries open (pool:<challengeId>), guaranteeing that no sponsor can default or withhold rewards once participants compete.",
       },
       {
-        name: "Provably-Fair Draw Engine",
+        name: "9 Provably-Fair Cryptographic Draw Formats",
         description:
-          "Implements 9 cryptographic draw formats (Classic sweep, Knockout, Golden Tickets, Roll-off, Last Seal Standing, High Rollers, Team Clash, First Blood, The Bracket) backed by immutable commit-reveal SHA-256 HMAC seeds.",
+          "Implements 9 verifiable formats (Classic Sweep, Knockout, Golden Tickets, Roll-off, Last Seal Standing, High Rollers, Team Clash, First Blood, The Bracket) backed by immutable commit-reveal SHA-256 HMAC seeds.",
       },
       {
-        name: "The Slice Proportional Share Solver",
+        name: "The Slice Exact-Sum Proportional Solver",
         description:
-          "Mathematically solves per-winner random shares that sum exactly to the pot, recorded on public verifiable audit ledgers with hard invariant asserts.",
+          "Mathematically solves per-winner random shares that sum exactly to the pot without fractional dust, recorded on public verifiable audit ledgers.",
       },
       {
-        name: "Asymmetric Credit Convertibility Guard",
+        name: "Asymmetric 3-Class Liquidity Partitioning",
         description:
-          "Strictly partitions balances into earned (withdrawable), purchased (spend-only), and promo (spend-only) to protect ecosystem liquidity.",
+          "Strictly partitions balances into earned (withdrawable prize winnings), purchased (spend-only pool funding), and promo (spend-only grants) to eliminate platform insolvency risk.",
       },
       {
-        name: "Logo Rush Arcade & The Lab",
+        name: "The Lab Blueprint Incubator & 15% Royalties",
         description:
-          "Zero-repeat, multi-pack arcade challenge testing recognition across 3,400+ brand vector marks, paired with The Lab blueprint incubator paying 15% $CRUISE royalties.",
+          "Community designers submit creative bounty blueprints, earning 15% perpetual royalties in $CRUISE every time a sponsor funds their challenge.",
+      },
+      {
+        name: "Museum-Grade Signature Parchment Artifacts",
+        description:
+          "High-stakes physical canvas artifacts (Winner Warrants, Ticket Stubs, Audit Ledgers) rendered with canvas tear lines, wax seal shaders, and perforated edges.",
       },
     ],
     bullets: [
       "Architected upfront escrow locking mechanism preventing sponsor default by holding prize pools in earmarked escrow accounts prior to challenge activation.",
       "Engineered provably-fair draw engine across 9 formats with commit-reveal SHA-256 HMAC seeds and public cryptographic audit ledgers.",
-      "Built asymmetric convertibility economics partitioning user credit balances into earned, purchased, and promo to eliminate insolvency risk.",
-      "Designed physical parchment and wax-seal UI artifacts (Winner Warrants, Ticket Stubs, Audit Ledgers) rendered with canvas tear lines and seal shaders.",
+      "Developed The Slice mathematical algorithm distributing exact-sum random shares across multiple winners with zero fractional dust.",
+      "Built asymmetric convertibility economics partitioning user credit balances into earned, purchased, and promo to eliminate insolvency risk while rewarding blueprint inventors with 15% royalties.",
     ],
     architecture: {
       category: "Cryptographic Prize Escrow & Provably-Fair Infrastructure",
       concurrencyGuarantee:
         "Upfront pool locking, atomic pot_settle RPCs, and mathematical exact-sum share validation.",
       protocolOrAi:
-        "Commit-reveal SHA-256 HMAC draw engine, 9 provably-fair formats.",
+        "Commit-reveal SHA-256 HMAC draw engine, 9 provably-fair formats, The Slice solver.",
       dbOrInfra:
-        "Supabase PostgreSQL, shared $CRUISE ledger entries, public audit hashes.",
+        "Supabase PostgreSQL, shared $CRUISE ledger entries, public cryptographic audit ledgers.",
     },
   },
   {
     id: "huiyi",
     name: "Huiyi",
-    descriptor: "Zero-App Collaborative Event Video Recap Engine & Multimodal AI Timeline Director",
+    descriptor: "Zero-Friction Collaborative Event Video Recap Engine & Multimodal AI Director",
     url: "https://huiyi.cruisehq.fun",
     urlLabel: "huiyi.cruisehq.fun",
     image: "/projects/huiyi_hero.png",
     accentColor: "purple",
     metrics: [
-      { label: "Guest Friction", value: "0 App / 0 Account" },
-      { label: "Render Workers", value: "Distributed Modal FFmpeg" },
-      { label: "Storage Architecture", value: "Cloudflare R2 Direct" },
-      { label: "Credit Metering", value: "Charge-On-Success Ledger" },
+      { label: "Guest Friction", value: "100% Zero-App / Zero-Account QR" },
+      { label: "Editing Intelligence", value: "Gemini Multimodal Beat & Sentiment Clustering" },
+      { label: "Rendering Pipeline", value: "Distributed Modal Cloud FFmpeg Workers" },
+      { label: "Pricing Model", value: "100% Charge-on-Success Credit Guarantee" },
     ],
     tags: [
       "Next.js",
       "TypeScript",
       "Gemini Multimodal",
       "Cloudflare R2",
-      "FFmpeg",
+      "Distributed FFmpeg",
+      "Modal Cloud Workers",
       "Bachs Checkout",
-      "Supabase",
       "Zero-App QR",
     ],
     techStackByCategory: {
@@ -385,55 +399,55 @@ export const PROJECTS: Project[] = [
         "Next.js (App Router)",
         "Tailwind CSS",
         "Zero-App Mobile QR Uploader",
-        "Timeline Director Controls",
-        "Watermark Designer",
+        "Natural Language Timeline Director Controls",
+        "Watermark & Branding Customizer",
       ],
       databaseAndConcurrency: [
         "Supabase PostgreSQL",
-        "Bachs Credit Metering Ledger",
-        "Atomic credit_deduct on Render Success",
-        "Multi-Version Event Asset Tree",
+        "Charge-on-Success Credit Metering Ledger",
+        "Atomic credit_deduct Locks on Render Success",
+        "Cloudflare R2 Presigned Direct-to-Bucket Pipeline",
       ],
       aiAndRealtime: [
-        "Gemini Multimodal Director",
-        "Natural-Language Editing Prompts",
-        "Scene Quality & Audio Scorer",
-        "Automated Clip Assembly",
+        "Gemini Multimodal Video Intelligence",
+        "Natural-Language Director Prompt Compiler",
+        "Face, Lighting & Audio Beat Quality Scorer",
+        "Automated Multi-Candidate Highlight Assembly",
       ],
       paymentsAndProtocols: [
-        "Bachs Hosted Checkout (10/$9, 40/$29, 120/$79)",
-        "Verified collection.succeeded Webhooks",
-        "Cloudflare R2 Direct Uploads",
-        "Modal Cloud FFmpeg Workers",
+        "Bachs Hosted Multi-Rail Checkout (10/$9, 40/$29, 120/$79)",
+        "Verified collection.succeeded Webhook Grants",
+        "Modal Cloud Serverless FFmpeg Workers",
+        "Zero-Charge Guarantee on Failed Renders",
       ],
     },
     summary:
-      "Collaborative event video platform turning raw guest-shot mobile footage into cinematic recaps. Guests contribute clips instantly via dynamic QR codes with zero app downloads and zero accounts. Event organizers direct edits using natural language prompts via Gemini Multimodal and distributed Modal cloud FFmpeg render workers with Bachs charge-on-success credit metering.",
+      "Collaborative event video platform that solves the multi-thousand dollar videographer turnaround lag and lost attendee footage for weddings, festivals, galas, and summits. Guests drop high-resolution phone clips directly via dynamic QR codes with zero app downloads or accounts. Organizers direct edits using natural language prompts, with Gemini analyzing clip lighting, audio energy, and guest faces to render multi-candidate cinematic highlight reels across distributed Modal cloud FFmpeg workers with 100% charge-on-success credit guarantees.",
     modules: [
       {
-        name: "Zero-App Guest Uploader",
+        name: "Zero-App Mobile QR Guest Uploader",
         description:
-          "Mobile-first web interface allowing wedding, conference, and festival guests to upload high-res video clips instantly via QR scan without account friction.",
+          "Frictionless mobile web interface allowing wedding, conference, and festival guests to contribute high-res video clips instantly via QR scan without account creation or app installation.",
       },
       {
-        name: "Gemini Multimodal Director",
+        name: "Gemini Multimodal Video Director",
         description:
-          "Analyzes raw attendee video footage, transcribes dialogue, identifies emotional peaks, and compiles an intelligent timeline edit based on organizer prompts.",
+          "Analyzes attendee video footage, evaluates audio beat energy and facial sentiment, and compiles intelligent timeline edits based on natural language director instructions.",
       },
       {
-        name: "Cloud FFmpeg Rendering Pipeline",
+        name: "Distributed Modal Cloud FFmpeg Workers",
         description:
-          "Distributed video composition engine applying watermarks, color grading, audio leveling, and dynamic transitions across multiple candidate edits.",
+          "Scalable cloud video rendering fleet applying custom watermarks, color grading, audio leveling, and dynamic transitions across multiple candidate edits simultaneously.",
       },
       {
-        name: "Bachs Metered Credit Ledger",
+        name: "100% Charge-on-Success Credit Ledger",
         description:
-          "Strict credit accounting charging users only upon successful render completion with verified collection.succeeded webhook security.",
+          "Strict transactional accounting charging organizer credits only upon flawless render completion, eliminating financial risk from failed compositions.",
       },
       {
-        name: "Cloudflare R2 Direct Uploads",
+        name: "Cloudflare R2 Direct Media Pipeline",
         description:
-          "Presigned direct-to-bucket media uploads bypassing application server bottlenecks and enabling concurrent multi-gigabyte video ingestion.",
+          "Presigned direct-to-bucket media uploads bypassing web server bottlenecks and enabling concurrent multi-gigabyte video ingestion during live events.",
       },
     ],
     bullets: [
@@ -555,16 +569,17 @@ export const PROJECTS: Project[] = [
   {
     id: "caelumos",
     name: "CaelumOS",
-    descriptor: "Institutional Quantitative Execution OS, SMC/ICT Multi-Engine & Black-Swan Market Simulator",
+    descriptor:
+      "Institutional Precision Operating System for Systematic & Prop Traders, Rule-Confluence Engine & Black-Swan Market Simulator",
     url: "https://caelumos.trade",
     urlLabel: "caelumos.trade",
     image: "/projects/caelum_hero.png",
     accentColor: "cyan",
     metrics: [
-      { label: "Historical Backtest Data", value: "15,000+ M5 Hours" },
-      { label: "Scenario Replays", value: "12 Black-Swan Events" },
-      { label: "Pattern Vision Engine", value: "Llama 3.2 Vision" },
-      { label: "Risk Model", value: "Immutable Drawdown Floor" },
+      { label: "Backtesting Dataset", value: "15,000+ M5 Market Hours" },
+      { label: "Stress Testing", value: "12 Black-Swan Replays" },
+      { label: "Execution Governance", value: "Weighted Confluence Scoring" },
+      { label: "Edge Diagnostics", value: "AI Emotional Leak & Drawdown Engine" },
     ],
     tags: [
       "Next.js",
@@ -605,39 +620,39 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "Institutional-grade execution environment and market simulation OS unifying 15,000+ M5 historical hours, 12 black-swan macro shock replays, Llama 3.2 Vision candlestick pattern recognition, and ICT/SMC multi-engine structure analysis with deterministic drawdown limits.",
+      "Institutional execution operating system designed to eliminate emotional tilt and discretionary errors that cause 90% of retail traders to fail. Replaces static spreadsheet journals with 15,000+ hours of spoiler-protected M5 market simulations across 12 historical black-swan shocks (FTX, COVID, Brexit), weighted rule-confluence checklists that block non-systematic orders, Llama 3.2 Vision candlestick pattern recognition, and automated NLP emotional leak detection correlating trader psychology with equity drawdowns.",
     modules: [
       {
-        name: "Black-Swan Historical Simulator",
+        name: "The Simulator (The Dojo)",
         description:
-          "Replays 12+ macro shock events (FTX Collapse, COVID Crash, Brexit, LUNA Depeg) with spoiler-protected candle streams from 15,000+ hours of M5 data.",
+          "Replays 12+ historical macro shock scenarios (FTX Collapse, COVID Crash, Brexit, LUNA Depeg) with spoiler-protected tick-by-tick candle streams across 15,000+ hours of M5 data.",
       },
       {
-        name: "Weighted Confluence Playbook Engine",
+        name: "Rule-Bound Confluence Playbook",
         description:
-          "Enforces systematic discipline by requiring dynamic weighted strategy scores before live or paper orders can be logged.",
+          "Enforces institutional execution discipline by calculating dynamic weighted strategy scores and locking order logging until minimum setup criteria are satisfied.",
       },
       {
-        name: "Psychological Journal & Emotional Leak Radar",
+        name: "Psychological Leak Radar & Emotional Journal",
         description:
-          "Detects revenge trading and FOMO by analyzing trader logs with NLP sentiment models before capital is committed.",
+          "Analyzes trader journal reflections and execution timestamps with NLP sentiment models to detect FOMO, revenge trading, and emotional tilt before capital is destroyed.",
       },
       {
-        name: "Llama 3.2 Vision Technical Pattern Scanner",
+        name: "Llama 3.2 Vision Pattern Scanner",
         description:
-          "Automated chart image analysis detecting 50+ technical candlestick patterns and historical probability benchmarking.",
+          "Automated chart screenshot analysis detecting 50+ technical candlestick patterns and benchmarking uploaded setups against historical probability distributions.",
       },
       {
-        name: "SMC/ICT Institutional Reference Levels",
+        name: "SMC/ICT Reference Liquidity Engine",
         description:
-          "Calculates PDH/PDL, PWH/PWL, NDOG/NWOG, and REH/REL cluster liquidity pools with real-time HUD status metrics.",
+          "Real-time institutional liquidity HUD calculating PDH/PDL, PWH/PWL, NDOG/NWOG, and REH/REL liquidity pools with multi-window state synchronization.",
       },
     ],
     bullets: [
-      "Architected risk-free simulation engine with spoiler-protected data across 12+ historical black-swan scenarios over 15,000+ hours of M5 data.",
-      "Built dynamic confluence playbooks requiring deterministic strategy scoring before live or simulated trade execution, eliminating emotional bias.",
-      "Engineered automated psychological journaling detecting emotional leaks (FOMO, revenge trading) by running NLP sentiment analytics against pre-market logs.",
-      "Resolved complex multi-window state concurrency challenges, ensuring microsecond-accurate trade logging and portfolio reconciliation.",
+      "Engineered historical market simulation engine replaying 12+ macro shocks (FTX Collapse, COVID Crash, Brexit, LUNA Depeg) with spoiler-protected candle streams across 15,000+ M5 hours.",
+      "Architected dynamic confluence playbooks requiring deterministic strategy scores before live or simulated trade execution, systematically blocking emotional tilt and discretionary revenge trading.",
+      "Built automated psychological journaling analyzing pre/post-trade logs with NLP sentiment models to detect emotional leaks (FOMO, tilt) and correlate them directly to equity curve drawdowns.",
+      "Integrated Llama 3.2 Vision automated chart pattern recognition, benchmarking uploaded chart setups against historical success probabilities and multi-window state synchronization.",
     ],
     architecture: {
       category: "Quantitative Market Simulation & Algorithmic Execution",
@@ -652,16 +667,17 @@ export const PROJECTS: Project[] = [
   {
     id: "pitchbuddy",
     name: "PitchBuddy",
-    descriptor: "Operating System for Small-Sided Football Venues & Hands-Free AI Match Day Companion",
+    descriptor:
+      "All-in-One Venue Operating System for Small-Sided Football & Turf Arenas, Graph Balancer & Hands-Free Matchday OS",
     url: "https://pitchbuddy.cruisehq.fun",
     urlLabel: "pitchbuddy.cruisehq.fun",
     image: "/projects/pitchbuddy_hero.png",
     accentColor: "emerald",
     metrics: [
-      { label: "Match Operations", value: "Voice-First Hands-Free" },
-      { label: "Queue Balancer", value: "Graph-Preserving Algorithm" },
-      { label: "Match Authority", value: "Server-Authoritative Clocks" },
-      { label: "Prize Ledger", value: "Bachs Ring-Fenced Escrow" },
+      { label: "Roster Operations", value: "Zero-Paper Automated Queue & Balancing" },
+      { label: "Matchday Automation", value: "Server-Authoritative TV Scoreboards & Voice PA" },
+      { label: "Tournament Builder", value: "Knockout, Groups & One-Night Cups" },
+      { label: "Financial Ledger", value: "Bachs Ring-Fenced Prize Pots & Instant Payouts" },
     ],
     tags: [
       "Next.js",
@@ -702,25 +718,25 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "End-to-end venue management system transforming paper-based 5-a-side pitches with algorithmic team balancing, automated tournament brackets, server-authoritative timers, and voice AI PA announcements.",
+      "Complete venue operating system replacing paper slips, chaotic queues, and cash disputes at turf football facilities. Delivers mobile QR player check-in, graph-preserving roster balancing that keeps friend groups together, server-authoritative TV scoreboards with Gemini AI voice PA announcements, automated tournament bracket generation, and Bachs ring-fenced prize escrow.",
     modules: [
       {
-        name: "Algorithmic Queue & Draw Balancer",
+        name: "Instant Queue & Fair Balancer",
         description:
-          "Instantly balances teams based on player profiles and ratings, with smart clustering that keeps friend groups on the same side.",
+          "Instantly balances pickup teams based on player ratings while running graph clustering to preserve friend groups on the same side of the pitch.",
       },
       {
-        name: "Hands-Free Gemini Live PA Companion",
+        name: "Gemini Live Voice PA Companion",
         description:
-          "Voice-driven referee assistant that announces match starts, remaining time, next queue calls, and score updates over the venue PA.",
+          "Voice-driven referee assistant that announces match starts, remaining injury time, next queue calls, and score updates over the venue PA.",
       },
       {
-        name: "Automated Tournament Engine",
+        name: "Multi-Format Tournament Engine",
         description:
-          "Procedurally builds and runs knockouts, round-robins, and multi-pitch leagues with server-authoritative timers and live venue TV sync.",
+          "Procedurally builds and runs knockouts, round-robin leagues, and one-night cup brackets with server-authoritative timers and live venue TV sync.",
       },
       {
-        name: "Ring-Fenced Bachs Prize Ledger",
+        name: "Ring-Fenced Bachs Prize Escrow",
         description:
           "Collects team entry fees digitally and ring-fences tournament prize pools with automated escrow release upon championship completion.",
       },
@@ -731,10 +747,10 @@ export const PROJECTS: Project[] = [
       },
     ],
     bullets: [
-      "Designed instant-queue team balancing algorithm shuffling check-ins into balanced rosters while preserving friend groups for on-the-spot pickup nights.",
-      "Engineered hands-free match-day operations driven by a Gemini Live voice companion controlling server-authoritative timers and venue PA announcements.",
-      "Built automated tournament builder supporting round-robin, knockout brackets, discipline cards, and live TV scoreboard synchronization.",
-      "Integrated Bachs payments for digital competition entry collection and ring-fenced prize pool ledgering.",
+      "Designed instant-queue team balancing algorithm shuffling mobile QR check-ins into balanced rosters while preserving friend groups for on-the-spot pickup nights.",
+      "Engineered hands-free match-day operations driven by a Gemini Live voice companion controlling server-authoritative clocks, acoustic klaxons, and venue PA announcements.",
+      "Built automated tournament engine supporting knockouts, round-robin leagues, and one-night cup brackets with live TV scoreboard synchronization and disciplinary card tracking.",
+      "Integrated Bachs digital payment rails for automated tournament entry fee collection and ring-fenced prize pool escrows with instant champion payouts.",
     ],
     architecture: {
       category: "Sports Venue Operations & Real-Time Event State Machines",
@@ -749,16 +765,17 @@ export const PROJECTS: Project[] = [
   {
     id: "gebo",
     name: "GEBO",
-    descriptor: "Verification-First Agent Marketplace & Scoped Authority Registry for BNB Smart Chain",
+    descriptor:
+      "Empirical Agent Census, Verification Marketplace & Scoped DeFi Authority Registry for BNB Chain",
     url: "https://gebo-bsc.vercel.app",
     urlLabel: "gebo-bsc.vercel.app",
     image: "/projects/gebo_hero.png",
     accentColor: "amber",
     metrics: [
-      { label: "Indexed On-Chain Agents", value: "338,000+ Identities" },
-      { label: "Probed Endpoints", value: "14,800+ Live APIs" },
-      { label: "Scoped Authority Rail", value: "Altana (EIP-7702)" },
-      { label: "Decentralized Escrow", value: "APEX (ERC-8183)" },
+      { label: "On-Chain Census", value: "340,000+ ERC-8004 Identities Audited" },
+      { label: "Liveness Verification", value: "Continuous Empirical Uptime & Latency Probing" },
+      { label: "Risk Containment", value: "Simulated Blast-Radius & DeFi Liquidity Bounds" },
+      { label: "Execution Escrow", value: "APEX (ERC-8183) Hires & 1-Click Revocation" },
     ],
     tags: [
       "Next.js 15",
@@ -801,36 +818,36 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "Verification-first agent marketplace on BNB Smart Chain reading all ERC-8004 registered identities directly from chain. Audits 338,000+ minted agents, probes 14,800+ endpoints with p50/p95 latency logging, exposes the gap between self-declared active agents and callable APIs, models cryptographic blast-radius authority using Altana Keystore (EIP-7702), and executes escrow hires via APEX (ERC-8183).",
+      "Verification-first agent security and marketplace on BNB Smart Chain. Unlike directories that blindly parrot self-reported agent data, GEBO indexes every ERC-8004 identity on-chain, probes actual service endpoints to expose ghost agents and infrastructure centralization (125 operators running 90%+ of endpoints), models cryptographic blast-radius authority limits using Altana Keystore (EIP-7702), and executes escrow hires via APEX (ERC-8183).",
     modules: [
       {
-        name: "ERC-8004 Multi-Protocol Registry",
+        name: "Empirical ERC-8004 Census & Probing Engine",
         description:
-          "Indexes 338,000+ on-chain agents and probes 14,800+ endpoints with real-time percentile latency logging and state-transition tracking.",
+          "Indexes 340,000+ on-chain agents and probes 14,800+ live endpoints with real-time percentile latency logging and state-transition tracking.",
       },
       {
-        name: "Cryptographic Blast-Radius Modeling",
+        name: "Simulated Authority & Blast-Radius Presets",
         description:
-          "Leverages Altana Keystore (EIP-7702) to strictly decouple contract call target allowlists from spend caps with monotonic on-chain revocation.",
+          "Simulates the exact contract call authority an agent would hold against live PancakeSwap and Venus liquidity pools before signing, strictly bounding spend caps.",
       },
       {
-        name: "APEX Escrow & Evaluator Routing",
+        name: "APEX Escrow & Altana Passkey Revocation",
         description:
-          "Integrates decentralized job escrow (ERC-8183) with EvaluatorRouter grading and Sybil-proof verified review anchoring.",
+          "Integrates decentralized job escrow (ERC-8183) with EvaluatorRouter grading, passkey-enabled session accounts (EIP-7702), and one-click on-chain revocation.",
       },
       {
-        name: "Database Self-Healing & Cron Fleet Guard",
+        name: "gebo-guard Autonomous Database Shedder",
         description:
-          "Built gebo-guard: measures query latency and automatically sheds non-critical cron workers during traffic surges, eliminating aggregate cold timeouts.",
+          "Measures query latency and automatically sheds non-critical cron workers during traffic surges, eliminating aggregate cold timeouts.",
       },
       {
-        name: "Live Census Statistics Engine",
+        name: "DeFi Opportunity Surface Indexer",
         description:
-          "Computes dynamic funnel stats via refresh_census_stats() over stored rows, preventing hardcoded or falsified agent counts.",
+          "Indexes live yield and liquidity opportunities directly from PancakeSwap V3 and Venus, mapping callable agents directly to high-yield primitives.",
       },
     ],
     bullets: [
-      "Indexed 338,000+ on-chain agent identities with automated multi-protocol liveness probers (A2A, MCP, HTTP) across 14,800+ endpoints logging p50/p95 percentiles and state transitions.",
+      "Audited 340,000+ ERC-8004 on-chain agent identities, probing 14,800+ live endpoints with rolling p50/p95 latency and exposing 125 infrastructure operators controlling over 90% of callable agents.",
       "Engineered cryptographic blast-radius authority limits using Altana Keystore (EIP-7702) and viem, decoupling contract call allowlists from spend caps with monotonic on-chain revocation.",
       "Integrated BNB Chain APEX (ERC-8183) decentralized escrow with EvaluatorRouter verification and x402 dual-rail HTTP micropayments (0.01 $U/call).",
       "Resolved severe database memory constraints via session-pooler vacuum surgery, replacing a 36.7MB tsvector with a 13MB expression index and eliminating 9.8s aggregate cold timeouts.",
@@ -852,7 +869,8 @@ export const PROJECTS: Project[] = [
   {
     id: "joebrownhotel",
     name: "Joebrown Palace Hotel & Suites",
-    descriptor: "Enterprise Hospitality Management OS & Guest Booking Webapp (Commissioned by Joebrown Palace Hotel & Suites)",
+    descriptor:
+      "Enterprise Hospitality Management Platform & Guest Experience Operating System (Commissioned by Joebrown Palace Hotel & Suites)",
     url: "https://joebrownhotel.com",
     urlLabel: "joebrownhotel.com",
     isClientContract: true,
@@ -860,10 +878,10 @@ export const PROJECTS: Project[] = [
     image: "/projects/joebrown_hero.jpg",
     accentColor: "amber",
     metrics: [
-      { label: "Operational Roles", value: "11-Tier Hardened RBAC" },
-      { label: "Reservation Engine", value: "Zero Double-Bookings (Atomic RPC)" },
-      { label: "Floor Plan Canvas", value: "Interactive 2D Drag & Drop" },
-      { label: "Order Tracking Cost", value: "100% Zero-Cost In-App WebSockets" },
+      { label: "Booking Concurrency", value: "Zero Double-Bookings (book_room_atomically)" },
+      { label: "Operational Tracking", value: "100% Zero-Cost In-App WebSockets" },
+      { label: "Kitchen Operations", value: "Multi-Station KDS (Kitchen, Bar, Grill)" },
+      { label: "Floor Management", value: "Interactive 2D Drag-and-Drop Table Canvas" },
     ],
     tags: [
       "Next.js 16 (React 19)",
@@ -907,17 +925,17 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "Bespoke enterprise hospitality operating system and guest portal commissioned by Joebrown Palace Hotel & Suites. Unifies atomic room reservations preventing double-bookings (book_room_atomically), Express QR check-in passes, frictionless digital dining with centered order tray modal, zero-cost in-app real-time order tracking via Supabase WebSockets, interactive 2D table floor plan canvas, multi-station Kitchen Display Systems (KDS), and room folio multi-tender billing.",
+      "Enterprise hospitality management platform and guest operating system commissioned by Joebrown Palace Hotel & Suites. Unifies atomic room reservations preventing double-bookings (book_room_atomically), zero-cost in-app real-time order tracking via Supabase WebSockets (eliminating recurring SMS and WhatsApp gateway bills), interactive 2D table floor plan canvas, multi-station Kitchen Display Systems (KDS), and room folio multi-tender billing.",
     modules: [
       {
-        name: "Atomic Room Booking Engine",
+        name: "Atomic Concurrency Room Booking Engine",
         description:
           "Guarantees zero double-bookings via custom PL/pgSQL RPCs (book_room_atomically) with room date-range interval locks and instant receipt generation.",
       },
       {
-        name: "Interactive 2D Table Floor Plan Canvas",
+        name: "Zero-Cost Real-Time WebSocket Guest Tracking",
         description:
-          "Drag-and-drop table management with live visual occupancy states, waiter order taking, and multi-department order routing (bar, kitchen, grill).",
+          "Live order tracking timeline delivered over Supabase Realtime WebSockets, giving dining guests real-time kitchen status without recurring SMS/WhatsApp gateway charges.",
       },
       {
         name: "Multi-Station Kitchen Display System (KDS)",
@@ -925,9 +943,9 @@ export const PROJECTS: Project[] = [
           "Real-time kitchen, bar, and grill display screens with acoustic order chimes, ticket timers, item preparation checkboxes, and bump bar functionality.",
       },
       {
-        name: "JB AI Voice & Chat Concierge",
+        name: "Interactive 2D Table Floor Plan Canvas",
         description:
-          "Gemini Flash assistant equipped with strict RBAC tool boundaries to handle room requests, order inquiries, and automatic front desk handover.",
+          "Drag-and-drop table management with live visual occupancy states, waiter order taking, and multi-department order routing (bar, kitchen, grill).",
       },
       {
         name: "11-Tier Hardened RBAC & Shift Ledger",
@@ -936,9 +954,9 @@ export const PROJECTS: Project[] = [
       },
     ],
     bullets: [
-      "Architected atomic room reservation engine (book_room_atomically RPC) with strict double-booking prevention, automated rate tiering, and dual-rail settlement (Bachs card/USSD/crypto with instant bank transfer fallback).",
-      "Engineered interactive 2D drag-and-drop table floor plan canvas for restaurant & lounge operations with live order routing to dedicated bar and kitchen KDS stations.",
-      "Built JB AI Concierge: persistent Gemini Flash assistant with strict role-based tool separation and automated escalation to on-duty front desk staff over Supabase Realtime.",
+      "Architected atomic room reservation engine (book_room_atomically RPC) with strict date-range interval locks, eliminating double-booking collisions under high web concurrency.",
+      "Engineered in-app digital dining tracking powered by Supabase Realtime WebSockets, eliminating recurring third-party SMS and WhatsApp gateway fees for guest order status updates.",
+      "Built interactive 2D drag-and-drop table floor plan canvas for restaurant & lounge operations with live order routing to dedicated bar, grill, and kitchen KDS stations.",
       "Implemented hardened 11-tier RBAC covering front desk, waiters, bartenders, kitchen chefs, accountants, and ownership with automated shift handover ledgering.",
     ],
     architecture: {
@@ -954,7 +972,8 @@ export const PROJECTS: Project[] = [
   {
     id: "dreamwise",
     name: "DreamwiseHUB",
-    descriptor: "Omnichannel Tech Retail POS & Multi-Stage Repair CRM (Commissioned by Dreamwise Innovative Computer Enterprise)",
+    descriptor:
+      "Omnichannel Tech Retail POS & Multi-Stage Hardware Repair Operating System (Commissioned by Dreamwise Innovative Computer Enterprise)",
     url: "https://dreamwisehub.com",
     urlLabel: "dreamwisehub.com",
     isClientContract: true,
@@ -962,10 +981,10 @@ export const PROJECTS: Project[] = [
     image: "/projects/dreamwise_hero.png",
     accentColor: "blue",
     metrics: [
-      { label: "Security & Authorization", value: "7-Tier PostgreSQL RLS" },
-      { label: "Inventory Model", value: "Dual Retail/Workshop Isolation" },
-      { label: "CRM State Machine", value: "Multi-Stage Technician Lifecycle" },
-      { label: "Location Engine", value: "Nominatim Auto-Geocoding" },
+      { label: "Inventory Architecture", value: "Dual Retail / Workshop Stock Isolation" },
+      { label: "Servicing CRM", value: "Multi-Stage Technician Lifecycle State Machine" },
+      { label: "Access Security", value: "7-Tier Hardened PostgreSQL RLS" },
+      { label: "Support Intelligence", value: "Floating Gemini AI with Real-Time Staff Escalation" },
     ],
     tags: [
       "Next.js 16",
@@ -1011,45 +1030,45 @@ export const PROJECTS: Project[] = [
       "Enterprise operational operating system and storefront commissioned by Dreamwise Computer Enterprise to unify omnichannel Nigerian tech retail with complex repair workflows. Features dual inventory isolation separating retail products from repair parts, 7-tier PostgreSQL RLS, multi-stage technician lifecycle tracking, persistent floating Gemini AI support intercom with staff takeover, customer self-service /track portal, and Nominatim OpenStreetMap auto-geocoding.",
     modules: [
       {
-        name: "7-Tier Hardened RBAC & Automatic Owner Whitelist",
+        name: "Dual Inventory Isolation Engine",
         description:
-          "Enforces non-negotiable boundaries across Customer, Receptionist, Technician, Accountant, Manager, Owner, and Admin using PostgreSQL RLS and proxy middleware, with automatic owner whitelist triggers.",
-      },
-      {
-        name: "Dual Inventory Isolation",
-        description:
-          "Strictly separates retail sales products from internal repair workshop stock (screws, IC chips, thermal paste), safeguarding business gross margin analytics.",
+          "Mathematically separates customer retail inventory from internal workshop repair stock (screws, IC chips, thermal paste), safeguarding true gross margins and analytics.",
       },
       {
         name: "Multi-Stage Technician Repair CRM",
         description:
-          "End-to-end device servicing lifecycle (received → diagnosing → waiting_on_parts → completed) with customer self-service tracking codes.",
+          "End-to-end device servicing lifecycle (received → diagnosing → waiting_on_parts → completed → collected) with customer self-service tracking codes.",
       },
       {
-        name: "Human-in-the-Loop Gemini Intercom",
+        name: "7-Tier Hardened RBAC & Automatic Owner Whitelist",
+        description:
+          "Enforces non-negotiable boundaries across Customer, Receptionist, Technician, Accountant, Manager, Owner, and Admin using PostgreSQL RLS and proxy middleware.",
+      },
+      {
+        name: "Human-in-the-Loop Gemini Support Intercom",
         description:
           "Floating customer chat grounded in enterprise FAQs with seamless WebSocket escalation to technicians when human expertise is requested.",
       },
       {
-        name: "Automated Nominatim Geocoding",
+        name: "Automated Nominatim Geocoding & Order Routing",
         description:
           "Converts raw business street addresses into verified latitude/longitude coordinates and generates interactive maps without third-party API bloat.",
       },
     ],
     bullets: [
-      "Architected enterprise hardware POS and repair CRM with 7-tier RBAC enforced via PostgreSQL Row Level Security (RLS) and server-side layout proxy guards.",
-      "Engineered real-time human-in-the-loop AI support intercom powered by Gemini AI with dynamic FAQ grounding and automated WebSocket escalation to technicians.",
-      "Implemented high-concurrency checkout pipelines with atomic PostgreSQL constraints and idempotent Paystack webhook verification to eliminate inventory overselling.",
-      "Built dual inventory isolation (retail stock vs. repair parts) to keep financial profit analytics untainted, paired with automated OpenStreetMap Nominatim address geocoding.",
+      "Architected dual inventory model mathematically separating customer retail inventory from internal workshop repair stock (screws, IC chips, thermal paste), safeguarding true gross margins.",
+      "Engineered multi-stage technician servicing CRM (received → diagnosing → waiting_on_parts → completed → collected) with public customer self-service tracking codes.",
+      "Enforced non-negotiable security boundaries across 7 user tiers using PostgreSQL RLS and proxy middleware, with automatic owner whitelist triggers and audit trails.",
+      "Built floating Gemini AI customer intercom grounded in enterprise FAQs with seamless WebSocket escalation to technicians when human diagnostic expertise is required.",
     ],
     architecture: {
-      category: "Commissioned Enterprise Contract // Retail POS & Repair CRM",
+      category: "Commissioned Enterprise Contract // Retail & Hardware CRM",
       concurrencyGuarantee:
-        "Atomic stock decrement triggers, idempotent Paystack webhook verification, isolated internal inventory tables.",
+        "PostgreSQL atomic stock decrement triggers, idempotent Paystack webhook verification, isolated repair stock locks.",
       protocolOrAi:
-        "Gemini AI support intercom with knowledge base grounding and automated staff handoff.",
+        "Floating Gemini Flash customer intercom with staff takeover, multi-channel customer dispatch.",
       dbOrInfra:
-        "Supabase PostgreSQL with 7-tier RLS, real-time ticket state machine (received → diagnosing → completed).",
+        "Supabase PostgreSQL with 7-tier RLS, edge layout proxy guards, Nominatim OpenStreetMap engine.",
     },
   },
 ];
