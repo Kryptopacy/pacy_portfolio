@@ -31,10 +31,10 @@ export default function MethodologySection() {
           {/* Left Essay (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-[#d4c5ca] font-light leading-relaxed">
             <p>
-              In clinical healthcare, diagnostic errors carry real-world consequences. Across 1,500+ patient encounters at the University of Ilorin Teaching Hospital Eye Clinic and surgical outreaches, every diagnosis required systematic differential analysis—eliminating mimicking pathologies through exclusionary evidence before prescribing an intervention.
+              In clinical healthcare, diagnostic errors carry real-world consequences. Across 1,500+ patient encounters at the University of Ilorin Teaching Hospital Eye Clinic and surgical outreaches, every diagnosis required systematic differential analysis: eliminating mimicking pathologies through exclusionary evidence before prescribing an intervention.
             </p>
             <p>
-              Complex distributed systems benefit from the exact same discipline. A race condition under flash-sale checkout pressure, an overbooked hotel room, or an agent tool failure during financial settlement is rarely an isolated anomaly—it is an unmapped failure mode in an under-constrained system.
+              Complex distributed systems benefit from the exact same discipline. A race condition under flash-sale checkout pressure, an overbooked hotel room, or an agent tool failure during financial settlement is rarely an isolated anomaly. It is an unmapped failure mode in an under-constrained system.
             </p>
             <p className="text-white font-normal">
               At Pacy Labs, we approach codebases with diagnostic rigor: forming falsifiable hypotheses, validating boundary conditions, and enforcing state transitions with atomic database constraints (<code className="font-mono text-sm text-[#f6dc8c] bg-[#3a0d1c]/60 px-1.5 py-0.5 border border-[#d9a648]/40 shadow-[0_0_8px_rgba(217,166,72,0.15)]">SELECT FOR UPDATE</code>, strict PostgreSQL Row-Level Security, and typed schemas) so invalid states are structurally impossible.

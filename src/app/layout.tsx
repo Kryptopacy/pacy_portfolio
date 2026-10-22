@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Olamilekan David Adegoke | Pacy Labs — Systems Architect & Doctor of Optometry",
+  title: "Olamilekan David Adegoke | Pacy Labs | Systems Architect & Doctor of Optometry",
   description:
     "Portfolio and engineering lab of Olamilekan David Adegoke (@kryptopacy). Engineering deterministic enterprise operating systems, W3C WebMCP standards, autonomous agent protocols, and high-concurrency state machines with clinical diagnostic rigor.",
   keywords: [

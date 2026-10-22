@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "The complete enterprise operating system and unified commerce platform that runs every operational layer of a modern business while making it AI-native out-of-the-box. On the business side, Wetaego provides a full-spectrum operational suite unifying high-speed counter POS with barcode scanning, multi-station order dispatch, Bill of Materials (BOM) inventory tracking, appointment bookings (BMS), property listings (PMS), B2B quote generation, delivery fleet tracking, push-to-talk staff radio intercom, in-house VIP BNPL tabs, and sub-second multi-branch franchise replication—operating seamlessly on any device with driverless WebUSB/WebBluetooth ESC/POS printing and offline IndexedDB resilience. Setting up an account instantly provisions dual-sided native AI: a 24/7 frontline customer concierge for ordering and slot booking with live staff escalation, a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus and stockroom shelves via 1 FPS camera vision, and an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome).",
+      "The complete enterprise operating system and unified commerce platform that runs every operational layer of a modern business while making it AI-native out-of-the-box. On the business side, Wetaego provides a full-spectrum operational suite unifying high-speed counter POS with barcode scanning, multi-station order dispatch, Bill of Materials (BOM) inventory tracking, appointment bookings (BMS), property listings (PMS), B2B quote generation, delivery fleet tracking, push-to-talk staff radio intercom, in-house VIP BNPL tabs, and sub-second multi-branch franchise replication, operating on any device with driverless WebUSB/WebBluetooth ESC/POS printing and offline IndexedDB resilience. Setting up an account instantly provisions dual-sided native AI: a 24/7 frontline customer concierge for ordering and slot booking with live staff escalation, a merchant-facing Multimodal Voice & Vision Co-Pilot in the dashboard that reads physical menus and stockroom shelves via 1 FPS camera vision, and an agent-native storefront exposing W3C WebMCP tools for autonomous browsing agents (ChatGPT, Chrome).",
     modules: [
       {
         name: "Full-Spectrum Business Operations OS (POS, BMS, PMS, Quotes, Dispatch)",
@@ -224,7 +224,7 @@ export const PROJECTS: Project[] = [
       ],
     },
     summary:
-      "The complete social operating system and cultural headquarters for cities. Unifies multi-tier event ticketing with Bachs card/crypto checkout, sub-second mobile camera QR gate admission scanning (/dashboard/organizer/checkin), decentralized community hubs with WebRTC live audio lounges, a living directory of verified venues and culture plugs, real-time multiplayer HQ Rooms with synchronized guest participation, the GamesMaster directory of 51 authentic cultural party games, an in-browser AI game studio compiling 60 FPS HTML5 games, and TCG (The Cruise God)—a voice-first Gemini Live companion with long-term pgvector memory that hosts gatherings and physically drives the React DOM.",
+      "The complete social operating system and cultural headquarters for cities. Unifies multi-tier event ticketing with Bachs card/crypto checkout, sub-second mobile camera QR gate admission scanning (/dashboard/organizer/checkin), decentralized community hubs with WebRTC live audio lounges, a living directory of verified venues and culture plugs, real-time multiplayer HQ Rooms with synchronized guest participation, the GamesMaster directory of 51 authentic cultural party games, an in-browser AI game studio compiling 60 FPS HTML5 games, and TCG (The Cruise God), a voice-first Gemini Live companion with long-term pgvector memory that hosts gatherings and directly drives the React DOM.",
     modules: [
       {
         name: "Event Ticketing & Mobile Camera Gate Scanner",
@@ -242,7 +242,7 @@ export const PROJECTS: Project[] = [
           "Living discovery directory and map for city venues (bars, lounges, creative studios, restaurants) and verified service plugs (streetwear brands, mobile bars, DJs, creators, photographers) claimable by verified businesses.",
       },
       {
-        name: "HQ Rooms — Real-Time Multiplayer Sessions",
+        name: "HQ Rooms: Real-Time Multiplayer Sessions",
         description:
           "Two-way interactive room engine (/tcg and /room/CODE) where hosts broadcast live polls, group chat, party icebreakers (Truths, Dares, Charades), guest co-host microphones, and The AUX with synchronized Spotify lyrics.",
       },
@@ -1088,7 +1088,7 @@ export const AGENT_SKILLS: AgentSkill[] = [
     skillsShUrl: "https://skills.sh/b/Kryptopacy/pacy_webmcp_auditor",
     repoUrl: "https://github.com/Kryptopacy/pacy_webmcp_auditor",
     description:
-      "A published Agent Skill enabling coding agents (Claude Code, Cursor, OpenCode, Codex, ZCode) to wire, audit, and perfect WebMCP integrations—the W3C specification transforming websites into native MCP servers for autonomous browsing agents.",
+      "A published Agent Skill enabling coding agents (Claude Code, Cursor, OpenCode, Codex, ZCode) to wire, audit, and perfect WebMCP integrations based on the W3C specification that turns websites into native MCP servers for autonomous browsing agents.",
     capabilities: [
       "Multi-Dialect Support: Targets WG draft (document.modelContext.registerTool) and CG spec (navigator.modelContext.provideContext) with universal polyfill fallback.",
       "Automated Scorecard: Grades target websites against published rubric (Usability 60%, Coverage 20%, Quality 20%).",

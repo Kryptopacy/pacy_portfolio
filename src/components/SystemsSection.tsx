@@ -57,7 +57,7 @@ export default function SystemsSection() {
               Systems &amp; Architectures
             </h2>
             <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed">
-              Every platform documented here is an active production architecture running real-world workloads—from original distributed protocols and W3C WebMCP runtimes to enterprise webapps engineered under contract.
+              Every platform documented here is an active production architecture running real-world workloads, spanning distributed protocols, W3C WebMCP runtimes, and enterprise systems engineered under contract.
             </p>
           </div>
 

@@ -30,7 +30,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg sm:text-2xl text-[#d4c5ca] font-light leading-relaxed max-w-3xl">
-            An independent software architecture laboratory founded by Dr. Olamilekan David Adegoke. We engineer end-to-end business platforms, high-concurrency web applications, and autonomous agent protocols (W3C WebMCP)—built for real operational stability, clean data models, and zero fluff.
+            An independent software architecture laboratory founded by Dr. Olamilekan David Adegoke. We engineer end-to-end business platforms, high-concurrency web applications, and autonomous agent protocols (W3C WebMCP), built for real operational stability, clean data models, and zero fluff.
           </p>
         </div>
 

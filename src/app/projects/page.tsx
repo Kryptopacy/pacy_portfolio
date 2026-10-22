@@ -90,7 +90,7 @@ export default function ProjectsPage() {
             Production Systems Catalog
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
-            Every platform documented here is an active production architecture running real-world workloads—from original distributed protocols and W3C WebMCP runtimes to enterprise webapps engineered under contract for corporate brands.
+            Every platform documented here is an active production architecture running real-world workloads, spanning distributed protocols, W3C WebMCP runtimes, and enterprise software engineered under contract.
           </p>
         </div>
 

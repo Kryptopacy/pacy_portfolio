@@ -31,7 +31,7 @@ export default function DossierPage() {
             Clinical Diagnostic Rigor in Distributed Systems
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed mb-6">
-            Clinical diagnosis demands methodical root-cause analysis over superficial symptom treatment. I translate this diagnostic discipline directly into software engineering—identifying failure modes upfront, enforcing atomic concurrency boundaries, and building platforms designed for long-term operational stability.
+            Clinical diagnosis demands methodical root-cause analysis over superficial symptom treatment. I translate this diagnostic discipline directly into software engineering: identifying failure modes upfront, enforcing atomic concurrency boundaries, and building platforms designed for long-term operational stability.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-zinc-400">
