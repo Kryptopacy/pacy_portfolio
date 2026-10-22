@@ -85,7 +85,7 @@ export default function SkillsPage() {
             Autonomous Agent Protocols &amp; Audit Skills
           </h1>
           <p className="text-base sm:text-xl text-[#d4c5ca] font-light leading-relaxed">
-            I don’t just build applications for human eyes—I architect protocols that instruct autonomous AI coding agents (Claude Code, Cursor, OpenCode, Codex) to integrate open standards, conduct paranoid security audits, and verify production guarantees.
+            I don’t just build applications for human interfaces—I architect protocols that guide autonomous AI coding agents (Claude Code, Cursor, OpenCode, Codex) to implement open standards, conduct rigorous pre-ship architecture audits, and verify production guarantees.
           </p>
         </div>
 

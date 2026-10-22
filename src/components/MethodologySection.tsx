@@ -31,7 +31,7 @@ export default function MethodologySection() {
           {/* Left Essay (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-[#d4c5ca] font-light leading-relaxed">
             <p>
-              In clinical healthcare, diagnostic errors carry real-world consequences. Across 1,500+ patient encounters at the University of Ilorin Teaching Hospital Eye Clinic and surgical outreaches, every diagnosis required building an exhaustive differential tree—systematically eliminating mimicking pathologies through exclusionary evidence before prescribing an intervention.
+              In clinical healthcare, diagnostic errors carry real-world consequences. Across 1,500+ patient encounters at the University of Ilorin Teaching Hospital Eye Clinic and surgical outreaches, every diagnosis required systematic differential analysis—eliminating mimicking pathologies through exclusionary evidence before prescribing an intervention.
             </p>
             <p>
               Complex distributed systems benefit from the exact same discipline. A race condition under flash-sale checkout pressure, an overbooked hotel room, or an agent tool failure during financial settlement is rarely an isolated anomaly—it is an unmapped failure mode in an under-constrained system.
