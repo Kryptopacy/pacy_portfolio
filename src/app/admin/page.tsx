@@ -27,7 +27,11 @@ import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [adminUser, setAdminUser] = useState<{ email?: string; id?: string } | null>(null);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authMode, setAuthMode] = useState<"password" | "magic_link">("password");
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [activeTab, setActiveTab] = useState<"projects" | "resume" | "profile" | "skills" | "intercom">("projects");
   
@@ -57,12 +61,39 @@ export default function AdminPage() {
 
   const checkAuth = async () => {
     try {
+      // 1. Check local session cookie first
       const res = await fetch("/api/admin/auth");
       const data = await res.json();
-      setIsAuthenticated(data.isAuthenticated);
       if (data.isAuthenticated) {
+        setIsAuthenticated(true);
+        setAdminUser(data.user || null);
         loadContent();
+        return;
       }
+
+      // 2. If client has an active Supabase session, sync it to the session cookie
+      if (isSupabaseConfigured && supabase) {
+        const { data: sessionData } = await supabase.auth.getSession();
+        if (sessionData.session?.access_token && sessionData.session.user?.email) {
+          const syncRes = await fetch("/api/admin/auth", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              accessToken: sessionData.session.access_token,
+              email: sessionData.session.user.email,
+            }),
+          });
+          if (syncRes.ok) {
+            const syncData = await syncRes.json();
+            setIsAuthenticated(true);
+            setAdminUser(syncData.user || null);
+            loadContent();
+            return;
+          }
+        }
+      }
+
+      setIsAuthenticated(false);
     } catch {
       setIsAuthenticated(false);
     }
@@ -73,33 +104,78 @@ export default function AdminPage() {
     setLoginError("");
     setLoading(true);
 
+    if (!isSupabaseConfigured || !supabase) {
+      setLoginError("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      const res = await fetch("/api/admin/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+      if (authMode === "magic_link") {
+        const { error } = await supabase.auth.signInWithOtp({
+          email: email.trim(),
+          options: {
+            emailRedirectTo: typeof window !== "undefined" ? window.location.origin + "/admin" : undefined,
+          },
+        });
+        if (error) {
+          setLoginError(error.message);
+        } else {
+          setMagicLinkSent(true);
+        }
+        setLoading(false);
+        return;
+      }
+
+      // Email + Password sign in via Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
       });
 
-      if (!res.ok) {
-        const err = await res.json();
-        setLoginError(err.error || "Incorrect password");
+      if (authError || !authData.session) {
+        setLoginError(authError?.message || "Invalid email or password");
+        setLoading(false);
+        return;
+      }
+
+      // Authorize with backend route and establish secure session cookie
+      const syncRes = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          accessToken: authData.session.access_token,
+          email: authData.user.email,
+        }),
+      });
+
+      const syncResult = await syncRes.json();
+      if (!syncRes.ok) {
+        setLoginError(syncResult.error || "Access Denied");
+        await supabase.auth.signOut();
         setLoading(false);
         return;
       }
 
       setIsAuthenticated(true);
+      setAdminUser(syncResult.user || null);
       loadContent();
-    } catch {
-      setLoginError("Login failed");
+    } catch (err: any) {
+      setLoginError(err.message || "Login failed");
     } finally {
       setLoading(false);
     }
   };
 
   const handleLogout = async () => {
+    if (isSupabaseConfigured && supabase) {
+      await supabase.auth.signOut();
+    }
     await fetch("/api/admin/auth", { method: "DELETE" });
     setIsAuthenticated(false);
+    setAdminUser(null);
     setPassword("");
+    setMagicLinkSent(false);
   };
 
   const loadContent = async () => {
@@ -392,42 +468,109 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <label className="block font-mono text-xs text-zinc-300 mb-1.5">
-                Admin Passkey
-              </label>
-              <div className="relative">
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter admin password..."
-                  className="w-full glass-input px-3.5 py-2.5 font-mono text-xs text-white placeholder-zinc-500 focus:border-[#d9a648] focus:outline-none"
-                  autoFocus
-                />
-                <Lock className="absolute right-3 top-3 h-4 w-4 text-[#d9a648]" />
-              </div>
-            </div>
-
-            {loginError && (
-              <div className="font-mono text-xs text-rose-300 bg-rose-950/40 border border-rose-900/60 p-2.5 flex items-center gap-2">
-                <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
-                <span>{loginError}</span>
-              </div>
-            )}
-
+          {/* Auth Method Selector */}
+          <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-3 font-mono text-xs">
             <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-110 py-2.5 font-mono text-xs font-semibold text-black transition-all shadow-[0_0_24px_rgba(217,166,72,0.25)] disabled:opacity-50"
+              type="button"
+              onClick={() => {
+                setAuthMode("password");
+                setLoginError("");
+                setMagicLinkSent(false);
+              }}
+              className={`pb-1 transition-colors ${authMode === "password" ? "text-[#f6dc8c] border-b border-[#d9a648] font-medium" : "text-zinc-400 hover:text-white"}`}
             >
-              {loading ? "Authenticating..." : "Unlock Dashboard"}
+              Password Login
             </button>
-          </form>
+            <span className="text-zinc-600">&bull;</span>
+            <button
+              type="button"
+              onClick={() => {
+                setAuthMode("magic_link");
+                setLoginError("");
+              }}
+              className={`pb-1 transition-colors ${authMode === "magic_link" ? "text-[#f6dc8c] border-b border-[#d9a648] font-medium" : "text-zinc-400 hover:text-white"}`}
+            >
+              Magic Link (OTP)
+            </button>
+          </div>
 
-          <p className="mt-6 text-center font-mono text-[10px] text-zinc-400">
-            Default passkey: <code className="text-[#f6dc8c]">pacy2026</code> (Set ADMIN_PASSWORD in environment to customize)
+          {magicLinkSent ? (
+            <div className="space-y-4">
+              <div className="p-4 bg-emerald-950/40 border border-emerald-900/60 font-mono text-xs text-emerald-300 space-y-1">
+                <div className="font-semibold flex items-center gap-1.5">
+                  <CheckCircle className="h-4 w-4" />
+                  <span>Magic Link Dispatched</span>
+                </div>
+                <p className="text-[11px] text-zinc-300">
+                  Check your inbox at <span className="text-white font-medium">{email}</span>. Click the link to complete authentication.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMagicLinkSent(false)}
+                className="w-full glass-chip py-2 font-mono text-xs text-zinc-400 hover:text-white transition-colors"
+              >
+                Back to Sign In
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <label className="block font-mono text-xs text-zinc-300 mb-1.5">
+                  Admin Email
+                </label>
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="pacy@cruisehq.fun"
+                    className="w-full glass-input px-3.5 py-2.5 font-mono text-xs text-white placeholder-zinc-500 focus:border-[#d9a648] focus:outline-none"
+                    autoFocus
+                    required
+                  />
+                  <User className="absolute right-3 top-3 h-4 w-4 text-[#d9a648]" />
+                </div>
+              </div>
+
+              {authMode === "password" && (
+                <div>
+                  <label className="block font-mono text-xs text-zinc-300 mb-1.5">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter Supabase password..."
+                      className="w-full glass-input px-3.5 py-2.5 font-mono text-xs text-white placeholder-zinc-500 focus:border-[#d9a648] focus:outline-none"
+                      required
+                    />
+                    <Lock className="absolute right-3 top-3 h-4 w-4 text-[#d9a648]" />
+                  </div>
+                </div>
+              )}
+
+              {loginError && (
+                <div className="font-mono text-xs text-rose-300 bg-rose-950/40 border border-rose-900/60 p-2.5 flex items-center gap-2">
+                  <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+                  <span>{loginError}</span>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-[#d9a648] to-[#f6dc8c] hover:brightness-110 py-2.5 font-mono text-xs font-semibold text-black transition-all shadow-[0_0_24px_rgba(217,166,72,0.25)] disabled:opacity-50"
+              >
+                {loading ? "Authenticating..." : authMode === "magic_link" ? "Send Magic Link" : "Sign In with Supabase"}
+              </button>
+            </form>
+          )}
+
+          <p className="mt-6 text-center font-mono text-[10px] text-zinc-500">
+            Protected by Supabase Auth with server-side email whitelisting (ADMIN_EMAILS).
           </p>
         </div>
       </div>
@@ -457,7 +600,7 @@ export default function AdminPage() {
                 PACY LABS CMS
               </span>
               <span className="hidden sm:inline-block ml-2 text-[10px] font-mono text-[#f6dc8c] border border-[#d9a648]/30 px-1.5 py-0.2 bg-[#3a0d1c]/30">
-                ACTIVE
+                {adminUser?.email || "AUTHENTICATED"}
               </span>
             </div>
           </div>

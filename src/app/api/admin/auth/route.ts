@@ -1,18 +1,56 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAdminPassword, createSessionToken, verifySessionToken } from "@/lib/adminAuth";
+import { isEmailWhitelisted, verifyAuthToken } from "@/lib/adminAuth";
 
+// Validates session cookie or bearer token
+export async function GET(req: NextRequest) {
+  const token = req.cookies.get("admin_session")?.value;
+  const user = await verifyAuthToken(token);
+
+  if (!user) {
+    return NextResponse.json({ isAuthenticated: false }, { status: 200 });
+  }
+
+  return NextResponse.json({
+    isAuthenticated: true,
+    user: {
+      email: user.email,
+      id: user.id,
+    },
+  });
+}
+
+// Signs in with Supabase Auth or sets session cookie after client sign-in
 export async function POST(req: NextRequest) {
   try {
-    const { password } = await req.json();
+    const body = await req.json();
+    const { accessToken, email } = body;
 
-    if (!password || password !== getAdminPassword()) {
-      return NextResponse.json({ error: "Invalid password" }, { status: 401 });
+    if (!accessToken || !email) {
+      return NextResponse.json({ error: "Access token and email are required" }, { status: 400 });
     }
 
-    const token = createSessionToken(password);
-    const res = NextResponse.json({ success: true });
-    
-    res.cookies.set("admin_session", token, {
+    if (!isEmailWhitelisted(email)) {
+      return NextResponse.json(
+        { error: "Access Denied: Email is not on the admin whitelist." },
+        { status: 403 }
+      );
+    }
+
+    // Verify token validity with Supabase
+    const user = await verifyAuthToken(accessToken);
+    if (!user || user.email?.toLowerCase() !== email.toLowerCase()) {
+      return NextResponse.json({ error: "Invalid or expired session token" }, { status: 401 });
+    }
+
+    const res = NextResponse.json({
+      success: true,
+      user: {
+        email: user.email,
+        id: user.id,
+      },
+    });
+
+    res.cookies.set("admin_session", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
@@ -21,18 +59,12 @@ export async function POST(req: NextRequest) {
     });
 
     return res;
-  } catch (error) {
-    return NextResponse.json({ error: "Login failed" }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message || "Authentication failed" }, { status: 500 });
   }
 }
 
-export async function GET(req: NextRequest) {
-  const token = req.cookies.get("admin_session")?.value;
-  const isAuthenticated = verifySessionToken(token);
-
-  return NextResponse.json({ isAuthenticated });
-}
-
+// Log out and clear session cookie
 export async function DELETE() {
   const res = NextResponse.json({ success: true });
   res.cookies.delete("admin_session");

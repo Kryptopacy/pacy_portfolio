@@ -1,95 +1,52 @@
-import crypto from "node:crypto";
+import { createClient } from "@supabase/supabase-js";
 
-export function getAdminPassword(): string {
-  return process.env.ADMIN_PASSWORD || "pacy2026";
+export function getAdminEmails(): string[] {
+  const envEmails = process.env.ADMIN_EMAILS || process.env.ADMIN_EMAIL || "pacy@cruisehq.fun";
+  return envEmails
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
 }
 
-export function createSessionToken(password: string): string {
-  const secret = process.env.SESSION_SECRET || "pacy-labs-secret-key-2026-default";
-  return crypto.createHmac("sha256", secret).update(`admin:${password}`).digest("hex");
-}
-
-export function verifySessionToken(token: string | undefined): boolean {
-  if (!token) return false;
-  const expected = createSessionToken(getAdminPassword());
-  return token === expected;
-}
-
-export interface GitHubCommitPayload {
-  path: string;
-  content: string; // utf-8 or base64
-  message: string;
-  isBase64?: boolean;
+export function isEmailWhitelisted(email: string | null | undefined): boolean {
+  if (!email) return false;
+  const whitelisted = getAdminEmails();
+  return whitelisted.includes(email.trim().toLowerCase());
 }
 
 /**
- * Commits a file to GitHub via the REST API or local filesystem fallback.
- * If GITHUB_TOKEN is set, writes directly to GitHub repo Kryptopacy/pacy_portfolio
- * which triggers Vercel to rebuild and deploy automatically.
+ * Verifies a Supabase JWT access token using the Supabase client
  */
-export async function commitFileToGitHub({
-  path,
-  content,
-  message,
-  isBase64 = false,
-}: GitHubCommitPayload): Promise<{ success: boolean; sha?: string; error?: string }> {
-  const token = process.env.GITHUB_TOKEN;
-  const repo = process.env.GITHUB_REPO || "Kryptopacy/pacy_portfolio";
-  const branch = process.env.GITHUB_BRANCH || "main";
+export async function verifyAuthToken(token: string | undefined): Promise<{ id: string; email?: string } | null> {
+  if (!token) return null;
 
-  if (!token) {
-    return {
-      success: false,
-      error: "GITHUB_TOKEN is not configured in environment variables.",
-    };
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn("Supabase credentials missing during token verification.");
+    return null;
   }
 
   try {
-    const fileUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
-    
-    // Check if file already exists to get its current sha
-    let currentSha: string | undefined;
-    const getRes = await fetch(fileUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/vnd.github.v3+json",
-        "User-Agent": "PacyLabs-CMS",
-      },
-    });
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+    const { data: { user }, error } = await supabase.auth.getUser(token);
 
-    if (getRes.ok) {
-      const existing = await getRes.json();
-      currentSha = existing.sha;
+    if (error || !user) {
+      return null;
     }
 
-    const base64Content = isBase64
-      ? content
-      : Buffer.from(content, "utf8").toString("base64");
-
-    const putRes = await fetch(fileUrl, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/vnd.github.v3+json",
-        "Content-Type": "application/json",
-        "User-Agent": "PacyLabs-CMS",
-      },
-      body: JSON.stringify({
-        message,
-        content: base64Content,
-        branch,
-        ...(currentSha ? { sha: currentSha } : {}),
-      }),
-    });
-
-    if (!putRes.ok) {
-      const err = await putRes.json();
-      return { success: false, error: err.message || "Failed to commit to GitHub" };
+    if (!isEmailWhitelisted(user.email)) {
+      console.warn(`Blocked non-whitelisted email: ${user.email}`);
+      return null;
     }
 
-    const data = await putRes.json();
-    return { success: true, sha: data.content?.sha };
-  } catch (err: any) {
-    return { success: false, error: err.message || "Network error committing to GitHub" };
+    return {
+      id: user.id,
+      email: user.email,
+    };
+  } catch (err) {
+    console.error("Token verification exception:", err);
+    return null;
   }
 }
